@@ -5,6 +5,4 @@ Divya Gatta
 
 Isabella Le
 
-ISABELLA LE
-
 Tatevik Poghosyan
