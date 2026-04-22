@@ -1,0 +1,46 @@
+.app-title{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2d3de;
+}
+html{
+    background-color: #bcd6c6;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+a{
+    background-color: white;
+    border: black solid 1px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    padding: 100px;
+    text-decoration: none;
+    color: black;
+}
+p{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.access-code{
+    height: 10px;
+    width: 150px;
+}
+.divider{
+    background-color: black;
+    height: 1px;
+    width: 100%;
+    padding: 0.1px;
+    margin: 50px;
+}
+a:active {
+  color: #f786e8;
+  background-color: #f0f0f0;
+  transform: scale(0.98); /* Optional: makes the link look "pressed" */
+}
