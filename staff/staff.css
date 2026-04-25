@@ -70,3 +70,26 @@ a{
   font-style: italic;
   font-size: 1.5rem;
 }
+
+.stars {
+    flex-direction: row-reverse;
+    display: inline-flex;
+    font-size: 2rem;
+}
+
+.stars input{
+    display:none;
+}
+
+.stars label{
+    color: bisque   ;
+    cursor: pointer;
+}
+.stars label:hover, .stars label:hover ~ label{
+  color: gold;
+}
+
+.stars input:checked ~ label {
+    color: gold;
+}
+  

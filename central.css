@@ -1,0 +1,33 @@
+
+html {
+    background-color: #bcd6c6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, p {
+    text-align: center;
+    font-family: inherit;
+}
+
+/* ===== Section Blocks ===== */
+.title,
+.app-title,
+.desc {
+    background-color: #f2d3de;
+}
+
+.title,
+.app-title {
+    text-align: center;
+    padding: 10px;
+}
+
+.desc {
+    text-align: left;
+    padding: 15px 20px;
+}
