@@ -1,0 +1,145 @@
+html {
+    background-color: #bcd6c6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, p {
+    text-align: center;
+    font-family: inherit;
+}
+
+/* ===== Section Blocks ===== */
+.title,
+.app-title,
+.desc {
+    background-color: #f2d3de;
+}
+
+.title,
+.app-title {
+    text-align: center;
+    padding: 10px;
+}
+
+.desc {
+    text-align: left;
+    padding: 15px 20px;
+}
+
+.app-title{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2d3de;
+}
+.desc {
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2d3de;
+    PADDING: 15px 20px;
+}
+html{
+    background-color: #bcd6c6;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+a{
+    background-color: white;
+    border: black solid 1px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    padding: 100px;
+    text-decoration: none;
+    color: black;
+}
+p{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.access-code{
+    height: 10px;
+    width: 150px;
+}
+.divider{
+    background-color: black;
+    height: 1px;
+    width: 100%;
+    padding: 0.1px;
+    margin: 50px;
+}
+a:active {
+  color: #f786e8;
+  background-color: #f0f0f0;
+  transform: scale(0.98); /* Optional: makes the link look "pressed" */
+}
+
+.item{
+    text-align: left;
+}
+.matcha{
+
+  width: 300px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.quotes{
+    background-color: white;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+     margin: 20px auto;     
+  border-radius: 10px;
+  font-style: italic;
+  text-align: center;
+  width: 80%;
+  padding: 15px 20px;
+  max-width: 900px;
+  
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+
+}
+
+.quote{
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;              
+  text-align: center;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+.stars {
+    flex-direction: row-reverse;
+    display: inline-flex;
+    font-size: 2rem;
+}
+
+.stars input{
+    display:none;
+}
+
+.stars label{
+    color: bisque   ;
+    cursor: pointer;
+}
+.stars label:hover, .stars label:hover ~ label{
+  color: gold;
+}
+
+.stars input:checked ~ label {
+    color: gold;
+}
+  
