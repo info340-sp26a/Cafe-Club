@@ -7,6 +7,8 @@
     <meta name="author" content="Isabella Le, Divya Gatta, Tatevik Poghosyan, Aarushi Jain">
     <title> Create a Menu </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
     <link href="css/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type ="image/png" href="../img/clover_icon.png">
@@ -26,8 +28,36 @@
     </header>
     <div class="banner">
         <h1> [Insert menu title] </h1>
-        <button>save</button>
-        <button>send to staff</button>
+        <button>save</button> <!--will be a form-->
+        <button id="sendStaff">send to staff</button> <!--will be a modal--> 
+
+    <div class="customize">
+
+        <button type="button" class="collapsible" aria-expanded="true" aria-controls="customizeContent" aria-label="Expand Menu"><span class="material-icons" aria-label="Customize">palette</span></button> <!--will be a collapsible menu-->
+        
+        <h2>Customize Menu Appearance</h2>
+
+        <form action="menu.html" method="GET">
+            <!-- labeling text for the input -->
+            <label for="chooseColor">Choose a menu color:</label>
+
+            <select name="animal">
+                <option value=""></option>
+                <option value="pink">Pink</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+                <option value="blue">Blue</option>
+            </select>
+
+            <!-- Submit button -->
+            <button type="submit">Update</button>
+        </form>
+
+    </div>
+    
+
+    <div class="menu">
+
     </div>
     
 </body>

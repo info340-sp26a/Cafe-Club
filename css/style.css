@@ -3,7 +3,7 @@
 }
 
 html {
-    background-color: #dedede;
+    background-color: #ececec;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -23,6 +23,9 @@ header {
 
 h1 {
     margin: 0;
+    font-family: "Cedarville Cursive", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 button {
@@ -93,6 +96,43 @@ nav a {
     background-color: white;
     padding: 0.5rem;
     border-bottom: black solid 1px;
+}
+
+.banner h1 {
+    text-align: left;
+}
+
+.banner button {
+    width: fit-content;
+    font-size: 12px;
+}
+
+button.collapsible {
+  color: #444;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  padding: 1rem;
+  width: fit-content;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsible:focus, .collapsible:hover {
+  background-color: #ccc;
+}
+
+
+.customize {
+  padding: 0 18px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+    text-align: left;
+}
+
+.customize h2 {
+    display: inline;
 }
 
 p{
@@ -268,7 +308,7 @@ button {
     text-align: center;
 }
 
-button:hover{
+button:hover, button:focus{
     background-color: #d18aa7;
 }
 
