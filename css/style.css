@@ -129,10 +129,28 @@ button.collapsible {
   overflow: hidden;
   background-color: #f1f1f1;
     text-align: left;
+    border-bottom: black solid 1px;
 }
 
 .customize h2 {
     display: inline;
+}
+
+.customize button {
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+.customize .material-icons {
+    color: #c94c80;
+}
+
+.customize-question {
+    margin: 2rem 0;
+}
+
+.menu {
+    padding: 1rem;
 }
 
 p{
@@ -237,17 +255,9 @@ h1, h2, h3{
     padding: 20px 0;
 }
 
-.menu-links {
-    background-color: white;
-    border: black solid 1px;
-    font-size: 16px;
-    border-radius: 5px;
+.owner-menu {
     width: 400px;
     height: 300px;
-    text-align: center;
-    padding: 100px;
-    text-decoration: none;
-    color: black;
 }
 
 .message {
@@ -302,7 +312,7 @@ button {
     border: none;
     cursor: pointer;
     padding: 12px 25px;
-    width: 200px;
+    width: fit-content;
     background-color: #e2a9bd;
     font: white;
     text-align: center;
