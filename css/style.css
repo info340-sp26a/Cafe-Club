@@ -119,15 +119,10 @@ button.collapsible {
   font-size: 15px;
 }
 
-.collapsible:focus, .collapsible:hover {
-  background-color: #ccc;
-}
-
-
 .customize {
   padding: 0 18px;
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #fff5f8;
     text-align: left;
     border-bottom: black solid 1px;
 }
@@ -153,6 +148,64 @@ button.collapsible {
     padding: 1rem;
 }
 
+.menu-container {
+    display: flex;
+    background-color: white;
+    border: black solid 1px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding: 100px;
+    text-decoration: none;
+    color: black;
+}
+
+.circle-plus-btn {
+    width: 1em;
+    height: 1em;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: rgb(164, 164, 164);
+    border: black solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small.circle-plus-btn {
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.add {
+    display: block;
+    text-align: left;
+}
+
+.add-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.add-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    margin-left: 2rem;
+}
+
+.add-page {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
 p{
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -174,11 +227,11 @@ p{
     margin: 40px auto;
 }
 
-a:hover, a:focus {
+a:hover {
   text-decoration: underline;
 }
 
-a:active {
+a:active, button:active {
   color: #f786e8;
   background-color: #f0f0f0;
   transform: scale(0.98); /* Optional: makes the link look "pressed" */
@@ -314,12 +367,7 @@ button {
     padding: 12px 25px;
     width: fit-content;
     background-color: #e2a9bd;
-    font: white;
     text-align: center;
-}
-
-button:hover, button:focus{
-    background-color: #d18aa7;
 }
 
 .feedback-form textarea{
