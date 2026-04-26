@@ -55,6 +55,7 @@ nav {
     background-color: #e2a9bd;
     padding: .5rem;
     padding-bottom: 1rem;
+    z-index: 1000;
 }
 
 nav ul {
@@ -368,6 +369,7 @@ button {
     width: fit-content;
     background-color: #e2a9bd;
     text-align: center;
+    border: black solid 1px;
 }
 
 .feedback-form textarea{
