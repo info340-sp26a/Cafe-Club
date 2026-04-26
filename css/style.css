@@ -1,5 +1,5 @@
 html {
-    background-color: #bcd6c6;
+    background-color: #caecc8;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -9,12 +9,14 @@ body {
 
 .app-title{
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f2d3de;
+    padding-top: 6rem;
+    padding-bottom: 1rem;
+    background-size: cover;
+    background-position: center;
 }
 .desc {
     text-align: left;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f2d3de;
     PADDING: 15px 20px;
 }
@@ -43,7 +45,8 @@ nav ul {
 }
 
 nav li {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
     margin: 0 1rem;
 }
 
@@ -52,7 +55,12 @@ nav a {
     text-decoration: none;
 }
 
-.menu-link a{
+.material-icons {
+    position: relative;
+    top: 5px;
+}
+
+.menu-link {
     background-color: white;
     border: black solid 1px;
     font-size: 16px;
