@@ -9,6 +9,7 @@ html {
 
 body {
     margin: 0;
+    color: black;
 }
 
 header {
@@ -65,8 +66,8 @@ nav li {
 }
 
 nav a {
-    color: black;
     text-decoration: none;
+    color: black;
 }
 
 .material-icons {
@@ -90,6 +91,7 @@ nav a {
 .banner {
     background-color: white;
     padding: 0.5rem;
+    border-bottom: black solid 1px;
 }
 
 p{
@@ -107,6 +109,11 @@ p{
     padding: 0.1px;
     margin: 50px;
 }
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
 a:active {
   color: #f786e8;
   background-color: #f0f0f0;
