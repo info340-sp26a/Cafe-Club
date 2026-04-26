@@ -5,6 +5,7 @@ html {
 
 body {
     margin: 0;
+    padding-top: 70px;
 }
 
 header {
@@ -26,6 +27,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav {
@@ -76,16 +78,21 @@ p{
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .access-code{
+    display: inline-block;
     height: 10px;
     width: 150px;
+    padding: 10px 15px;
+    border: 1px solid black;
+    border-radius: 8px;
 }
 .divider{
     background-color: black;
     height: 1px;
     width: auto;
     padding: 0.1px;
-    margin: 50px;
+    margin: 40px auto;
 }
 a:active {
   color: #f786e8;
@@ -134,6 +141,7 @@ a:active {
     flex-direction: row-reverse;
     display: inline-flex;
     font-size: 2rem;
+    gap: 5px;
 }
 
 .stars input{
@@ -141,8 +149,9 @@ a:active {
 }
 
 .stars label{
-    color: bisque   ;
+    color: yellow   ;
     cursor: pointer;
+    font-size: 40px;
 }
 .stars label:hover, .stars label:hover ~ label{
   color: gold;
@@ -151,4 +160,103 @@ a:active {
 .stars input:checked ~ label {
     color: gold;
 }
-  
+
+h1, h2, h3{
+    text-align: center;
+}
+
+
+.app-title{
+    background-color: #f2d3de;
+    padding: 20px 0;
+}
+
+.menu-links {
+    background-color: white;
+    border: black solid 1px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    padding: 100px;
+    text-decoration: none;
+    color: black;
+}
+
+.message {
+
+    text-align: center;
+    background-color: #f2d3de;
+    padding-top: 0.5rem;
+    padding-bottom: 0.10rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.feedback {
+
+    text-align: center;
+    background-color: #f2d3de;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.ratings{
+
+
+    text-align: center;
+    background-color: #f2d3de;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    background-size: cover;
+    background-position: center;
+}
+
+textarea{
+
+ width: 100%;
+ max-width: 600px;
+ height: 200px;   
+ padding: 12px;
+ border-radius: 10px;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    padding: 12px 25px;
+    width: 200px;
+    background-color: #e2a9bd;
+    font: white;
+    text-align: center;
+}
+
+button:hover{
+    background-color: #d18aa7;
+}
+
+.feedback-form textarea{
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 500px;
+    height: 120px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.material-icons {
+    font-size: 30px; 
+}
