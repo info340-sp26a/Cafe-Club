@@ -32,9 +32,6 @@ h1 {
     font-style: normal;
 }
 
-button {
-    margin-right: 0.5rem;
-}
 
 img.cakepixel{
     max-width: 75px;
@@ -60,7 +57,6 @@ img.matchapixel {
     align-items: center;
     min-height: 200px;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 nav {
@@ -408,6 +404,7 @@ button {
     background-color: #e2a9bd;
     text-align: center;
     border: black solid 1px;
+    margin-right: 0.5rem;
 }
 
 .feedback-form textarea{
