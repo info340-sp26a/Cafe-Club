@@ -163,7 +163,7 @@ button.collapsible {
     width: 100%;
     height: fit-content;
     text-align: center;
-    padding: 100px;
+    padding: 50px;
     text-decoration: none;
     color: black;
 }
@@ -444,6 +444,10 @@ footer p{
 
     .button-text {
         display: inline;
+    }
+
+    .menu-container {
+        padding: 100px;
     }
 }
 
