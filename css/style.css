@@ -269,7 +269,7 @@ a:active, button:active {
 }
 .matcha{
 
-  width: 150px;
+  width: 300px;
   border-radius: 15px;
   margin: 20px 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -448,10 +448,6 @@ footer p{
     .menu-container {
         padding: 100px;
     }
-
-    .matcha {
-        max-width: 300px;
-    }
 }
 
 @media (min-width: 714px) {
@@ -479,8 +475,6 @@ footer p{
         font-size: 1.5rem;
         padding: 20px;
         flex: 1;
-
-
     }
         
     .button-text {
@@ -489,7 +483,6 @@ footer p{
 
     .menu-container {
         padding: 100px;
-
     }
 }
 
@@ -514,8 +507,4 @@ footer p{
     .button-text {
         font-size: 18px;
     }
-<<<<<<< HEAD
-}
-=======
->>>>>>> 9c5ef79c064e459f76b2553f17866f35c6c866d5
 }
