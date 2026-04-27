@@ -1,21 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
-    background-color: #caecc8;
+    background-color: #ececec;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     margin: 0;
-    padding-top: 70px;
+    color: black;
 }
 
 header {
     text-align: center;
     background-color: #f2d3de;
-    padding-top: 6rem;
+    padding-top: 4rem;
     padding-bottom: 1rem;
     background-size: cover;
     background-position: center;
 }
+
+h1 {
+    margin: 0;
+    font-family: "Cedarville Cursive", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button {
+    margin-right: 0.5rem;
+}
+
 .desc {
     text-align: left;
     background-color: #f2d3de;
@@ -25,6 +41,7 @@ header {
 .flex-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
@@ -38,6 +55,7 @@ nav {
     background-color: #e2a9bd;
     padding: .5rem;
     padding-bottom: 1rem;
+    z-index: 1000;
 }
 
 nav ul {
@@ -53,8 +71,8 @@ nav li {
 }
 
 nav a {
-    color: black;
     text-decoration: none;
+    color: black;
 }
 
 .material-icons {
@@ -74,6 +92,121 @@ nav a {
     text-decoration: none;
     color: black;
 }
+
+.banner {
+    background-color: white;
+    padding: 0.5rem;
+    border-bottom: black solid 1px;
+}
+
+.banner h1 {
+    text-align: left;
+}
+
+.banner button {
+    width: fit-content;
+    font-size: 12px;
+}
+
+button.collapsible {
+  color: #444;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  padding: 1rem;
+  width: fit-content;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.customize {
+  padding: 0 18px;
+  overflow: hidden;
+  background-color: #fff5f8;
+    text-align: left;
+    border-bottom: black solid 1px;
+}
+
+.customize h2 {
+    display: inline;
+}
+
+.customize button {
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+.customize .material-icons {
+    color: #c94c80;
+}
+
+.customize-question {
+    margin: 2rem 0;
+}
+
+.menu {
+    padding: 1rem;
+}
+
+.menu-container {
+    display: flex;
+    background-color: white;
+    border: black solid 1px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding: 100px;
+    text-decoration: none;
+    color: black;
+}
+
+.circle-plus-btn {
+    width: 1em;
+    height: 1em;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: rgb(164, 164, 164);
+    border: black solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small.circle-plus-btn {
+    width: 0.5em;
+    height: 0.5em;
+}
+
+.add {
+    display: block;
+    text-align: left;
+}
+
+.add-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.add-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    margin-left: 2rem;
+}
+
+.add-page {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
 p{
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -94,7 +227,12 @@ p{
     padding: 0.1px;
     margin: 40px auto;
 }
-a:active {
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active, button:active {
   color: #f786e8;
   background-color: #f0f0f0;
   transform: scale(0.98); /* Optional: makes the link look "pressed" */
@@ -171,17 +309,9 @@ h1, h2, h3{
     padding: 20px 0;
 }
 
-.menu-links {
-    background-color: white;
-    border: black solid 1px;
-    font-size: 16px;
-    border-radius: 5px;
+.owner-menu {
     width: 400px;
     height: 300px;
-    text-align: center;
-    padding: 100px;
-    text-decoration: none;
-    color: black;
 }
 
 .message {
@@ -236,14 +366,10 @@ button {
     border: none;
     cursor: pointer;
     padding: 12px 25px;
-    width: 200px;
+    width: fit-content;
     background-color: #e2a9bd;
-    font: white;
     text-align: center;
-}
-
-button:hover{
-    background-color: #d18aa7;
+    border: black solid 1px;
 }
 
 .feedback-form textarea{
