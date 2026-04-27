@@ -19,6 +19,8 @@ header {
     padding-bottom: 1rem;
     background-size: cover;
     background-position: center;
+    background-image: url('../img/banner.jpeg');
+    background-position: center bottom;
 }
 
 h1 {
@@ -80,18 +82,7 @@ nav a {
     top: 5px;
 }
 
-.menu-link {
-    background-color: white;
-    border: black solid 1px;
-    font-size: 16px;
-    border-radius: 5px;
-    width: 150px;
-    height: 200px;
-    text-align: center;
-    padding: 100px;
-    text-decoration: none;
-    color: black;
-}
+
 
 .banner {
     background-color: white;
@@ -162,6 +153,17 @@ button.collapsible {
     text-decoration: none;
     color: black;
 }
+.menu-link {
+    background-color: white;
+    border: black solid 1px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
 
 .circle-plus-btn {
     width: 1em;
@@ -212,13 +214,23 @@ p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.access-code{
-    display: inline-block;
-    height: 10px;
-    width: 150px;
-    padding: 10px 15px;
-    border: 1px solid black;
+.access {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.access-code {
+    height: 40px;
+    width: 200px;
+    padding: 10px;
     border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
 }
 .divider{
     background-color: black;
@@ -305,7 +317,6 @@ h1, h2, h3{
 
 
 .app-title{
-    background-color: #f2d3de;
     padding: 20px 0;
 }
 
@@ -385,4 +396,8 @@ button {
 
 .material-icons {
     font-size: 30px; 
+}
+.subheader {
+  background-color: #f2d3de;
+  padding: 10px;
 }
