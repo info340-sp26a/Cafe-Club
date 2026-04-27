@@ -46,7 +46,7 @@ img.matchapixel {
 .desc {
     text-align: left;
     background-color: #f2d3de;
-    PADDING: 15px 20px;
+    padding: 15px 20px;
 }
 
 .flex-container {
@@ -93,6 +93,7 @@ nav a {
 .material-icons {
     position: relative;
     top: 5px;
+    font-size: 30px; 
 }
 
 
@@ -418,9 +419,6 @@ button {
     padding-top: 20px;
 }
 
-.material-icons {
-    font-size: 30px; 
-}
 .subheader {
   background-color: #f2d3de;
   padding: 10px;
