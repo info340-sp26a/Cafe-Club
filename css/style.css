@@ -447,7 +447,6 @@ footer p{
 
 @media (min-width: 600px) {
 
-  /* Menu becomes 2-column layout */
   .flex-container {
     flex-direction: row;
     justify-content: center;
@@ -458,13 +457,11 @@ footer p{
     max-width: 250px;
   }
 
-  /* Header becomes more spaced */
   header {
     gap: 20px;
     padding: 2rem 1rem;
   }
 
-  /* Quotes switches from stacked → row layout */
   .quotes {
     flex-direction: row;
     text-align: left;
@@ -474,17 +471,14 @@ footer p{
     font-size: 1.7rem;
   }
 
-  /* Navigation spacing improves */
   nav ul {
     gap: 2rem;
   }
 
-  /* Menu container gets more breathing room */
   .menu-container {
     padding: 40px;
   }
 
-  /* Title slightly larger */
   .app-title {
     font-size: 2rem;
   }
@@ -492,7 +486,6 @@ footer p{
 
 @media (min-width: 1024px) {
 
-  /* FORCE stable grid-like layout */
   .flex-container {
     flex-direction: row;
     justify-content: center;
@@ -500,25 +493,21 @@ footer p{
     gap: 30px;
   }
 
-  /* CLEAN 4-column behavior */
   .menu-link {
     width: 22%;
     max-width: 220px;
   }
 
-  /* FIX header alignment issues */
   header {
     justify-content: space-between;
     padding: 3rem 4rem;
   }
 
-  /* prevent nav weird spacing */
   nav ul {
     justify-content: center;
     gap: 3rem;
   }
 
-  /* quotes stays stable */
   .quotes {
     flex-direction: row;
     align-items: center;
@@ -529,7 +518,6 @@ footer p{
     font-size: 2rem;
   }
 
-  /* REMOVE layout overflow issues */
   .menu-container {
     padding: 40px;
   }
