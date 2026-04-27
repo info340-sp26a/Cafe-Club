@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
     background-color: #f2d3de;
     padding-top: 4rem;
     padding-bottom: 1rem;
@@ -36,14 +36,12 @@ button {
     margin-right: 0.5rem;
 }
 
-img.cakepixel{
+img.cakepixel {
     max-width: 75px;
-    height: auto;
 }
 
 img.matchapixel {
     max-width: 65px;
-    height: auto;
 }
 
 .desc {
@@ -55,10 +53,8 @@ img.matchapixel {
 .flex-container {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    min-height: 200px;
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -78,9 +74,6 @@ nav ul {
     background-color: #e2a9bd;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
 }
 
 nav li {
@@ -154,9 +147,7 @@ button.collapsible {
 }
 
 .menu {
-    padding: 2rem;
-    margin-top:1rem;
-    margin-bottom: 1rem;
+    padding: 1rem;
 }
 
 .menu-container {
@@ -168,7 +159,7 @@ button.collapsible {
     width: 100%;
     height: fit-content;
     text-align: center;
-    padding: 20px;
+    padding: 100px;
     text-decoration: none;
     color: black;
 }
@@ -177,9 +168,8 @@ button.collapsible {
     border: black solid 1px;
     font-size: 16px;
     border-radius: 5px;
-    width: 90%;
-    max-width: 200px;
-    height: auto;
+    width: 150px;
+    height: 200px;
     text-align: center;
     text-decoration: none;
     color: black;
@@ -285,7 +275,6 @@ a:active, button:active {
     background-color: white;
     display:flex;
     align-items: center;
-    flex-direction: column;
     justify-content: center;
      margin: 20px auto;     
   border-radius: 10px;
@@ -338,8 +327,7 @@ h1, h2, h3{
 
 
 .app-title{
-    padding: 10px 0;
-    font-size: 1.5rem;
+    padding: 20px 0;
 }
 
 .owner-menu {
@@ -385,17 +373,12 @@ textarea{
  height: 200px;   
  padding: 12px;
  border-radius: 10px;
- color:black;
- padding: 1rem 0.5rem;
- gap: 0.2rem;
 }
 
 .feedback-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 0 1rem;
 }
 
 button {
@@ -429,6 +412,7 @@ button {
   padding: 10px;
 }
 
+
 footer {
     background-color: #f2d3de;
     text-align: center;
@@ -443,98 +427,4 @@ footer {
 footer p{
     margin:0;
     line-height:1.2;
-}
-
-@media (min-width: 600px) {
-
-  /* Menu becomes 2-column layout */
-  .flex-container {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .menu-link {
-    width: 45%;
-    max-width: 250px;
-  }
-
-  /* Header becomes more spaced */
-  header {
-    gap: 20px;
-    padding: 2rem 1rem;
-  }
-
-  /* Quotes switches from stacked → row layout */
-  .quotes {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .quote {
-    font-size: 1.7rem;
-  }
-
-  /* Navigation spacing improves */
-  nav ul {
-    gap: 2rem;
-  }
-
-  /* Menu container gets more breathing room */
-  .menu-container {
-    padding: 40px;
-  }
-
-  /* Title slightly larger */
-  .app-title {
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-
-  /* FORCE stable grid-like layout */
-  .flex-container {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-
-  /* CLEAN 4-column behavior */
-  .menu-link {
-    width: 22%;
-    max-width: 220px;
-  }
-
-  /* FIX header alignment issues */
-  header {
-    justify-content: space-between;
-    padding: 3rem 4rem;
-  }
-
-  /* prevent nav weird spacing */
-  nav ul {
-    justify-content: center;
-    gap: 3rem;
-  }
-
-  /* quotes stays stable */
-  .quotes {
-    flex-direction: row;
-    align-items: center;
-    max-width: 1100px;
-  }
-
-  .quote {
-    font-size: 2rem;
-  }
-
-  /* REMOVE layout overflow issues */
-  .menu-container {
-    padding: 40px;
-  }
-
-  body {
-    background-color: #fff8fb;
-  }
 }
