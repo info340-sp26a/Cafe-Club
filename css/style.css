@@ -105,6 +105,10 @@ nav a {
     font-size: 12px;
 }
 
+.button-text {
+    display: none;
+}
+
 button.collapsible {
   color: #444;
   background-color: rgba(0, 0, 0, 0);
@@ -450,6 +454,10 @@ footer p{
         font-size: 1.5rem;
         padding: 20px;
         flex: 1;
+
+        
+    .button-text {
+        display: inline;
     }
 }
 
@@ -469,5 +477,9 @@ footer p{
 
     body {
         font-size: 1rem;
+    }
+
+    .button-text {
+        font-size: 18px;
     }
 }
