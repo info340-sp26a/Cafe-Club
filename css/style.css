@@ -146,6 +146,10 @@ button.collapsible {
     padding: 1rem;
 }
 
+.nav-text {
+    display: none;
+}
+
 .menu-container {
     display: flex;
     background-color: white;
