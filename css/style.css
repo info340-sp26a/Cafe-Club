@@ -105,6 +105,10 @@ nav a {
     font-size: 12px;
 }
 
+.button-text {
+    display: none;
+}
+
 button.collapsible {
   color: #444;
   background-color: rgba(0, 0, 0, 0);
@@ -422,8 +426,6 @@ footer p{
     line-height:1.2;
 }
 
-<<<<<<< HEAD
-=======
 @media (min-width: 600px) {
 
     .nav-text {
@@ -434,6 +436,10 @@ footer p{
 
     .material-icons {
         font-size: 30px;
+    }
+
+    .button-text {
+        display: inline;
     }
 }
 
@@ -454,5 +460,8 @@ footer p{
     body {
         font-size: 1rem;
     }
+
+    .button-text {
+        font-size: 18px;
+    }
 }
->>>>>>> 0a92327e864e6968a45dd7f2c4b26b790868a4d9
