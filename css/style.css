@@ -429,17 +429,7 @@ footer p{
     line-height:1.2;
 }
 
-@media (min-width: 610px) {
-
-    .nav-text {
-        display: inline;
-        margin-left: 6px;
-        font-size: 0.95rem;
-    }
-
-    .material-icons {
-        font-size: 30px;
-    }
+@media (min-width: 468px) {
 
     .button-text {
         display: inline;
@@ -475,17 +465,6 @@ footer p{
         font-size: 1.5rem;
         padding: 20px;
         flex: 1;
-
-
-    }
-        
-    .button-text {
-        display: inline;
-    }
-
-    .menu-container {
-        padding: 100px;
-
     }
 }
 
