@@ -6,3 +6,4 @@ Divya Gatta
 Isabella Le
 
 Tatevik Poghosyan
+Aarushi Jain
