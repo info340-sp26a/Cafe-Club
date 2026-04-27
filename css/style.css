@@ -13,7 +13,10 @@ body {
 }
 
 header {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     background-color: #f2d3de;
     padding-top: 4rem;
     padding-bottom: 1rem;
@@ -32,6 +35,14 @@ h1 {
 
 button {
     margin-right: 0.5rem;
+}
+
+img.cakepixel {
+    max-width: 75px;
+}
+
+img.matchapixel {
+    max-width: 65px;
 }
 
 .desc {
