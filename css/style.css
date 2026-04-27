@@ -426,9 +426,7 @@ footer p{
     line-height:1.2;
 }
 
-<<<<<<< HEAD
-=======
-@media (min-width: 600px) {
+@media (min-width: 610px) {
 
     .nav-text {
         display: inline;
@@ -459,4 +457,3 @@ footer p{
         font-size: 1rem;
     }
 }
->>>>>>> 0a92327e864e6968a45dd7f2c4b26b790868a4d9
