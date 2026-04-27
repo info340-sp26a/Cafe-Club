@@ -278,6 +278,7 @@ a:active, button:active {
 .quotes{
     background-color: white;
     display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
      margin: 20px auto;     
@@ -285,17 +286,15 @@ a:active, button:active {
   font-style: italic;
   text-align: center;
   width: 80%;
-  padding: 15px 20px;
-  max-width: 900px;
+  padding: 15px ;
   
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 
 }
 
 .quote{
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1;              
+  padding: 10px;
+  border-radius: 10px;             
   text-align: center;
   font-style: italic;
   font-size: 1.5rem;
@@ -430,7 +429,7 @@ footer p{
     line-height:1.2;
 }
 
-@media (min-width: 610px) {
+@media (min-width: 714px) {
 
     .nav-text {
         display: inline;
@@ -442,6 +441,21 @@ footer p{
         font-size: 30px;
     }
 
+    .quotes{
+
+        flex-direction: row;
+        width: 80%;
+        max-width: 900px;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .quote {
+        font-size: 1.5rem;
+        padding: 20px;
+        flex: 1;
+
+        
     .button-text {
         display: inline;
     }
