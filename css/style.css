@@ -21,7 +21,6 @@ header {
     padding-top: 4rem;
     padding-bottom: 1rem;
     background-size: cover;
-    background-position: center;
     background-position: center bottom;
 }
 
@@ -422,3 +421,4 @@ footer p{
     margin:0;
     line-height:1.2;
 }
+
