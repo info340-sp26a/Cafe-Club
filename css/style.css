@@ -150,6 +150,10 @@ button.collapsible {
     padding: 1rem;
 }
 
+.nav-text {
+    display: none;
+}
+
 .menu-container {
     display: flex;
     background-color: white;
@@ -426,7 +430,7 @@ footer p{
     line-height:1.2;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 610px) {
 
     .nav-text {
         display: inline;
