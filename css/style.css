@@ -422,3 +422,37 @@ footer p{
     line-height:1.2;
 }
 
+<<<<<<< HEAD
+=======
+@media (min-width: 600px) {
+
+    .nav-text {
+        display: inline;
+        margin-left: 6px;
+        font-size: 0.95rem;
+    }
+
+    .material-icons {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .nav-text {
+        font-size: 1rem;
+    }
+
+    .material-icons {
+        font-size: 34px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    body {
+        font-size: 1rem;
+    }
+}
+>>>>>>> 0a92327e864e6968a45dd7f2c4b26b790868a4d9
