@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>  
+    <meta charset="utf-8" >
+    <meta name="author" content="Isabella Le, Divya Gatta, Tatevik Poghosyan, Aarushi Jain">
+    <title> Create a Menu </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link href="css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type ="image/png" href="img/icon.png">
+</head>
+
+<body>
+    <nav>
+        <ul>     
+            <li><a href="index.html">
+                <span class="material-icons" aria-label="Home">home</span>
+            </a></li>
+            <li><a href="staff.html">Staff View</a></li>
+            <li>
+            <a href="menu.html">Create A Menu</a>
+        </li>
+        </ul>         
+    </nav>
+    <header>
+        <img class="matchapixel" alt="a pixel drawing of matcha" src="img/matchapixel.png">
+        <h1 class="app-title"> Cafe Club </h1>
+        <img class="cakepixel" alt="a pixel drawing of cake" src="img/cakepixel.png">
+    </header>
+    <section class="banner">
+        <h1> [Insert menu title] </h1>
+        <button><span class="material-icons">save</span> <span class="button-text">save</span></button> <!--will be a form-->
+        <button id="sendStaff"><span class="material-icons">send</span><span class="button-text">send to staff</span></button> <!--will be a modal--> 
+    </section>
+
+    <div class="customize">
+
+        <button type="button" class="collapsible" aria-expanded="true" aria-controls="customizeContent" aria-label="Expand Menu"><span class="material-icons" aria-label="Customize">palette</span></button> <!--will be a collapsible menu-->
+        
+        <h2>Customize Menu Appearance</h2>
+
+        <form action="menu.html" method="GET">
+            <div class="customize-question">
+                <label for="chooseColor">Choose a menu color:</label>
+
+                <select name="menuColor">
+                    <option value=""></option>
+                    <option value="pink">Pink</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="blue">Blue</option>
+                </select>
+            </div>
+
+            <div class="customize-question">
+                <label for="chooseStyle">Choose a menu style:</label>
+
+                <select name="menuStyle">
+                    <option value=""></option>
+                    <option value="fancy">Fancy</option>
+                    <option value="rustic">Rustic</option>
+                    <option value="modern">Modern</option>
+                    <option value="cute">Cute</option>
+                </select>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit">Update</button>
+        </form>
+
+    </div>
+    
+
+    <div class="menu">
+        <div class="menu-container">
+            <div class="add">
+                <div class="add-section">
+                    <button class="circle-plus-btn">+</button>
+                    <h2>Add Section</h2>
+                </div>
+
+                <div class="add-item">
+                    <button class="small circle-plus-btn">+</button>
+                    <h3>Add Item</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-page">
+            <button class="circle-plus-btn">+</button>
+            <h3>Add Page</h3>
+        </div>
+    
+</body>
+
+<footer>
+    <p>© 2026 Club Cafe. All rights reserved.</p>
+    <p>Created By: Divya Gatta, Isabella Le, Tatevik Poghosyan, Aarushi Jain</p>
+    <p>Contact Information: isbell0@uw.edu, aj2024@uw.edu, tpoghos@uw.edu, dgatta@uw.edu</p>
+</footer>
