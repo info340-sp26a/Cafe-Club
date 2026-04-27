@@ -429,6 +429,27 @@ footer p{
     line-height:1.2;
 }
 
+@media (min-width: 610px) {
+
+    .nav-text {
+        display: inline;
+        margin-left: 6px;
+        font-size: 0.95rem;
+    }
+
+    .material-icons {
+        font-size: 30px;
+    }
+
+    .button-text {
+        display: inline;
+    }
+
+    .menu-container {
+        padding: 100px;
+    }
+}
+
 @media (min-width: 714px) {
 
     .nav-text {
@@ -456,6 +477,8 @@ footer p{
         flex: 1;
 
 
+    }
+        
     .button-text {
         display: inline;
     }
@@ -487,5 +510,8 @@ footer p{
     .button-text {
         font-size: 18px;
     }
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 9c5ef79c064e459f76b2553f17866f35c6c866d5
 }
