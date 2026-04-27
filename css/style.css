@@ -492,42 +492,36 @@ footer p{
 
 @media (min-width: 1024px) {
 
-  /* MAIN SHIFT: multi-column layout */
+  /* FORCE stable grid-like layout */
   .flex-container {
-    justify-content: flex-start;
-    gap: 40px;
-    padding: 0 2rem;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
   }
 
-  /* 4-column grid feel */
+  /* CLEAN 4-column behavior */
   .menu-link {
     width: 22%;
     max-width: 220px;
   }
 
-  /* Header becomes more “desktop landing page” style */
+  /* FIX header alignment issues */
   header {
     justify-content: space-between;
     padding: 3rem 4rem;
   }
 
-  .app-title {
-    font-size: 3rem;
-  }
-
-  /* Navigation becomes spread out bar */
+  /* prevent nav weird spacing */
   nav ul {
-    justify-content: space-between;
-    padding: 0 3rem;
+    justify-content: center;
+    gap: 3rem;
   }
 
-  nav li {
-    margin: 0 2rem;
-  }
-
-  /* Quotes expands horizontally */
+  /* quotes stays stable */
   .quotes {
     flex-direction: row;
+    align-items: center;
     max-width: 1100px;
   }
 
@@ -535,18 +529,12 @@ footer p{
     font-size: 2rem;
   }
 
-  /* Menu container becomes larger desktop panel */
+  /* REMOVE layout overflow issues */
   .menu-container {
-    padding: 80px;
+    padding: 40px;
   }
 
-  /* Body gets subtle desktop background difference */
   body {
     background-color: #fff8fb;
-  }
-
-  /* Footer spacing improves */
-  footer {
-    font-size: 1rem;
   }
 }
