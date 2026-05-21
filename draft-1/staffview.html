@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>  
+    <meta charset="utf-8" >
+    <title> Staff Approval & Feedback </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link href="css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type ="image/png" href="img/icon.png">
+</head>
+
+<body> 
+    <nav>
+        <ul>     
+            <li><a href="index.html">
+                <span class="material-icons" aria-label="Home">home </span>
+            </a>
+            </li>
+            <li>
+                <a href="staff.html">Staff View
+
+                </a>
+            </li>
+            <li>
+            <a href="menu.html">Create A Menu
+
+            </a>
+        </li>
+        <li> <a href=staffview.html>Feedback & Approval </a>
+            </li>
+        </ul>         
+    </nav>
+
+    <header>
+        <img class="matchapixel" alt="a pixel drawing of matcha" src="img/matchapixel.png">
+        <h1 class="app-title"> Cafe Club </h1>
+        <img class="cakepixel" alt="a pixel drawing of cake" src="img/cakepixel.png">
+    </header>
+
+    <main class="feedback-main">
+        <div class="blob blob-one"></div>
+        <div class="blob blob-two"></div>
+
+
+        <section class="feedback-dashboard">
+            <h1 class="staff-message"> ✨ Staff Feedback Review ✨</h1>
+
+            <section class ="feedback-banner">
+                <img class="sparkle sparkle-right" src="img/rabbit.svg" alt="rabbit icon">
+                <img class="sparkle sparkle-left" src="img/rabbit.svg" alt="rabbit icon">
+
+
+                <p class="banner-subtext">
+                    Review Feedback, Approve Submission and Track Feedback History
+                </p>
+            <div class="feedback-summary">
+                <div>
+                    <img class="custom-icons" src="img/business.svg" alt="pending icon"> </img>
+                    <p>4 Pending</p>
+                </div>
+                
+                <div> 
+                    <img class="custom-icons" src="img/approved.svg" alt="approved icon"></img>
+                    <p> 12 Approved </p>
+
+                </div>
+
+                <div>
+                    <img class="custom-icons" src="img/history.svg" alt="history icon"></img>
+                    <p> Feedback History </p>
+                </div>
+            </div>
+        </section>
+
+            <div class="feedback-flexbox">
+                <section class="feedback-column">
+                    <h2> Pending Feedback </h2>
+
+                    <article class="feedback-card" id="feedbackCard">
+                        <img class="tiny-menu" src="img/menu1.png" alt="Small Preview of menu">
+                        <h3> Isabella's Menu </h3>
+
+                            <p class="feedback-source" id="feedbackSource">
+                                 From: Divya • Isabella’s Menu • Submitted May 21, 2026 </p>
+                        <p id="feedbackRating">Rating: ★★★★☆ </p>
+                        <p id="feedbackText"> "The drink names are cute, but the seasonal section could be better" </p>
+
+                        <div class="feedback-actions">
+
+                            <button type="button" class="approve-btn" onclick="nextFeedback()"> Approve </button>
+                            <button type="button" class="reject-btn" onclick="nextFeedback()"> Reject </button>
+                            </div>
+                        </article>
+                        </section>
+
+
+                        <section class="feedback-column approved-section">
+                            <h2> Approved Feedback History </h2>
+
+                            <article class="feedback-card approved-card">
+                                <img class="tiny-menu" src="img/template1.png" alt="Small preview of approved menus">
+
+                                <h3> Cafe Yoka Menu </h3>
+                                <p class="feedback-source">From: Isabella • Approved May 21, 2026 </p>
+                                <h2> Approved Comment </h2>
+                                <p><Strong>Rating:</Strong> ★★★★★ </p>
+                                <p> The menu is easy to follow, and the pictures and visuals are helpful for customers! </p>
+                                <p class="status">Status: Approved </p>
+
+                                </article>
+
+                            <article class="feedback-card approved-card">
+                                <img class="tiny-menu" src="img/template1.png" alt="Small preview of approved menus">
+
+                                <h3> Phe </h3>
+                                <p class="feedback-source">From: Tatevik • Approved May 30, 2026 </p>
+                                <h2> Approved Comment </h2>
+                                <p><Strong>Rating:</Strong> ★★★★★ </p>
+                                <p> I wish we had more items on the menu, it feels a little bit limited </p>
+                                <p class="status">Status: Approved </p>
+
+                                </article>
+                        </section>
+
+
+                        </div>
+                    </section>
+
+
+
+    </main>
+ <footer>
+    <p>© 2026 Club Cafe. All rights reserved.</p>
+    <p>Created By: Divya Gatta, Isabella Le, Tatevik Poghosyan, Aarushi Jain</p>
+    <p>Contact Information: isbell0@uw.edu, aj2024@uw.edu, tpoghos@uw.edu, dgatta@uw.edu</p>
+</footer>
+
+</body>
+</html>

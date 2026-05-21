@@ -471,6 +471,214 @@ footer p{
     line-height:1.2;
 }
 
+.feedback-main{
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.feedback-banner {
+    position: relative;
+    width: 65%;
+    border: 3px solid #f1d7e1;
+    border-radius: 35px;
+    padding: 1rem 0.5rem;
+    margin: 1rem auto;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 8px 20px;
+}
+
+.feedback-dashboard {
+    postion: relative;
+    z-index: 2;
+    padding: 2rem;
+    text-align: cemter;
+}
+
+.staff-message{
+    margin-bottom: 0.5rem;
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.staff-message p{
+    margin-bottom: 0.5rem;
+    font-size: 2%;
+    margin-bottom: 0.5rem;
+}
+
+.banner-subtext{
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.approval-counter{
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid #f1d7e1;
+    border-radius: 25px;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px
+}
+
+.sparkle {
+    position: absolute;
+    
+    width: 55px;
+    height: 55px;
+    color: #ffd166;
+    opacity: 0.9;
+}
+
+.sparkle-left{
+    top: 20px;
+    left: 30px;
+}
+
+.sparkle-right{
+    top: 20px;
+    right: 30px;
+}
+
+.feedback-summary{
+    display:flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+
+}
+
+.feedback-summary div{
+    background-color: #fff0f5;
+    border: 2px solid #e7b7c8;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    min-width: 150px;
+    box-shadow: 0 4px 8px;
+}
+.feedback-summary span {
+    font-size: 2rem;
+    color: #c94c80;
+}
+
+.custom-icon {
+    width: 70px;
+    height: 70px;
+
+    object-fit: contain;
+
+    margin-bottom: 0.8rem;
+}
+
+.feedback-flexbox{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+
+.feedback-box {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.feedback-column {
+    background-color: #fff8ef;
+    border: 2px solid #e2a9bd;
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 420px;
+    min-height: 560px;
+    box-shadow: 0 4px 10px;
+
+}
+
+.feedback-column h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feedback-card{
+    background-color: white;
+    border: 2px solid #b9dca9;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.tiny-menu {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border: 2px solid #b9dca9;
+
+}
+
+.feedback-source {
+    background-color: #fff0f5;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: black;
+}
+
+.feedback-card h3{
+    margin-top: 0;
+    font-family: "Cedarville Cursive", cursive;
+
+}
+
+.feedback-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+
+}
+
+.approve-btn,
+.reject-btm {
+    width: 250px;
+    font-size: 24px;
+    padding: 18px 40px;
+    cursor: pointer;
+}
+
+.status{
+    font-weight: bold;
+    color:#c94c80;
+    display: inline-block;
+    padding: 0.4rem 0.7rem;
+    border-radius: 20px;
+
+}
+
+.approved-card{
+    border-color:#e2a9bd;
+}
+
+.done-icon {
+    font-size: 3rem;
+    color: #f786e8;
+    display: block;
+    text-align: center;
+}
+
+
 @media (min-width: 468px) {
 
     .button-text {
@@ -567,3 +775,4 @@ footer p{
         margin: 0 0.3rem;
     }
 }
+
