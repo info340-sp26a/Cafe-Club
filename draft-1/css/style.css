@@ -81,6 +81,35 @@ nav a {
     color: black;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-family: "Cedarville Cursive", cursive;
+    color: #5c4033;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+nav a {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    color: #8b4f65;
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
 .material-icons {
     position: relative;
     top: 5px;
@@ -522,4 +551,19 @@ footer p{
 }
 .menu-selection {
     margin-bottom: 3rem;
+}
+
+@media (max-width: 600px) {
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    nav li {
+        margin: 0 0.3rem;
+    }
 }
