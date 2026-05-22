@@ -5,27 +5,27 @@ import { CustomizeMenu } from './CustomizeMenu';
 export default function MenuPage(props) {
   return (
     <> 
-        {MenuBanner}
+        <MenuBanner />
 
-        {CustomizeMenu}
+        <CustomizeMenu />
 
-        <div class="menu">
-            <div class="menu-container">
-                <div class="add">
-                    <div class="add-section">
-                        <button class="circle-plus-btn" aria-label="add-section-btn">+</button>
+        <div className="menu">
+            <div className="menu-container">
+                <div className="add">
+                    <div className="add-section">
+                        <button className="circle-plus-btn" aria-label="add-section-btn">+</button>
                         <p>Add Section</p>
                     </div>
 
-                    <div class="add-item">
-                        <button class="small circle-plus-btn" aria-label="add-item-btn">+</button>
+                    <div className="add-item">
+                        <button className="small circle-plus-btn" aria-label="add-item-btn">+</button>
                         <p>Add Item</p>
                     </div>
                 </div>
             </div>
 
-            <div class="add-page">
-                <button class="circle-plus-btn" aria-label="add-page-btn">+</button>
+            <div className="add-page">
+                <button className="circle-plus-btn" aria-label="add-page-btn">+</button>
                 <p>Add Page</p>
             </div>
         </div>

@@ -3,14 +3,14 @@ import React, {useState} from 'react';
 export default function Menu(props) {
   return (
     <>
-        <div class="customize">
+        <div className="customize">
 
-            <button type="button" class="collapsible" aria-expanded="true" aria-controls="customizeContent" aria-label="Expand Menu"><span class="material-icons" aria-label="Customize">palette</span></button> {/*make collapsible*/}
+            <button type="button" className="collapsible" aria-expanded="true" aria-controls="customizeContent" aria-label="Expand Menu"><span className="material-icons" aria-label="Customize">palette</span></button> {/*make collapsible*/}
             
             <h2>Customize Menu Appearance</h2>
 
             <form action="menu.html" method="GET">
-                <div class="customize-question">
+                <div className="customize-question">
                     <label for="chooseColor">Choose a menu color:</label>
 
                     <select name="menuColor" id="chooseColor">
@@ -22,7 +22,7 @@ export default function Menu(props) {
                     </select>
                 </div>
 
-                <div class="customize-question">
+                <div className="customize-question">
                     <label for="chooseStyle">Choose a menu style:</label>
 
                     <select name="menuStyle">
