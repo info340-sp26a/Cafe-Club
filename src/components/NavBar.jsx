@@ -1,21 +1,24 @@
+import { Link } from 'react-router';
+
 export default function Navbar() {
   return (
     <nav>
-        <ul>     
-            <li>
-                <a href="index.html" aria-label="Home">
-                    <span className="material-icons" aria-hidden="true">home</span>
-                </a>
-            </li>
-            <li>
-                <a href="staff.html">Staff View</a>
-            </li>
-            <li>
-                <a href="menu.html">Create A Menu</a>
-            </li>
-            <li> <a href="staffview.html">Feedback & Approval </a>
-            </li>
-        </ul>         
+      <ul>
+        <li>
+          <Link to="/" aria-label="Home">
+            <span className="material-icons" aria-hidden="true">home</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/staff">Staff View</Link>
+        </li>
+        <li>
+          <Link to="/menu">Create A Menu</Link>
+        </li>
+        <li>
+          <Link to="/feedback">Feedback & Approval</Link>
+        </li>
+      </ul>
     </nav>
   );
 }

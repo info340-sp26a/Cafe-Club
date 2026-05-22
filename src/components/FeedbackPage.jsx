@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FeedbackBanner from "./FeedbackBanner";
 import FeedbackCard from "./FeedbackCard";
+import FeedbackTitle from "./FeedbackTitle";
 
 const initialPending = [
     {
@@ -63,6 +64,7 @@ export default function FeedbackPage() {
 
     return (
         <main className="feedback-main">
+            <FeedbackTitle />
             <FeedbackBanner
                 pendingCount={pendingFeedback.length}
                 approvedCount={approvedFeedback.length}
