@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function Menu(props) {
+export default function CustomizeMenu(props) {
   return (
     <>
         <div className="customize">

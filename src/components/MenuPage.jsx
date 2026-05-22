@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {MenuBanner} from './MenuBanner';
-import { CustomizeMenu } from './CustomizeMenu';
+import MenuBanner from './MenuBanner';
+import CustomizeMenu  from './CustomizeMenu';
 
 export default function MenuPage(props) {
   return (
