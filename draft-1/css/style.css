@@ -491,7 +491,7 @@ footer p{
 }
 
 .feedback-dashboard {
-    postion: relative;
+    position: relative;
     z-index: 2;
     padding: 2rem;
     text-align: cemter;
