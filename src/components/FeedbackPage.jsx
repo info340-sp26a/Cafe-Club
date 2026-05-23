@@ -64,12 +64,13 @@ export default function FeedbackPage() {
 
     return (
         <main className="feedback-main">
+            <div className="title-banner">
             <FeedbackTitle />
             <FeedbackBanner
                 pendingCount={pendingFeedback.length}
                 approvedCount={approvedFeedback.length}
             />
-
+            </div>
             <div className="feedback-flexbox">
                 <section className="feedback-column">
                     <h2>Pending Feedback</h2>

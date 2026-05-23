@@ -4,6 +4,7 @@
 
 html {
     background-color: white;
+
 }
 
 body {
@@ -368,7 +369,7 @@ h1, h2, h3{
 .message {
 
     text-align: center;
-    background-color: #f2d3de;
+    background-color:#f7e5ec;
     padding-top: 0.5rem;
     padding-bottom: 0.10rem;
     background-size: cover;
@@ -392,6 +393,7 @@ h1, h2, h3{
     padding-bottom: 0.25rem;
     background-size: cover;
     background-position: center;
+    border: 2px solid #f0cddd
 }
 
 .ratings{
@@ -633,13 +635,14 @@ footer p{
 .feedback-source {
     background-color: white;
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 0.5rem;
     font-size: 1rem;
     color: black;
 }
 
 .feedback-card h3{
     margin-top: 0;
+    font-size: 2rem;
     font-family: "Cedarville Cursive", cursive;
 
 }
@@ -799,3 +802,14 @@ footer p{
     color: #4f7c4d;
 }
 
+.custom-icon {
+    height: 28px;
+    width:28px;
+    object-fit: contain;
+    display: block;
+}
+
+.star-icon {
+    height: 20px;
+    width: 20px;
+}

@@ -11,9 +11,9 @@ export default function FeedbackBanner({ pendingCount, approvedCount }) {
       </p>
 
       <div className="feedback-summary">
-        <SummaryCard icon="/img/pending.png" label={`${pendingCount} Pending`} />
-        <SummaryCard icon="/img/approved.png" label={`${approvedCount} Approved`} />
-        <SummaryCard icon="/img/history.png" label="Feedback History" />
+        <SummaryCard icon="/img/loading.svg" icon-class="star-icon" label={`${pendingCount} Pending`} />
+        <SummaryCard icon="/img/approved.svg" label={`${approvedCount} Approved`} />
+        <SummaryCard icon="/img/history.svg" label="Feedback History" />
       </div>
     </section>
   );

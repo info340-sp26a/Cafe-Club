@@ -6,7 +6,7 @@ export default function Navbar() {
       <ul>
         <li>
           <Link to="/" aria-label="Home">
-            <span className="material-icons" aria-hidden="true">home</span>
+            <img className="custom-icon" src="/img/home.svg" aria-hidden="true" alt="home-icon" />
           </Link>
         </li>
         <li>
