@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route } from 'react-router';
+import { BrowserRouter } from 'react-router';
+import { Routes, Route } from "react-router";
 import FeedbackPage from "./FeedbackPage";
 import NavBar from "./NavBar";
 import Header from './Header';

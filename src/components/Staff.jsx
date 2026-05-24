@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router";
 
 
 export default function Staff() {
@@ -22,7 +23,7 @@ export default function Staff() {
     <div className="item">
 
     </div>
-    <a className="menu-link owner-menu menu" href="menu.html">[Menu]</a>
+    <Link className="menu-link owner-menu menu" href="menu.html">[Menu]</Link>
     </div>
     </section>
 

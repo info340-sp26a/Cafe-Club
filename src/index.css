@@ -1,5 +1,14 @@
 * {
-    box-sizing: border-box;
+    box-sizing: border-box;.star {
+    background: none;
+    border: none;
+    padding: 0;
+    width: auto;
+    font-size: 4rem;
+    color: #d8c7ce;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
 }
 
 html {
@@ -18,7 +27,7 @@ header {
     align-items: center;
     gap: 20px;
     background-color: #f2d3de;
-    padding-top: 4rem;
+    padding-top: 5rem;
     padding-bottom: 1rem;
     background-size: cover;
     background-position: center bottom;
@@ -60,7 +69,7 @@ nav {
     left: 0;
     width: 100%;
     background-color: #e2a9bd;
-    padding: .5rem;
+    padding: 1rem;
     padding-bottom: 1rem;
     z-index: 1000;
 }
@@ -84,9 +93,19 @@ nav a {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 2rem;
+    justify-content: flex-start;
+    gap: 60px;
+}
+
+.navbar a {
+    color: #222;
+    font-size: 1.25rem;
+}
+
+.navbar img {
+    width: 45px;
+    height: auto;
 }
 
 .logo {
@@ -328,11 +347,16 @@ a:active, button:active {
   font-size: 1.5rem;
 }
 
-.stars {
-    flex-direction: row-reverse;
-    display: inline-flex;
-    font-size: 2rem;
-    gap: 5px;
+.star {
+    background: none;
+    border: none;
+    padding: 0;
+    width: auto;
+    font-size: 4rem;
+    color: #d99ab2;
+    cursor: pointer;
+    transition: 0.2s ease;
+
 }
 
 .stars input{
@@ -340,10 +364,18 @@ a:active, button:active {
 }
 
 .stars label{
-    color: gold   ;
+    color: #d99ab2;
     cursor: pointer;
-    font-size: 40px;
+    font-size: 2.5rem;
+    transition: 0.2s ease;
+
 }
+
+
+.star.selected {
+    color: #e0ad3a;
+}
+
 .stars label:hover, .stars label:hover ~ label{
   color:#b9dca9;
 }
@@ -383,6 +415,13 @@ h1, h2, h3{
     margin-bottom: 1rem;
 
 }
+.Send p {
+
+
+    font-size: 1.25rem;
+
+
+}
 
 
 .feedback {
@@ -394,6 +433,13 @@ h1, h2, h3{
     background-size: cover;
     background-position: center;
     border: 2px solid #f0cddd
+}
+
+.feedback-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .ratings{
@@ -568,8 +614,8 @@ footer p{
 }
 
 .custom-icon {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
 
     object-fit: contain;
 
@@ -583,6 +629,17 @@ footer p{
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
+}
+
+.summary-card {
+    width: 320px;
+    height: 160px;
+    font-size: 1.5rem;
+}
+
+.summary-card img {
+    width: 60px;
+    height: 60px;
 }
 
 
@@ -604,6 +661,9 @@ footer p{
     min-height: 560px;
     box-shadow: 0 4px 10px;
 
+}
+.feedback-source p {
+    font-size: 1.5rem;
 }
 
 .feedback-column h2 {
@@ -656,11 +716,12 @@ footer p{
 }
 
 .approve-btn,
-.reject-btm {
-    width: 250px;
-    font-size: 24px;
+.reject-btn {
+    width: 150px;
+    font-size: 1.25rem;
     padding: 18px 40px;
     cursor: pointer;
+    flex: none;
 }
 
 .status{
@@ -683,68 +744,6 @@ footer p{
     text-align: center;
 }
 
-
-@media (min-width: 468px) {
-
-    .button-text {
-        display: inline;
-    }
-
-    .menu-container {
-        padding: 100px;
-    }
-}
-
-@media (min-width: 714px) {
-
-    .nav-text {
-        display: inline;
-        margin-left: 6px;
-        font-size: 0.95rem;
-    }
-
-    .material-icons {
-        font-size: 30px;
-    }
-
-    .quotes{
-
-        flex-direction: row;
-        width: 80%;
-        max-width: 900px;
-        padding: 20px;
-        gap: 20px;
-    }
-
-    .quote {
-        font-size: 1.5rem;
-        padding: 20px;
-        flex: 1;
-    }
-}
-
-@media (min-width: 1024px) {
-
-    .nav-text {
-        font-size: 1rem;
-    }
-
-    .material-icons {
-        font-size: 34px;
-    }
-
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    body {
-        font-size: 1rem;
-    }
-
-    .button-text {
-        font-size: 18px;
-    }
-}
 
 .access-form {
     display: flex;
@@ -812,4 +811,45 @@ footer p{
 .star-icon {
     height: 20px;
     width: 20px;
+}
+
+
+@media (min-width: 714px) {
+  .navbar {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .navbar a {
+    font-size: 1.25rem;
+  }
+
+  .quotes {
+    flex-direction: row;
+    width: 80%;
+  }
+
+  .feedback-summary {
+    flex-direction: row;
+  }
+
+  .feedback-column {
+    width: 420px;
+  }
+  @media (min-width: 1024px) {
+  .navbar {
+    gap: 60px;
+  }
+
+  .message {
+    font-size: 4rem;
+  }
+
+  .feedback-banner {
+    width: 65%;
+  }
+
+  .summary-card {
+    width: 320px;
+  }
 }
