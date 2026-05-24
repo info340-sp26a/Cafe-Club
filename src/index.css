@@ -248,6 +248,10 @@ button.collapsible {
     font-size: 15px;
 }
 
+.menu-editor-layout {
+    display: block;
+}
+
 .customize {
     padding: 0 18px;
     overflow: hidden;
@@ -259,10 +263,19 @@ button.collapsible {
 .customize h2 {
     display: inline;
 }
+.customize-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
 
 .customize button {
     font-size: 1rem;
     margin: 1rem;
+}
+.customize-arrow {
+    top: 0;
 }
 
 .customize .material-icons {
@@ -280,15 +293,19 @@ button.collapsible {
 .menu-container {
     display: flex;
     background-color: white;
-    border: black solid 1px;
     font-size: 16px;
-    border-radius: 5px;
     width: 100%;
     height: fit-content;
     text-align: center;
-    padding: 50px;
+    padding: 1rem;
     text-decoration: none;
     color: black;
+    border: 3px solid #f1d7e1;
+    border-radius: 35px;
+    margin: 1rem auto;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .circle-plus-btn {
@@ -864,8 +881,44 @@ footer p {
     max-width: 320px;
     height: 160px;
   }
-}
 
+  .menu-editor-layout {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .customize {
+    width: fit-content;
+    flex-shrink: 0;
+    border-bottom: none;
+    border-right: black solid 1px;
+    min-height: 100%;
+    align-self: stretch;
+    transition: width 0.3s ease;
+  }
+ 
+  .customize-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 0;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .customize button.collapsible .customize-arrow {
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+  }
+
+  .customize.customize--collapsed button.collapsible .customize-arrow {
+    transform: rotate(90deg);
+  }
+ 
+  .menu {
+    flex: 1;
+    min-width: 0;
+  }
+}
 
 @media (min-width: 1024px) {
   nav ul {

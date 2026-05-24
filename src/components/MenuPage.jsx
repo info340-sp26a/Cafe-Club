@@ -6,7 +6,7 @@ export default function MenuPage(props) {
   return (
     <> 
         <MenuBanner />
-
+        <div className="menu-editor-layout">
         <CustomizeMenu />
 
         <div className="menu">
@@ -28,6 +28,7 @@ export default function MenuPage(props) {
                 <button className="circle-plus-btn" aria-label="add-page-btn">+</button>
                 <p>Add Page</p>
             </div>
+        </div>
         </div>
     </>
   );
