@@ -473,53 +473,6 @@ footer p{
 
 @media (min-width: 468px) {
 
-<<<<<<< HEAD
-.feedback-banner {
-    position: relative;
-    width: 65%;
-    border: 3px solid #f1d7e1;
-    border-radius: 35px;
-    padding: 1rem 0.5rem;
-    margin: 1rem auto;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 8px 20px;
-}
-
-.feedback-dashboard {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-    text-align: cemter;
-}
-
-.staff-message{
-    margin-bottom: 0.5rem;
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-}
-
-.staff-message p{
-    margin-bottom: 0.5rem;
-    font-size: 2%;
-    margin-bottom: 0.5rem;
-}
-
-.banner-subtext{
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.approval-counter{
-    display: inline-flex;
-    align-items: center;
-}
-
-
-@media (max-width: 700px) {
-  nav ul {
-=======
     .button-text {
         display: inline;
     }
@@ -584,7 +537,6 @@ footer p{
     display: flex;
     flex-direction: column;
     align-items: center;
->>>>>>> a267297f541b6287b811e684b2bd736bd0b25c8a
     justify-content: center;
     gap: 1rem;
 }

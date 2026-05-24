@@ -887,14 +887,11 @@ footer p {
     max-width: 320px;
     height: 160px;
   }
-<<<<<<< HEAD
-=======
 
   .stars{
     grid-template-columns: repeat(5, 1fr);
   }
 }
->>>>>>> a267297f541b6287b811e684b2bd736bd0b25c8a
 
   .menu-editor-layout {
     display: flex;
@@ -932,7 +929,7 @@ footer p {
     flex: 1;
     min-width: 0;
   }
-}
+
 
 @media (min-width: 1024px) {
   nav ul {
