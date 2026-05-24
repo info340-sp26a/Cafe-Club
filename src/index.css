@@ -1,4 +1,4 @@
-* {
+\* {
     box-sizing: border-box;
 }
 
@@ -905,8 +905,9 @@ footer p {
   margin-left: 700px;
 }
 
-.stars{
-    grid-template-columns: repeat(5, 1fr);
-  }
+.approved-counter {
+    background-color: #dff5dd;
+    color: #4f7c4d;
+}
 
 }
