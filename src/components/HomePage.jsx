@@ -1,71 +1,88 @@
 import HomeTitle from "./HomeTitle";
+import { Link } from "react-router";
+
+
+const userMenus = [
+  { src: "/img/menu1.png", alt:"a picture of the menu"},
+  { src: "/img/menu2.png", alt:"a picture of the menu"},
+  { src: "/img/menu3.png", alt:"a picture of the menu"},
+  { src: "/img/menu4.png", alt:"a picture of the menu"},
+];
+
+const templates = [
+  { src: "/img/template1.png", alt:"a picture of the menu templates"},
+  { src: "/img/template2.png", alt:"a picture of the menu templates"},
+  { src: "/img/template3.png", alt:"a picture of the menu templates"},
+  { src: "/img/template4.png", alt:"a picture of the menu templates"}
+
+];
+
+const recentlyViewed = [
+
+  { src: "/img/menu1.png", alt:"a picture of the menu"},
+  { src: "/img/menu2.png", alt:"a picture of the menu"},
+  { src: "/img/menu3.png", alt:"a picture of the menu"},
+]
+
+function MenuImageList( {items} ) {
+
+  return(
+    <div className="flex-container">
+      {items.map((menu,index) => (
+        <a href="/menu" key={index}>
+          <img className="menu-link menu"
+          src={menu.src}
+          alt={menu.alt}
+        />
+        </a>
+      ))}
+    </div>
+  );
+}
+
 
 export default function HomePage() {
   return (
     <main>
+      <div className="home-page-Title">
       <HomeTitle />
+      </div>
       <section>
         <h2>Your Menus:</h2>
 
         <div className="flex-container">
-          <a className="menu-link menu" href="/menu">+</a>
+          <Link to="/MenuPage" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
 
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/menu1.png" alt="A picture of a menu" />
-          </a>
+          {userMenus.map((menu,index) => ( 
+            <a href="/menu" key={index}>
+              <img className="menu-link menu"
+              src={menu.src}
+              alt={menu.alt}
+              />
 
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/menu2.png" alt="A picture of a menu" />
-          </a>
+            </a>
+          ))}
+          </div>
+          </section>
 
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/menu3.png" alt="A picture of a menu" />
-          </a>
+      <div className="divider">
 
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/menu4.png" alt="A picture of a menu" />
-          </a>
-        </div>
-      </section>
-
-      <div className="divider"></div>
+      </div>
 
       <section>
         <h2 className="subheader">Templates</h2>
 
-        <div className="flex-container">
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/template1.png" alt="A picture of a menu template" />
-          </a>
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/template2.png" alt="A picture of a menu template" />
-          </a>
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/template3.png" alt="A picture of a menu template" />
-          </a>
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/template4.png" alt="A picture of a menu template" />
-          </a>
-        </div>
-      </section>
+        <MenuImageList items={templates} />
+        </section>
 
       <div className="divider"></div>
 
       <section>
         <h2 className="subheader">Recently Viewed:</h2>
 
-        <div className="flex-container">
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/menu1.png" alt="A picture of a menu" />
-          </a>
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/menu3.png" alt="A picture of a menu" />
-          </a>
-          <a href="/menu">
-            <img className="menu-link menu" src="/img/menu2.png" alt="A picture of a menu" />
-          </a>
-        </div>
-      </section>
+        <MenuImageList items={recentlyViewed}/>
+
+        </section>
 
       <div className="divider"></div>
 

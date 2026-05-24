@@ -11,7 +11,7 @@ export default function CustomizeMenu(props) {
 
             <form action="menu.html" method="GET">
                 <div className="customize-question">
-                    <label for="chooseColor">Choose a menu color:</label>
+                    <label htmlFor="chooseColor">Choose a menu color:</label>
 
                     <select name="menuColor" id="chooseColor">
                         <option value=""></option>
@@ -23,7 +23,7 @@ export default function CustomizeMenu(props) {
                 </div>
 
                 <div className="customize-question">
-                    <label for="chooseStyle">Choose a menu style:</label>
+                    <label htmlFor="chooseStyle">Choose a menu style:</label>
 
                     <select name="menuStyle">
                         <option value=""></option>

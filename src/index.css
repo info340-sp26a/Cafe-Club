@@ -1,5 +1,4 @@
-* {
-    box-sizing: border-box;.star {
+.star {
     background: none;
     border: none;
     padding: 0;
@@ -9,7 +8,7 @@
     cursor: pointer;
     transition: 0.2s ease;
 }
-}
+
 
 html {
     background-color: white;
@@ -539,10 +538,9 @@ footer p{
 }
 
 .feedback-dashboard {
-    postion: relative;
     z-index: 2;
     padding: 2rem;
-    text-align: cemter;
+    text-align: center;
 }
 
 .staff-message{
@@ -851,5 +849,6 @@ footer p{
 
   .summary-card {
     width: 320px;
+  }
   }
 }
