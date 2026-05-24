@@ -3,7 +3,7 @@
      return(
     <div className="feedback-main">
         <div className="blob blob-one"></div>
-        <div class="blob blob-two"></div>
+        <div className="blob blob-two"></div>
 
 
         <section className="feedback-dashboard">

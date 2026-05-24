@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router";
 
 
 export default function Staff() {
@@ -9,7 +10,7 @@ export default function Staff() {
     <main>
 
     <div className="quotes">
-    <img className="matcha" src="img/matcha.jpeg" alt="A picture of a matcha drink"/> 
+    <img className="matcha" src="/img/matcha.jpeg" alt="A picture of a matcha drink"/> 
     <p className="quote"> Live Life With Passion and Intention </p>
     </div>
 
@@ -22,7 +23,7 @@ export default function Staff() {
     <div className="item">
 
     </div>
-    <a className="menu-link owner-menu menu" href="menu.html">[Menu]</a>
+    <Link className="menu-link owner-menu menu" to="/menu">[Menu]</Link>
     </div>
     </section>
 
