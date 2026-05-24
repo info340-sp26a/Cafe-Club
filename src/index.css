@@ -283,6 +283,13 @@ button.collapsible {
 }
 .customize-arrow {
     top: 0;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    transform: rotate(0deg);
+}
+
+.customize--collapsed .customize-arrow {
+    transform: rotate(180deg);
 }
 
 .customize .material-icons {
@@ -891,7 +898,6 @@ footer p {
   .stars{
     grid-template-columns: repeat(5, 1fr);
   }
-}
 
   .menu-editor-layout {
     display: flex;
@@ -929,40 +935,41 @@ footer p {
     flex: 1;
     min-width: 0;
   }
+}
 
 
 @media (min-width: 1024px) {
-  nav ul {
-    gap: 3rem;
-  }
+    nav ul {
+        gap: 3rem;
+    }
 
-  .navbar a {
-    font-size: 1.35rem;
-  }
+    .navbar a {
+        font-size: 1.35rem;
+    }
 
-  .message {
-    font-size: 4rem;
-  }
+    .message {
+        font-size: 4rem;
+    }
 
-  .feedback-banner {
-    width: 65%;
-  }
+    .feedback-banner {
+        width: 65%;
+    }
 
-  .summary-card {
-    width: 320px;
-  }
-    .bunny {
-    width: 500px;
-    height: auto;
-  }
+    .summary-card {
+        width: 320px;
+    }
+        .bunny {
+        width: 500px;
+        height: auto;
+    }
 
-.bunny-right {
-  margin-left: 700px;
-}
+    .bunny-right {
+        margin-left: 700px;
+    }
 
-.approved-counter {
-    background-color: #dff5dd;
-    color: #4f7c4d;
-}
+    .approved-counter {
+        background-color: #dff5dd;
+        color: #4f7c4d;
+    }
 
 }
