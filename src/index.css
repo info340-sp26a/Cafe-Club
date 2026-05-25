@@ -1,16 +1,27 @@
-\* {
+* {
     box-sizing: border-box;
 }
-
 html {
     background-color: white;
+    height: 100%;
 }
 
 body {
     margin: 0;
     color: black;
     font-size: 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+}
+
 
 /* Header */
 header {
@@ -22,7 +33,6 @@ header {
     padding: 1rem 0;
     background-size: cover;
     background-position: center bottom;
-    margin-top: 95px;
 
 }
 
@@ -302,6 +312,7 @@ button.collapsible {
 
 .menu {
     padding: 1rem;
+    flex: 1;
 }
 
 .menu-container {
@@ -389,7 +400,7 @@ button.collapsible {
     font-style: italic;
     text-align: center;
     width: 80%;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
@@ -464,6 +475,7 @@ textarea {
     gap: 1rem;
     flex-wrap: wrap;
     margin: 1rem 0;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .star {
@@ -574,7 +586,7 @@ textarea {
     width: 90%;
     border: 3px solid #f1d7e1;
     border-radius: 35px;
-    padding: 1rem 0.5rem;
+    padding: 1.5rem 1rem;
     margin: 1rem auto;
     margin-bottom: 1rem;
     overflow: hidden;
@@ -794,17 +806,12 @@ footer {
     flex-direction: column;
     gap: 0.2rem;
     font-size: .85rem;
-    margin-top: 1rem;
+    margin-top: auto;
 }
 
 footer p {
     margin: 0;
     line-height: 1.2;
-}
-
-.feedback-banner {
-    width: 92%;
-    padding: 1.5rem 1rem;
 }
 
 .sparkle {
@@ -853,11 +860,6 @@ footer p {
     height: 42px;
   }
 
-  header {
-    margin-top: 70px;
-    gap: 20px;
-  }
-
   img.cakepixel,
   img.matchapixel {
     max-width: 65px;
@@ -865,9 +867,7 @@ footer p {
 
   .quotes {
     flex-direction: row;
-    width: 80%;
     max-width: 900px;
-    padding: 20px;
     gap: 20px;
   }
 
@@ -888,15 +888,6 @@ footer p {
 
     flex-direction: row;
 
-  }
-
-  .summary-card {
-    max-width: 320px;
-    height: 160px;
-  }
-
-  .stars{
-    grid-template-columns: repeat(5, 1fr);
   }
 
   .menu-editor-layout {
@@ -931,45 +922,18 @@ footer p {
     transform: rotate(90deg);
   }
  
-  .menu {
-    flex: 1;
-    min-width: 0;
-  }
 }
 
 
 @media (min-width: 1024px) {
-    nav ul {
-        gap: 3rem;
-    }
 
-    .navbar a {
-        font-size: 1.35rem;
-    }
-
-    .message {
-        font-size: 4rem;
+    .message, .app-title {
+        font-size: 3rem;
     }
 
     .feedback-banner {
-        width: 65%;
+        width: 75%;
     }
 
-    .summary-card {
-        width: 320px;
-    }
-        .bunny {
-        width: 500px;
-        height: auto;
-    }
-
-    .bunny-right {
-        margin-left: 700px;
-    }
-
-    .approved-counter {
-        background-color: #dff5dd;
-        color: #4f7c4d;
-    }
 
 }
