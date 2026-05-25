@@ -27,16 +27,16 @@ const recentlyViewed = [
 function MenuImageList( {items} ) {
 
   return(
-    <div className="flex-container">
+    <>
       {items.map((menu,index) => (
-        <a href="/menu" key={index}>
+        <Link to="/menu" key={index}>
           <img className="menu-link menu"
           src={menu.src}
           alt={menu.alt}
         />
-        </a>
+        </Link>
       ))}
-    </div>
+    </>
   );
 }
 
@@ -52,37 +52,33 @@ export default function HomePage() {
 
         <div className="flex-container">
           <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
+          <MenuImageList items={userMenus} />
+        </div>
+        
+      </section>
 
-          {userMenus.map((menu,index) => ( 
-            <a href="/menu" key={index}>
-              <img className="menu-link menu"
-              src={menu.src}
-              alt={menu.alt}
-              />
-
-            </a>
-          ))}
-          </div>
-          </section>
-
-      <div className="divider">
-
-      </div>
+      <div className="divider"></div>
 
       <section>
         <h2 className="subheader">Templates</h2>
 
-        <MenuImageList items={templates} />
-        </section>
+        <div className="flex-container">
+          <MenuImageList items={templates} />
+        </div>
+        
+      </section>
 
       <div className="divider"></div>
 
       <section>
         <h2 className="subheader">Recently Viewed:</h2>
 
-        <MenuImageList items={recentlyViewed}/>
+        <div className="flex-container">
+          <MenuImageList items={recentlyViewed}/>
+        </div>
+        
 
-        </section>
+      </section>
 
       <div className="divider"></div>
 

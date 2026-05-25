@@ -9,6 +9,10 @@ const pastelColors = {
   blue:   '#c8dff5',
 };
 
+const items = [
+    {itemName: "latte"}
+];
+
 export default function MenuPage(props) {
   const [menuColor, setMenuColor] = useState(null);
   
@@ -23,12 +27,12 @@ export default function MenuPage(props) {
                 <div className="add">
                     <div className="add-section">
                         <button className="circle-plus-btn" aria-label="add-section-btn">+</button>
-                        <p>Add Section</p>
+                        <label>Add Section</label>
                     </div>
 
                     <div className="add-item">
                         <button className="small circle-plus-btn" aria-label="add-item-btn">+</button>
-                        <p>Add Item</p>
+                        <label>Add Item</label>
                     </div>
                 </div>
             </div>
