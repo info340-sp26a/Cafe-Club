@@ -51,7 +51,7 @@ export default function HomePage() {
         <h2>Your Menus:</h2>
 
         <div className="flex-container">
-          <Link to="/MenuPage" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
+          <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
 
           {userMenus.map((menu,index) => ( 
             <a href="/menu" key={index}>
