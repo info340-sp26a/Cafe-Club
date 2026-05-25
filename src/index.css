@@ -413,8 +413,11 @@ button.collapsible {
 }
 
 .owner-menu {
-    width: 90%;
-    height: 220px;
+    display: flex;
+    justify-content: center;
+    width: 10px;
+    min-height: 140px;
+    height: auto;
 }
 
 .menu-selection {
