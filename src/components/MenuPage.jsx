@@ -39,7 +39,7 @@ export default function MenuPage(props) {
 
             <div className="add-page">
                 <button className="circle-plus-btn" aria-label="add-page-btn">+</button>
-                <p>Add Page</p>
+                <label>Add Page</label>
             </div>
         </div>
         </div>
