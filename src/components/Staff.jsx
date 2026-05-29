@@ -23,7 +23,7 @@ export default function Staff() {
     <div className="item">
 
     </div>
-    <Link className="menu-link owner-menu menu" to="/menu">[Menu]</Link>
+    <Link className="menu-link owner-menu menu" to="/menu">Click to see Isabella's Menu!</Link>
     </div>
     </section>
 

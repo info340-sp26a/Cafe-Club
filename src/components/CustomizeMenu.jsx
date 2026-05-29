@@ -5,7 +5,7 @@ export default function CustomizeMenu(props) {
  
   return (
     <>
-        <div className={`customize ${isExpanded ? 'customize--expanded' : 'customize--collapsed'}`}>
+        <div className="customize">
             <div className="customize-header">
                 <button
                     type="button"
@@ -16,7 +16,7 @@ export default function CustomizeMenu(props) {
                     onClick={() => setIsExpanded(!isExpanded)}
                 >
                     <span className="material-icons customize-arrow">
-                        expand_less
+                        {isExpanded ? 'expand_less' : 'expand_more'}
                     </span>
                 </button>
             </div>
@@ -24,7 +24,7 @@ export default function CustomizeMenu(props) {
             {isExpanded && (
                 <>
                 <h2>Customize Menu Appearance</h2>
-                <form id="customizeContent" action="menu.html" method="GET">
+                <form id="customizeContent">
                     <div className="customize-question">
                         <label htmlFor="chooseColor">Choose a menu color:</label>
  
@@ -49,7 +49,7 @@ export default function CustomizeMenu(props) {
                         </select>
                     </div>
  
-                    <button type="submit">Update</button>
+                    <button>Update</button>
                 </form>
                 </>
             )}
