@@ -49,18 +49,46 @@ export default function FeedbackPage() {
     const [pendingFeedback, setPendingFeedback] = useState(initialPending);
     const [approvedFeedback, setApprovedFeedback] = useState(initialApproved);
 
-    function approveFeedback(feedback) {
-        setApprovedFeedback([feedback, ...approvedFeedback]);
-        setPendingFeedback(
-            pendingFeedback.filter(item => item.id !== feedback.id)
-        );
+    function approveFeedback(feedback){
+        const updateApprovedFeedback = [feedback, ...approvedFeedback];
+
+        const updatePendingFeedback = pendingFeedback.filter((item) => {
+            return item.id !== feedback.id
+        });
+
+        setApprovedFeedback(updateApprovedFeedback);
+        setPendingFeedback(updatePendingFeedback);
     }
 
     function rejectFeedback(id) {
-        setPendingFeedback(
-            pendingFeedback.filter(item => item.id !== id)
-        );
+        const updatedPendingFeedback = pendingFeedback.filter((item) => {
+            return item.id !== id;
+        });
+        setPendingFeedback(updatedPendingFeedback);
     }
+
+
+    const pendingFeedbackCards = pendingFeedback.map((feedback) =>{
+        return(
+            <FeedbackCard
+            key={feedback.id}
+            feedback={feedback}
+            showButtons={true}
+            onApprove={approveFeedback}
+            onReject={rejectFeedback}
+            />
+        );
+    });
+
+    const approvedFeedbackCards = approvedFeedback.map((feedback) => {
+        return(
+            <FeedbackCard
+            key={feedback.id}
+            feedback={feedback}
+            showButtons={false}
+            />
+        );
+    });
 
     return (
         <main className="feedback-main">
@@ -75,31 +103,17 @@ export default function FeedbackPage() {
                 <section className="feedback-column">
                     <h2>Pending Feedback</h2>
 
-                    {pendingFeedback.length === 0 ? (
+                    {pendingFeedback.length === 0 && (
                         <p>No pending feedback right now!</p>
-                    ) : (
-                        pendingFeedback.map(feedback => (
-                            <FeedbackCard
-                                key={feedback.id}
-                                feedback={feedback}
-                                showButtons={true}
-                                onApprove={approveFeedback}
-                                onReject={rejectFeedback}
-                            />
-                        ))
-                    )}
+                    )} 
+
+                    {pendingFeedback.length > 0 && pendingFeedbackCards}
                 </section>
 
                 <section className="feedback-column approved-section">
                     <h2>Approved Feedback History</h2>
 
-                    {approvedFeedback.map(feedback => (
-                        <FeedbackCard
-                            key={feedback.id}
-                            feedback={feedback}
-                            showButtons={false}
-                        />
-                    ))}
+                    {approvedFeedbackCards}
                 </section>
             </div>
         </main>

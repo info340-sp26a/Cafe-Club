@@ -5,6 +5,20 @@ import { Link } from "react-router";
 
 export default function Staff() {
     const [rating, setRating] = useState(0);
+    const starButton = [1, 2, 3, 4, 5].map((star) => {
+        function handleStarClick(){
+            setRating(star);
+        }
+        return(
+                <button type="button" 
+                key={star} 
+                className={star <= rating ? 
+                    "star selected" : "star"} 
+                onClick={() => setRating(star)}
+                >★</button>
+    );
+    });
+    
     return(
 
     <main>
@@ -38,10 +52,7 @@ export default function Staff() {
             <textarea id="feedback" placeholder="Write Your Feedback Here"></textarea>
         
            <div className="stars">
-                 {[1, 2, 3, 4, 5].map((star) => (
-                <button type="button" key={star} className={star <= rating ? "star selected" : "star"} onClick={() => setRating(star)}>
-            ★ </button>
-    ))}
+            {starButton}
 </div>
 
 <p className="rating-text">

@@ -52,6 +52,7 @@ h3 {
 }
 
 .app-title {
+    font-family: "Cedarville Cursive", cursive;
     font-size: 2rem;
     padding: 20px 0;
 }
@@ -527,6 +528,7 @@ textarea {
     width: 220px;
     font-size: 1.25rem;
     padding: 16px 32px;
+    margin: 1rem;
 }
 
 .stars {

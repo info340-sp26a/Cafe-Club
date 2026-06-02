@@ -26,16 +26,20 @@ const recentlyViewed = [
 
 function MenuImageList( {items} ) {
 
-  return(
-    <>
-      {items.map((menu,index) => (
-        <Link to="/menu" key={index}>
+  const menuImage = items.map((menu,index) =>
+  {
+    return (
+          <Link to="/menu" key={index}>
           <img className="menu-link menu"
           src={menu.src}
-          alt={menu.alt}
-        />
+          alt={menu.alt} />
         </Link>
-      ))}
+
+    );
+  });
+  return(
+    <>
+    {menuImage}
     </>
   );
 }
