@@ -54,7 +54,7 @@ return (
                     <button type="submit">Sign Up!</button>
             </form>
             <p>
-                Already have an account? <Link to="/login">Login</Link>
+                Already have an account? <Link to="/login">Log in</Link>
             </p>
 
 
