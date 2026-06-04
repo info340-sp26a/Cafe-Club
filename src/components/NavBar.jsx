@@ -1,19 +1,17 @@
-import { Link } from 'react-router';
+import { Link } from "react-router";
 
-export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
   return (
     <nav className="navbar">
       <ul>
         <li>
           <Link to="/" aria-label="Home">
-            <img className="custom-icon" src="/img/home.svg" aria-hidden="true" alt="home-icon" />
+            <img
+              className="custom-icon"
+              src="/img/home.svg"
+              alt="home-icon"
+            />
           </Link>
-        </li>
-
-        <li>
-          <Link to="/staff">Staff View</Link>
         </li>
 
         <li>
@@ -25,9 +23,24 @@ export default function Navbar() {
         </li>
 
         <li className="auth-links">
-        <Link to="/Signup" className="signup-link">Sign Up </Link>
-      
-       <Link to="/Login" className="login-link">Log In </Link>
+          {!isLoggedIn ? (
+            <>
+              <Link to="/signup" className="signup-link">
+                Sign Up
+              </Link>
+
+              <Link to="/login" className="login-link">
+                Login
+              </Link>
+            </>
+          ) : (
+            <button
+              className="logout-btn"
+              onClick={() => setIsLoggedIn(false)}
+            >
+              Logout
+            </button>
+          )}
         </li>
       </ul>
     </nav>
