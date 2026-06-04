@@ -14,7 +14,7 @@ export default function Staff() {
                 key={star} 
                 className={star <= rating ? 
                     "star selected" : "star"} 
-                onClick={() => setRating(star)}
+                onClick= {handleStarClick}
                 >★</button>
     );
     });

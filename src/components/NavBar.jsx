@@ -18,6 +18,9 @@ export default function Navbar() {
         <li>
           <Link to="/feedback">Feedback & Approval</Link>
         </li>
+
+        <li> <Link to="/Signup">Signup </Link>
+        </li>
       </ul>
     </nav>
   );

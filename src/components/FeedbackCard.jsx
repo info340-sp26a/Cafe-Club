@@ -1,4 +1,28 @@
 export default function FeedbackCard({ feedback, showButtons, onApprove, onReject }) {
+
+  function handleApproveClick(){
+    onApprove(feedback);
+  }
+
+  function handleRejectClick() {
+    onReject(feedback.id);
+  }
+
+  let actionContent = <p className="status"> Status: Approved </p>
+
+  if (showButtons) {
+    actionContent = (
+      <div className="feedback-actions">
+      <button className="approve-btn" onClick={handleApproveClick}>Approve
+      </button>
+
+      <button className="reject-btn" onClick={handleRejectClick}>Reject
+      </button>
+
+      </div>
+    );
+
+    }
   return (
     <article className="feedback-card">
       <img className="tiny-menu" src={feedback.image} alt={`${feedback.title} preview`} />
@@ -12,20 +36,7 @@ export default function FeedbackCard({ feedback, showButtons, onApprove, onRejec
       <p><strong>Rating:</strong> {feedback.rating}</p>
 
       <p>{feedback.text}</p>
-
-      {showButtons ? (
-        <div className="feedback-actions">
-          <button className="approve-btn" onClick={() => onApprove(feedback)}>
-            Approve
-          </button>
-
-          <button className="reject-btn" onClick={() => onReject(feedback.id)}>
-            Reject
-          </button>
-        </div>
-      ) : (
-        <p className="status">Status: Approved</p>
-      )}
+      {actionContent}
     </article>
   );
 }
