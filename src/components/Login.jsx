@@ -19,8 +19,10 @@ export default function Login() {
 
         <main className="auth-page">
             <section className="auth-card">
-                <h1>* Welcome Back *</h1>
-                <p>Login back into your Club Cafe account! </p>
+                <img className="bunny-left" src="/img/rabbit.svg" alt="rabbit icon" />
+                 <img className="bunny-right" src="/img/rabbit.svg" alt="rabbit icon" />
+                <h1> ⋅Welcome Back!⋅  </h1>
+                <p>Login back into your Club Cafe account!  </p>
 
                 <form onSubmit={handleSubmit} className="auth-form">
                     <label htmlFor="username">Username: </label>
@@ -44,6 +46,9 @@ export default function Login() {
                 </form>
                 <p>
                     Don't have an account? <Link to="/signup">Sign Up</Link>
+                </p>
+                <p>
+                    ‪ଘ( つ⁰̷̴͈ ᵕ ˘͈)つ* 🍵
                 </p>
 
 
