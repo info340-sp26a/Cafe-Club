@@ -32,9 +32,6 @@ export default function Navbar({ currentUser }) {
         <li className="auth-links">
           {!currentUser ? (
             <>
-              <Link to="/signup" className="signup-link">
-                Sign Up
-              </Link>
 
               <Link to="/login" className="login-link">
                 Login

@@ -10,7 +10,6 @@ import HomePage from './HomePage';
 import MenuPage from './MenuPage';
 import Staff from './Staff';
 import Login from './Login';
-import Signup from './Signup';
 import firebase from 'firebase/compat/app';
 
 export default function App(props) {
@@ -40,7 +39,6 @@ export default function App(props) {
         <Route path="/menu" element={<MenuPage />} /> 
         <Route path="/feedback" element={<FeedbackPage />} />
         <Route path="/staff" element ={<Staff />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />

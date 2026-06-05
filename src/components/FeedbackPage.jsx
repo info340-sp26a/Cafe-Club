@@ -2,6 +2,21 @@ import { useState } from "react";
 import FeedbackBanner from "./FeedbackBanner";
 import FeedbackCard from "./FeedbackCard";
 import FeedbackTitle from "./FeedbackTitle";
+import { getDatabase, ref, push } from "firebase/database";
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const db = getDatabase();
+
+    push(ref(db, "feedback"), {
+        rating: rating,
+        message: feedback,
+        createdAt: Date.now(),
+        author: currentUser.email
+    });
+    alert("Feedback Submitted!!")
+
+}
 
 const initialPending = [
     {

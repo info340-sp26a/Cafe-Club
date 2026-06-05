@@ -18,6 +18,8 @@ export default function Staff() {
                 >★</button>
     );
     });
+
+    const [feedback, setFeedback] = useState("");
     
     return(
 
@@ -49,7 +51,7 @@ export default function Staff() {
         
         <form className ="feedback-form">
             <label htmlFor="feedback">Feedback:</label>
-            <textarea id="feedback" placeholder="Write Your Feedback Here"></textarea>
+            <textarea id="feedback" placeholder="Write Your Feedback Here" value={feedback} onChange={(event) => setFeedback(event.target.value)}></textarea>
         
            <div className="stars">
             {starButton}
@@ -59,7 +61,7 @@ export default function Staff() {
     Selected Rating: {rating}
 </p>
 
-    <button type="submit" className="send-btn">Send</button>
+    <button type="submit" className="send-btn" onSubmit={handleSubmit}>Send</button>
     </form>
     </section>
 </main>
