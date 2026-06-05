@@ -3,6 +3,24 @@ import { Link, useNavigate } from "react-router";
 import { useState } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
 
+const [accessCode, setAccessCode] = useState("");
+const navigate = useNavigate();
+
+function handleAccessSubmit(event){
+  event.preventDefault();
+
+  const db = getDatabase();
+  
+  const menuRef = ref(db, "menus");
+
+  onValue(menuRef, (snapshot) => {
+    const data = snapshot.val();
+
+    if (!data) {
+      alert("No Menu found!");
+      return;
+
+
 
 const userMenus = [
   { src: "/img/menu1.png", alt:"a picture of the menu"},
