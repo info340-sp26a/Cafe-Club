@@ -3,36 +3,6 @@ import { Link, useNavigate } from "react-router";
 import { useState } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
 
-const [accessCode, setAccessCode] = useState("");
-const navigate = useNavigate();
-
-function handleAccessSubmit(event){
-  event.preventDefault();
-
-  const db = getDatabase();
-  
-  const menuRef = ref(db, "menus");
-
-  onValue(menuRef, (snapshot) => {
-    const data = snapshot.val();
-
-    if (!data) {
-      alert("No Menu found!");
-      return;
-    }
-        const menuId = Object.keys(data).find((key) => {
-      return data[key].accessCode === accessCode;
-    });
-
-    if (menuId) {
-      navigate(`/staff/${menuId}`);
-    } else {
-      alert("Invalid access code.");
-    }
-  }, {
-    onlyOnce: true
-  });
-}
 
 
 const userMenus = [
@@ -79,6 +49,43 @@ function MenuImageList( {items} ) {
 
 
 export default function HomePage() {
+  const [accessCode, setAccessCode] = useState("");
+  const navigate = useNavigate();
+
+  function handleAccessSubmit(event){
+  event.preventDefault();
+
+  const db = getDatabase();
+  
+  const menuRef = ref(db, "menus");
+
+  if (accessCode === "MATCHALOVER") {
+    navigate("/staff");
+  }else {
+    alert("Invalid Access Code");
+  }
+
+  onValue(menuRef, (snapshot) => {
+    const data = snapshot.val();
+
+    if (!data) {
+      alert("No Menu found!");
+      return;
+    }
+        const menuId = Object.keys(data).find((key) => {
+      return data[key].accessCode === accessCode;
+    });
+
+    if (menuId) {
+      navigate(`/staff/${menuId}`);
+    } else {
+      alert("Invalid access code.");
+    }
+  }, {
+    onlyOnce: true
+  });
+}
+
   return (
     <main>
       <div className="home-page-Title">
@@ -122,7 +129,7 @@ export default function HomePage() {
       <section>
         <h2 className="subheader">Staff View</h2>
 
-        <form className="access-form">
+        <form className="access-form" onSubmit={handleAccessSubmit}>
           <label htmlFor="access-code" className="access">
             Please enter access code:
           </label>
@@ -130,7 +137,8 @@ export default function HomePage() {
           <input
             type="text"
             id="access-code"
-            name="access-code"
+            value={accessCode}
+            onChange={(event) => setAccessCode(event.target.value.toUpperCase())}
             placeholder="Access code"
             required
           />
