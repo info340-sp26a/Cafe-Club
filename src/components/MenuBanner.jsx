@@ -58,10 +58,46 @@ export default function MenuBanner(props) {
 
               </span>
               </button> {/*will be a modal*/}
-        </section>
+
+        {savedCode && (
+          <p className="saved-code">
+            Access Code: <strong>{savedCode}</strong>
+          </p>
+        )}
+      </section>
+
+      {showModal && (
+        <div className="modal-backdrop">
+          <div className="access-modal">
+            <h2>Set Access Code</h2>
+            <p>Staff can use this code to review your menu.</p>
+
+            <form onSubmit={handleSendToStaff}>
+              <label htmlFor="menu-access-code">Access Code:</label>
+
+              <input
+                id="menu-access-code"
+                type="text"
+                value={accessCode}
+                onChange={(event) =>
+                  setAccessCode(event.target.value.toUpperCase())
+                }
+                placeholder="Ex: MATCHA42"
+              />
+
+              <div className="modal-actions">
+                <button type="submit">Save Code</button>
+                <button type="button" onClick={handleCloseModal}>
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 }
-
+      
 
         
