@@ -1,9 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { getAuth, EmailAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import StyledFirebaseAuth from "react-firebaseui/dist/StyledFirebaseAuth";
 
 export default function Login() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const auth = getAuth();
+
+
+    const firebaseUIConfig = {
+        signInOptions: 
+        [GoogleAuthProvider.PROVIDER_ID, {
+            
+            provider: EmailAuthProvider.PROVIDER_ID,
+            requiredDisplayName:true}]
+            ,
+
+         signInFlow: "popup",
+         credentialHelper: "none",
+         callbacks: {
+                signInSuccessWithAuthResult: () => {
+                return false;
+            }
+         }
+
+    };
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -13,6 +33,7 @@ export default function Login() {
             return;
         }
         alert('Welcome back, ${username}!');
+
 
     }
     return (
@@ -24,26 +45,11 @@ export default function Login() {
                 <h1> ⋅Welcome Back!⋅  </h1>
                 <p>Login back into your Club Cafe account!  </p>
 
-                <form onSubmit={handleSubmit} className="auth-form">
-                    <label htmlFor="username">Username: </label>
-                    <input 
-                    id="username"
-                    type="text"
-                    placeholder="Enter Username"
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}/>
+                <StyledFirebaseAuth.default
+                    uiConfig={firebaseUIConfig}
+                    firebaseAuth={auth}
+                />
 
-                    <label htmlFor="password">Password: </label>
-                    <input 
-                    id="password"
-                    type="text"
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}/>
-
-                    <button type="submit">Login</button>
-
-                </form>
                 <p>
                     Don't have an account? <Link to="/signup">Sign Up</Link>
                 </p>

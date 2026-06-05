@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router';
 import { Routes, Route } from "react-router";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import FeedbackPage from "./FeedbackPage";
 import NavBar from "./NavBar";
 import Header from './Header';
@@ -10,19 +11,37 @@ import MenuPage from './MenuPage';
 import Staff from './Staff';
 import Login from './Login';
 import Signup from './Signup';
+import firebase from 'firebase/compat/app';
 
 export default function App(props) {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+
+    const unRegisteredFunction = onAuthStateChanged(auth, (FirebaseUser) => {
+      setCurrentUser(FirebaseUser);
+    });
+
+    return function cleanup() {
+      unRegisteredFunction();
+    };
+  }, []);
+
+
   return (
     <>
-      <NavBar />
+      <NavBar 
+        currentUser={currentUser}
+        />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage />} /> 
         <Route path="/feedback" element={<FeedbackPage />} />
         <Route path="/staff" element ={<Staff />} />
-        <Route path="/Signup" element={<Signup />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>

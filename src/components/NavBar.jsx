@@ -1,6 +1,13 @@
 import { Link } from "react-router";
+import { getAuth, signOut } from "firebase/auth";
 
-export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
+export default function Navbar({ currentUser }) {
+  function handleLogOut(){
+    const auth = getAuth();
+
+    signOut(auth).catch((err) => {
+    });
+  }
   return (
     <nav className="navbar">
       <ul>
@@ -23,7 +30,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
         </li>
 
         <li className="auth-links">
-          {!isLoggedIn ? (
+          {!currentUser ? (
             <>
               <Link to="/signup" className="signup-link">
                 Sign Up
@@ -36,7 +43,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
           ) : (
             <button
               className="logout-btn"
-              onClick={() => setIsLoggedIn(false)}
+              onClick={handleLogOut}
             >
               Logout
             </button>

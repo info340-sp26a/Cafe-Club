@@ -1088,7 +1088,7 @@ footer p {
     text-decoration: underline;
 }
 
-.login-link, .signup-link {
+.login-link, .signup-link, .logout-btn {
     border: 2px solid #c94c80;
     border-radius: 20px;
     padding: 8px 16px;
@@ -1111,4 +1111,10 @@ footer p {
     margin-left: auto;
     display: flex;
     gap: 0.75rem;
+}
+
+
+
+.logout-btn:hover {
+  background-color: white;
 }
