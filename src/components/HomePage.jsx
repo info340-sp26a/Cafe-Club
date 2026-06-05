@@ -19,7 +19,20 @@ function handleAccessSubmit(event){
     if (!data) {
       alert("No Menu found!");
       return;
+    }
+        const menuId = Object.keys(data).find((key) => {
+      return data[key].accessCode === accessCode;
+    });
 
+    if (menuId) {
+      navigate(`/staff/${menuId}`);
+    } else {
+      alert("Invalid access code.");
+    }
+  }, {
+    onlyOnce: true
+  });
+}
 
 
 const userMenus = [
