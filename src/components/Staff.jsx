@@ -5,6 +5,22 @@ import { Link } from "react-router";
 
 export default function Staff() {
     const [rating, setRating] = useState(0);
+    const starButton = [1, 2, 3, 4, 5].map((star) => {
+        function handleStarClick(){
+            setRating(star);
+        }
+        return(
+                <button type="button" 
+                key={star} 
+                className={star <= rating ? 
+                    "star selected" : "star"} 
+                onClick= {handleStarClick}
+                >★</button>
+    );
+    });
+
+    const [feedback, setFeedback] = useState("");
+    
     return(
 
     <main>
@@ -35,20 +51,17 @@ export default function Staff() {
         
         <form className ="feedback-form">
             <label htmlFor="feedback">Feedback:</label>
-            <textarea id="feedback" placeholder="Write Your Feedback Here"></textarea>
+            <textarea id="feedback" placeholder="Write Your Feedback Here" value={feedback} onChange={(event) => setFeedback(event.target.value)}></textarea>
         
            <div className="stars">
-                 {[1, 2, 3, 4, 5].map((star) => (
-                <button type="button" key={star} className={star <= rating ? "star selected" : "star"} onClick={() => setRating(star)}>
-            ★ </button>
-    ))}
+            {starButton}
 </div>
 
 <p className="rating-text">
     Selected Rating: {rating}
 </p>
 
-    <button type="submit" className="send-btn">Send</button>
+    <button type="submit" className="send-btn" onSubmit={handleSubmit}>Send</button>
     </form>
     </section>
 </main>

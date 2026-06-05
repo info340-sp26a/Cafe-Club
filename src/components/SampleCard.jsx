@@ -7,7 +7,7 @@ export default function SummaryCard({ icon, label }) {
             <img
                 className="custom-icons"
                 src={icon}
-                alt=""
+                alt="custom icons"
             />
 
             <p>{label}</p>

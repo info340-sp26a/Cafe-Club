@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "boostrap": "^2.0.0",
     "bootstrap": "^5.3.8",
+    "firebase": "^12.14.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-firebaseui": "github:joelwross/firebaseui-web-react",
     "react-router": "^7.15.1"
   },
   "devDependencies": {

@@ -15,12 +15,12 @@ const hotDrinks = [
 ];
 
 const coldDrinks = [
-    {name: "iced latte", price: 5, src: "/img/latte.png"},
-    {name: "matcha latte", price: 6, src: "/img/matchalatte.png"}
+    {name: "Iced latte", price: 5, src: "/img/latte.png"},
+    {name: "Matcha latte", price: 6, src: "/img/matchalatte.png"}
 ];
 
 const foodItems = [
-    {name: "chocolate muffin", price: 3, src: "/img/muffin.png"}
+    {name: "Chocolate muffin", price: 3, src: "/img/muffin.png"}
 ];
 
 const sections = [

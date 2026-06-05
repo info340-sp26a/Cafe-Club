@@ -1,5 +1,8 @@
 import HomeTitle from "./HomeTitle";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useState } from 'react';
+import { getDatabase, ref, onValue } from "firebase/database";
+
 
 
 const userMenus = [
@@ -26,22 +29,63 @@ const recentlyViewed = [
 
 function MenuImageList( {items} ) {
 
-  return(
-    <>
-      {items.map((menu,index) => (
-        <Link to="/menu" key={index}>
+  const menuImage = items.map((menu,index) =>
+  {
+    return (
+          <Link to="/menu" key={index}>
           <img className="menu-link menu"
           src={menu.src}
-          alt={menu.alt}
-        />
+          alt={menu.alt} />
         </Link>
-      ))}
+
+    );
+  });
+  return(
+    <>
+    {menuImage}
     </>
   );
 }
 
 
 export default function HomePage() {
+  const [accessCode, setAccessCode] = useState("");
+  const navigate = useNavigate();
+
+  function handleAccessSubmit(event){
+  event.preventDefault();
+
+  const db = getDatabase();
+  
+  const menuRef = ref(db, "menus");
+
+  if (accessCode === "MATCHALOVER") {
+    navigate("/staff");
+  }else {
+    alert("Invalid Access Code");
+  }
+
+  onValue(menuRef, (snapshot) => {
+    const data = snapshot.val();
+
+    if (!data) {
+      alert("No Menu found!");
+      return;
+    }
+        const menuId = Object.keys(data).find((key) => {
+      return data[key].accessCode === accessCode;
+    });
+
+    if (menuId) {
+      navigate(`/staff/${menuId}`);
+    } else {
+      alert("Invalid access code.");
+    }
+  }, {
+    onlyOnce: true
+  });
+}
+
   return (
     <main>
       <div className="home-page-Title">
@@ -85,7 +129,7 @@ export default function HomePage() {
       <section>
         <h2 className="subheader">Staff View</h2>
 
-        <form className="access-form">
+        <form className="access-form" onSubmit={handleAccessSubmit}>
           <label htmlFor="access-code" className="access">
             Please enter access code:
           </label>
@@ -93,7 +137,8 @@ export default function HomePage() {
           <input
             type="text"
             id="access-code"
-            name="access-code"
+            value={accessCode}
+            onChange={(event) => setAccessCode(event.target.value.toUpperCase())}
             placeholder="Access code"
             required
           />
