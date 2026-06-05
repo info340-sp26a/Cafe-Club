@@ -275,9 +275,7 @@ button.collapsible {
     font-size: 15px;
 }
 
-.menu-editor-layout {
-    display: block;
-}
+
 
 .customize {
     padding: 0 18px;
@@ -318,6 +316,10 @@ button.collapsible {
 
 .customize-question {
     margin: 2rem 0;
+}
+.menu-editor-layout {
+    display: block;
+    flex: 1;
 }
 
 .menu {

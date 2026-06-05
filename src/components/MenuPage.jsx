@@ -29,7 +29,9 @@ const sections = [
     {name:"Food", items: foodItems}
 ];
 
-
+// add a "editable" prop so that the menu will display with or without add buttons based on whether menu is editable or not
+// menu is editable if you are working on it in menu builder page
+// menu is not editable if opened by a staff using the 5-digit code (where the menu shows up so that the staff can look at it and give feedback)
 
 export default function MenuPage(props) {
     const [menuColor, setMenuColor] = useState(null);
@@ -55,11 +57,6 @@ export default function MenuPage(props) {
                             <h2>Add Section</h2>
                         </div>
                     </div>
-                </div>
-
-                <div className="add-page">
-                    <button className="circle-plus-btn" aria-label="add-page-btn">+</button>
-                    <label>Add Page</label>
                 </div>
             </div>
         </div>
