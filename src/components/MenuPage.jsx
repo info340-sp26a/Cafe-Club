@@ -9,6 +9,7 @@ import MenuContainer from './MenuContainer';
 export default function MenuPage(props) {
     const [menuId, setMenuId] = useState(null);
     const[menuTitle, setMenuTitle] = useState("");
+    const [currentMenuTitle, setCurrentMenuTitle] = useState("");
 
     function createMenu(event){
         event.preventDefault();
@@ -19,6 +20,7 @@ export default function MenuPage(props) {
             createdAt: Date.now()
         });
         setMenuId(newMenuRef.key);
+        setCurrentMenuTitle(menuTitle);
         setMenuTitle("");
         }
 
@@ -37,13 +39,16 @@ export default function MenuPage(props) {
           />
           <button className="menuTitle"  type="submit">Create Menu</button>
         </form>
-        {menuId &&(
-        <div className="menu-editor-layout">
-            <CustomizeMenu menuId={menuId}/>
+       {menuId && (
+        <div>
+          <h2 className="currMenuTitle">{currentMenuTitle}</h2>
 
+          <div className="menu-editor-layout">
+            <CustomizeMenu menuId={menuId}/>
             <MenuContainer menuId={menuId} />
+          </div>
         </div>
-        )}
+      )}
     </>
   );
 }
