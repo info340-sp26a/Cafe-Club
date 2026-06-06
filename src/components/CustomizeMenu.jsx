@@ -39,7 +39,7 @@ export default function CustomizeMenu(props) {
                 <h2>Customize Menu Appearance</h2>
                 <form id="customizeContent" onSubmit={handleUpdate}>
                     <div className="customize-question">
-                        <label htmlFor="chooseColor">Choose a menu color:</label>
+                        <label className="menuText" htmlFor="chooseColor">Choose a menu color:</label>
  
                         <select name="menuColor" id="chooseColor" value={menuColor} onChange={(event) => setMenuColor(event.target.value)}>
                             <option value=""></option>
@@ -51,7 +51,7 @@ export default function CustomizeMenu(props) {
                     </div>
  
                     <div className="customize-question">
-                        <label htmlFor="chooseStyle">Choose a menu style:</label>
+                        <label className="menuText" htmlFor="chooseStyle">Choose a menu style:</label>
  
                         <select name="menuStyle" id="chooseStyle" value={menuStyle} onChange={(event) => setMenuStyle(event.target.value)}>
                             <option value=""></option>

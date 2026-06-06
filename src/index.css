@@ -50,7 +50,10 @@ h2,
 h3 {
     text-align: center;
 }
-
+.menuText{
+    padding-right: 10px;
+    font-size: 20px;
+}
 .app-title {
     font-family: "Cedarville Cursive", cursive;
     font-size: 2rem;
