@@ -59,6 +59,11 @@ h3 {
     font-size: 2rem;
     padding: 20px 0;
 }
+.menuTitle{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+}
 
 img.cakepixel {
     max-width: 75px;

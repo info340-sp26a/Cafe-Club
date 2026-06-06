@@ -9,7 +9,7 @@ export default function CustomizeMenu(props) {
   function handleUpdate(event){
     event.preventDefault();
     const db = getDatabase();
-    const customizeRef=ref(db, 'menuCustomization');
+    const customizeRef=ref(db, 'menus/' + props.menuId + '/customization');
     set(customizeRef, {
       color: menuColor,
       style: menuStyle
