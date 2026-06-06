@@ -1,7 +1,20 @@
 import React, {useState} from 'react';
+import { getDatabase, ref, set } from "firebase/database";
  
 export default function CustomizeMenu(props) {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [menuColor, setMenuColor] = useState('');
+  const [menuStyle, setMenuStyle] = useState('');
+
+  function handleUpdate(event){
+    event.preventDefault();
+    const db = getDatabase();
+    const customizeRef=ref(db, 'menus/' + props.menuId + '/customization');
+    set(customizeRef, {
+      color: menuColor,
+      style: menuStyle
+    });
+  }
  
   return (
     <>
@@ -24,11 +37,11 @@ export default function CustomizeMenu(props) {
             {isExpanded && (
                 <>
                 <h2>Customize Menu Appearance</h2>
-                <form id="customizeContent">
+                <form id="customizeContent" onSubmit={handleUpdate}>
                     <div className="customize-question">
-                        <label htmlFor="chooseColor">Choose a menu color:</label>
+                        <label className="menuText" htmlFor="chooseColor">Choose a menu color:</label>
  
-                        <select name="menuColor" id="chooseColor">
+                        <select name="menuColor" id="chooseColor" value={menuColor} onChange={(event) => setMenuColor(event.target.value)}>
                             <option value=""></option>
                             <option value="pink">Pink</option>
                             <option value="green">Green</option>
@@ -38,9 +51,9 @@ export default function CustomizeMenu(props) {
                     </div>
  
                     <div className="customize-question">
-                        <label htmlFor="chooseStyle">Choose a menu style:</label>
+                        <label className="menuText" htmlFor="chooseStyle">Choose a menu style:</label>
  
-                        <select name="menuStyle" id="chooseStyle">
+                        <select name="menuStyle" id="chooseStyle" value={menuStyle} onChange={(event) => setMenuStyle(event.target.value)}>
                             <option value=""></option>
                             <option value="fancy">Fancy</option>
                             <option value="rustic">Rustic</option>
@@ -49,7 +62,7 @@ export default function CustomizeMenu(props) {
                         </select>
                     </div>
  
-                    <button>Update</button>
+                    <button type="submit">Update</button>
                 </form>
                 </>
             )}

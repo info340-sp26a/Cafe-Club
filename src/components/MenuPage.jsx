@@ -1,38 +1,56 @@
 import React, {useState} from 'react';
+import { getDatabase, ref, push } from "firebase/database";
 import MenuBanner from './MenuBanner';
 import CustomizeMenu  from './CustomizeMenu';
 import { getDatabase, ref, set } from 'firebase/database';
 
 import MenuContainer from './MenuContainer';
 
-const pastelColors = {
-  pink:   '#f2d3de',
-  green:  '#d3f2d8',
-  yellow: '#f5f2c8',
-  blue:   '#c8dff5',
-};
 
 
 export default function MenuPage(props) {
-    const currentUser = props.currentUser;
-    const db = getDatabase();
-    const userRef = ref(db, currentUser);
-    const personOfInterestRef = ref(db, "people/"+currentUser);
-    const personOfInterestMenu = ref(db, "people/"+currentUser+"/menus");
-  
+    const [menuId, setMenuId] = useState(null);
+    const[menuTitle, setMenuTitle] = useState("");
+    const [currentMenuTitle, setCurrentMenuTitle] = useState("");
 
-
-
-    const [menuColor, setMenuColor] = useState(null);
+    function createMenu(event){
+        event.preventDefault();
+        const db = getDatabase();
+        const menuRef = ref(db, 'menus');
+        const newMenuRef = push(menuRef,{
+            title: menuTitle,
+            createdAt: Date.now()
+        });
+        setMenuId(newMenuRef.key);
+        setCurrentMenuTitle(menuTitle);
+        setMenuTitle("");
+        }
 
     return (
     <> 
         <MenuBanner />
-        <div className="menu-editor-layout">
-            <CustomizeMenu />
+        <form onSubmit={createMenu}>
+          <label className="menuTitle" htmlFor="menuTitle">Menu Title:</label>
+          <input
+           className="menuTitle"
+            id="menuTitle"
+            type="text"
+            value={menuTitle}
+            onChange={(event) => setMenuTitle(event.target.value)}
+            placeholder="Enter menu title"
+          />
+          <button className="menuTitle"  type="submit">Create Menu</button>
+        </form>
+       {menuId && (
+        <div>
+          <h2 className="currMenuTitle">{currentMenuTitle}</h2>
 
-            <MenuContainer />
+          <div className="menu-editor-layout">
+            <CustomizeMenu menuId={menuId}/>
+            <MenuContainer menuId={menuId} />
+          </div>
         </div>
+      )}
     </>
   );
 }

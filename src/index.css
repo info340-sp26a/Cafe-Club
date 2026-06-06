@@ -50,11 +50,24 @@ h2,
 h3 {
     text-align: center;
 }
-
+.currMenuTitle{
+    padding: 30px;
+    font-size: 40px;
+    background-color: #f2d3de;
+}
+.menuText{
+    padding-right: 10px;
+    font-size: 20px;
+}
 .app-title {
     font-family: "Cedarville Cursive", cursive;
     font-size: 2rem;
     padding: 20px 0;
+}
+.menuTitle{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
 }
 
 img.cakepixel {
