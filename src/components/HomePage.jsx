@@ -70,7 +70,7 @@ export default function HomePage() {
 
     if (!data) {
       alert("No Menu found!");
-      return;
+      return /*RETURN A DIV*/;
     }
         const menuId = Object.keys(data).find((key) => {
       return data[key].accessCode === accessCode;

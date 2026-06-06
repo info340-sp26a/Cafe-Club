@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import MenuBanner from './MenuBanner';
 import CustomizeMenu  from './CustomizeMenu';
+import { getDatabase, ref, set } from 'firebase/database';
+
 
 const pastelColors = {
   pink:   '#f2d3de',
@@ -32,6 +34,15 @@ const sections = [
 
 
 export default function MenuPage(props) {
+    const currentUser = props.currentUser;
+    const db = getDatabase();
+    const userRef = ref(db, currentUser);
+    const personOfInterestRef = ref(db, "people/"+currentUser);
+    const personOfInterestMenu = ref(db, "people/"+currentUser+"/menus");
+  
+
+
+
     const [menuColor, setMenuColor] = useState(null);
     
     const sectionArray = sections.map((section) => {

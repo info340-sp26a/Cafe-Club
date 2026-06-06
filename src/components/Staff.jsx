@@ -61,7 +61,7 @@ export default function Staff() {
     Selected Rating: {rating}
 </p>
 
-    <button type="submit" className="send-btn" onSubmit={handleSubmit}>Send</button>
+    <button type="submit" className="send-btn" /*onSubmit={handleSubmit}*/>Send</button>
     </form>
     </section>
 </main>
