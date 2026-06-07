@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { getDatabase, ref, push, set } from 'firebase/database';
+import { getDatabase, ref, push, onValue } from 'firebase/database';
 import { getAuth } from "firebase/auth";
 
 
@@ -14,12 +14,12 @@ export default function MenuBanner(props) {
 
 
       useEffect(() => {
-              if (!props.MenuId){
+              if (!props.menuId){
                   return;
               }
       
               const db = getDatabase();
-              const menuRef = ref(db, `menus/${props.MenuId}/accessCode`);
+              const menuRef = ref(db, `menus/${props.menuId}/accessCode`);
               const unsubscribe = onValue(accessRef, (snapshot) => {
                   const code = snapshot.val();
       
@@ -27,7 +27,7 @@ export default function MenuBanner(props) {
                     setSavedCode(code);
                   }
           });
-          return () => unsubscribe(); }, [props.MenuId]);
+          return () => unsubscribe(); }, [props.menuId]);
 
   function handleOpenModal(){
     setShowModal(true);

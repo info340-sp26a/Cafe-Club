@@ -75,7 +75,8 @@ export default function HomePage() {
       if (!data) {
         setUserMenu([]);
         return;
-      } 
+      }
+
 
     const menuArray = Object.keys(data).map((key) => {
       return {
@@ -90,6 +91,7 @@ export default function HomePage() {
   });
     return () => unsubscribe();
   }, []);
+
 
   function handleAccessSubmit(event){
   event.preventDefault();
@@ -119,6 +121,12 @@ export default function HomePage() {
   });
 }
 
+const userMenuLinks =  userMenu.map((menu) => {
+            return (<Link to={`/menu/${menu.id}`} key={menu.id} className="menu-link">
+        {menu.title}
+      </Link>
+            );
+          });
   return (
     <main>
       <div className="home-page-Title">
@@ -129,14 +137,8 @@ export default function HomePage() {
 
         <div className="flex-container">
           <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
-          {userMenu.map((menu) => {
-            return (<Link to={`/menu/${menu.id}`} key={menu.id} className="menu-link">
-        {menu.title}
-      </Link>
-      );
-          }
-          )}
-        {/* <MenuImageList items={userMenus} /> */}
+          {userMenuLinks}
+
         </div>
         
       </section>
