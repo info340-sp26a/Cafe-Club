@@ -30,12 +30,7 @@ export default function MenuBanner(props) {
     const db = getDatabase();
     const formattedCode = accessCode.toUpperCase();
 
-    push(ref(db,"menus"), {
-      title: `${currentUser.displayName}'s menu`,
-      accessCode: accessCode.toUpperCase(),
-      owner: currentUser.uid,
-      createdAt: Date.now(),
-    });
+    set(ref(db, `menus/${menuId}/accessCode`), formattedCode);
 
     setSavedCode(formattedCode);
     setAccessCode("");

@@ -43,19 +43,16 @@ export default function Login() {
                 <img className="bunny-left" src="/img/rabbit.svg" alt="rabbit icon" />
                  <img className="bunny-right" src="/img/rabbit.svg" alt="rabbit icon" />
                 <h1> ⋅Welcome Back!⋅  </h1>
-                <p>Login back into your Club Cafe account!  </p>
+                <p>Log In or Sign Up back into Club Cafe !  </p>
 
                 <StyledFirebaseAuth.default
                     uiConfig={firebaseUIConfig}
                     firebaseAuth={auth}
                 />
 
-                <p>
-                    Don't have an account? <Link to="/signup">Sign Up</Link>
-                </p>
-                <p>
-                    ‪ଘ( つ⁰̷̴͈ ᵕ ˘͈)つ* 🍵
-                </p>
+                <span alt="Angel emoticon holding matcha">
+                    ଘ( つ⁰̷̴͈ ᵕ ˘͈)つ* 🍵
+                </span>
 
 
             </section>

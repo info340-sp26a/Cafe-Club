@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import { getDatabase, ref, push, set } from "firebase/database";
+import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router';
+import { getDatabase, ref, push, set, onValue } from "firebase/database";
 import MenuBanner from './MenuBanner';
 import CustomizeMenu  from './CustomizeMenu';
 import { getAuth } from "firebase/auth";
@@ -10,9 +11,26 @@ import MenuContainer from './MenuContainer';
 
 
 export default function MenuPage(props) {
-    const [menuId, setMenuId] = useState(null);
+    const {menuId, urlMenuId} = useParams();
     const[menuTitle, setMenuTitle] = useState("");
     const [currentMenuTitle, setCurrentMenuTitle] = useState("");
+
+    useEffect(() => {
+        if (!urlMenuId){
+            return;
+        }
+
+        const db = getDatabase();
+        const menuRef = ref(db, `menus/${urlMenuId}`);
+        const unsubscribe = onValue(menuRef, (snapshot) => {
+            const data = snapshot.val();
+
+            if (data) {
+                setMenuId(urlMenuId);
+                setCurrentMenuTitle(data.title);
+            }
+    });
+    return () => unsubscribe(); }, [urlMenuId]);
 
     function createMenu(event){
         event.preventDefault();

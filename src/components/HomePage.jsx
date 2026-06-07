@@ -54,7 +54,7 @@ import { getAuth } from "firebase/auth";
 export default function HomePage() {
 
   const [accessCode, setAccessCode] = useState("");
-  const [userMenu, setUserMenu] = useState("");
+  const [userMenu, setUserMenu] = useState([]);
 
   const navigate = useNavigate();
 
@@ -68,6 +68,14 @@ export default function HomePage() {
 
     const db = getDatabase();
     const menuRef = ref(db, "menus");
+    
+    const unsubscribe = onValue(menuRef, (snapshot) => {
+      const data = snapshot.val();
+
+      if (!data) {
+        setUserMenu([]);
+        return;
+      } 
 
     const menuArray = Object.keys(data).map((key) => {
       return {
@@ -76,8 +84,11 @@ export default function HomePage() {
       };
     })
     .filter((menu) => {
-      return menu.owner === currentUser.uid;
+      return menu.ownerId === currentUser.uid;
     });
+    setUserMenu(menuArray);
+  });
+    return () => unsubscribe();
   }, []);
 
   function handleAccessSubmit(event){
@@ -124,7 +135,14 @@ export default function HomePage() {
 
         <div className="flex-container">
           <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
-          {/* <MenuImageList items={userMenus} /> */}
+          {userMenu.map((menu) => {
+            return (<Link to={`/menu/${menu.id}`} key={menu.id} className="menu-link">
+        {menu.title}
+      </Link>
+      );
+          }
+          )}
+        {/* <MenuImageList items={userMenus} /> */}
         </div>
         
       </section>
