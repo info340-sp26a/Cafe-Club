@@ -22,9 +22,6 @@ export default function Navbar({ currentUser }) {
         </li>
 
         <li>
-          <Link to="/staff">Staff</Link>
-        </li>
-        <li>
           <Link to="/menu">Create A Menu</Link>
         </li>
 

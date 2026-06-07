@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { getDatabase, ref, push, onValue } from 'firebase/database';
+import { getDatabase, ref, push, onValue, set } from 'firebase/database';
 import { getAuth } from "firebase/auth";
 
 
@@ -20,7 +20,7 @@ export default function MenuBanner(props) {
       
               const db = getDatabase();
               const menuRef = ref(db, `menus/${props.menuId}/accessCode`);
-              const unsubscribe = onValue(accessRef, (snapshot) => {
+              const unsubscribe = onValue(menuRef, (snapshot) => {
                   const code = snapshot.val();
       
                   if (code) {
