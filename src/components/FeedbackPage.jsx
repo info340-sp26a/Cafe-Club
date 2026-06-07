@@ -63,8 +63,35 @@ function handleSubmit(event) {
 // ];
 
 export default function FeedbackPage() {
-    const [pendingFeedback, setPendingFeedback] = useState(initialPending);
-    const [approvedFeedback, setApprovedFeedback] = useState(initialApproved);
+    const [pendingFeedback, setPendingFeedback] = useState([]);
+    const [approvedFeedback, setApprovedFeedback] = useState([]);
+
+    useEffect(() => {
+        const auth = getAuth();
+        const currentUser = auth.currentUser;
+
+        if (!currentUser){
+            return;
+        }
+
+        const db = getDatabase();
+        const menuRef = ref(db, "menus");
+
+      const unsubscribe = onValue(menuRef, (snapshot) => {
+      const data = snapshot.val();
+
+      if (!data){
+        setPendingFeedback([]);
+        setApprovedFeedback([]);
+        return;
+      }
+
+      const allFeedback = [];
+
+      Object.keys(data).forEach((menuId) => {
+        
+      })
+    })
 
     function approveFeedback(feedback){
         const updateApprovedFeedback = [feedback, ...approvedFeedback];
