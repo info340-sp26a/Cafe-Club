@@ -89,9 +89,38 @@ export default function FeedbackPage() {
       const allFeedback = [];
 
       Object.keys(data).forEach((menuId) => {
-        
-      })
-    })
+              const menu = data[menuId];
+
+      if (menu.ownerId === currentUser.uid || menu.owner === currentUser.uid) {
+        if (menu.feedback) {
+          Object.keys(menu.feedback).forEach((feedbackId) => {
+            allFeedback.push({
+              id: feedbackId,
+              menuId: menuId,
+              title: menu.title,
+              from: "Staff",
+              date: new Date(menu.feedback[feedbackId].createdAt).toLocaleDateString(),
+              rating: "★".repeat(menu.feedback[feedbackId].rating),
+              text: menu.feedback[feedbackId].text,
+              image: "/img/menu1.png",
+              status: menu.feedback[feedbackId].status || "pending"
+            });
+          });
+        }
+      }
+    });
+
+    setPendingFeedback(
+      allFeedback.filter((feedback) => feedback.status === "pending")
+    );
+
+    setApprovedFeedback(
+      allFeedback.filter((feedback) => feedback.status === "approved")
+    );
+  });
+
+  return () => unsubscribe();
+}, []);
 
     function approveFeedback(feedback){
         const updateApprovedFeedback = [feedback, ...approvedFeedback];
