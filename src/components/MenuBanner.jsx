@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { getDatabase, ref, push } from 'firebase/database';
+import { getDatabase, ref, push, set } from 'firebase/database';
 import { getAuth } from "firebase/auth";
 
 
@@ -41,7 +41,7 @@ export default function MenuBanner(props) {
   return (
     <>
         <section className="banner container-fluid">
-            <h1> Divya's Menu </h1>
+            <h1>  {currentUser?.displayName? `${currentUser.displayName}'s Menu`: "My Menu"} </h1>
             <button>
               <span className="material-icons">save</span>
                <span className="button-text">save</span>

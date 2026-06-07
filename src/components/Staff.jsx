@@ -71,7 +71,7 @@ async function handleSubmit(event) {
         push(ref(db, `menus/${menuId}/feedback`),
             {
                 rating: rating,
-                comment: feedback,
+                text: feedback,
                 status: "pending",
                 createdAt: Date.now()
             }

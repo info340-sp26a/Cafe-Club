@@ -5,7 +5,7 @@ export default function FeedbackCard({ feedback, showButtons, onApprove, onRejec
   }
 
   function handleRejectClick() {
-    onReject(feedback.id);
+    onReject(feedback);
   }
 
   let actionContent = <p className="status"> Status: Approved </p>
