@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router';
-import { getDatabase, ref, push, set, onValue } from "firebase/database";
+import { useParams, useNavigate } from 'react-router';
+import { getDatabase, ref, push, set, onValue, remove } from "firebase/database";
 import MenuBanner from './MenuBanner';
 import CustomizeMenu  from './CustomizeMenu';
 import { getAuth } from "firebase/auth";
@@ -11,9 +11,36 @@ import MenuContainer from './MenuContainer';
 
 
 export default function MenuPage(props) {
-    const {menuId, urlMenuId} = useParams();
+    const navigate = useNavigate();
+    const { menuId: urlMenuId } = useParams();
+    const [menuId, setMenuId] = useState(null)
     const[menuTitle, setMenuTitle] = useState("");
     const [currentMenuTitle, setCurrentMenuTitle] = useState("");
+
+     async function handleDelete() {
+        if (!menuId){
+            return;
+        }
+
+        const confirmDelete = window.confirm("Are you sure you want to delete this?");
+
+        if (!confirmDelete){
+            return;
+        }
+
+        try{
+
+            const db = getDatabase();
+
+            await remove(ref(db, `menus/${menuId}`));
+            alert("menu deleted");
+            navigate("/")
+         }
+            catch(err)  {
+            console.error(err);
+            alert("failed to delete");
+        }
+    }    
 
     useEffect(() => {
         if (!urlMenuId){
@@ -73,6 +100,7 @@ export default function MenuPage(props) {
        {menuId && (
         <div>
           <h2 className="currMenuTitle">{currentMenuTitle}</h2>
+          <button className="delete-btn" onClick={handleDelete}>Delete Menu</button>
 
           <div className="menu-editor-layout">
             <CustomizeMenu menuId={menuId}/>

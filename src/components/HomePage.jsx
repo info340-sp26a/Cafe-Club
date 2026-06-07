@@ -112,7 +112,7 @@ export default function HomePage() {
       return /*RETURN A DIV*/;
     }
         const menuId = Object.keys(data).find((key) => {
-      return data[key].accessCode === accessCode;
+      return data[key].accessCode === accessCode.trim().toUpperCase();
     });
 
     if (menuId) {

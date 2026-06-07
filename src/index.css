@@ -274,6 +274,17 @@ button:hover {
     font-size: 3rem;
 }
 
+.delete-menu-btn {
+    background-color: #ffd6d6;
+    border: 2px solid #ff9f9f;
+    color: #8b0000;
+    font-weight: bold;
+}
+
+.delete-menu-btn:hover {
+    background-color: #ffbfbf;
+}
+
 /* Menu editor */
 .banner {
     background-color: white;

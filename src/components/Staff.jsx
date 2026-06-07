@@ -72,6 +72,7 @@ async function handleSubmit(event) {
             {
                 rating: rating,
                 comment: feedback,
+                status: "pending",
                 createdAt: Date.now()
             }
         );
@@ -110,7 +111,7 @@ catch(err){
     </section>
 
     <section className="Send">
-        <h2 className="message">Send A Message to the Creator</h2>
+        <h2 className="message">Send A Message to the Owner of the Menu</h2>
             <p>You are able to give feedback and suggestions</p>
             <p>Please rate the Menu</p>
 
