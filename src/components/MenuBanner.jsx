@@ -38,21 +38,20 @@ export default function MenuBanner(props) {
 
     alert(`Access Code Saved: ${formattedCode.toUpperCase()}`);
   }
+
   return (
     <>
         <section className="banner container-fluid">
             <h1> Divya's Menu </h1>
             <button>
               <span className="material-icons">save</span>
-               <span className="button-text">save</span>
-               </button> {/*will be a form*/}
-            <button id="access-code" onClick={() => setShowModal(true)}>
-              <span className="material-icons">send
-              </span>
-              <span className="button-text">Access Code:
+              <span className="button-text">save</span>
+            </button> 
 
-              </span>
-              </button> {/*will be a modal*/}
+            <button id="access-code" onClick={() => setShowModal(true)}>
+              <span className="material-icons">send</span>
+              <span className="button-text">Access Code: </span>
+            </button>
 
         {savedCode && (
           <p className="saved-code">

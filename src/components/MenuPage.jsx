@@ -13,11 +13,11 @@ import MenuContainer from './MenuContainer';
 export default function MenuPage(props) {
     const navigate = useNavigate();
     const { menuId: urlMenuId } = useParams();
-    const [menuId, setMenuId] = useState(null)
-    const[menuTitle, setMenuTitle] = useState("");
+    const [menuId, setMenuId] = useState(null);
+    const [menuTitle, setMenuTitle] = useState("");
     const [currentMenuTitle, setCurrentMenuTitle] = useState("");
 
-     async function handleDelete() {
+    async function handleDelete() {
         if (!menuId){
             return;
         }
@@ -35,8 +35,8 @@ export default function MenuPage(props) {
             await remove(ref(db, `menus/${menuId}`));
             alert("menu deleted");
             navigate("/")
-         }
-            catch(err)  {
+        }
+        catch(err)  {
             console.error(err);
             alert("failed to delete");
         }
