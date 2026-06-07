@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter } from 'react-router';
-import { Routes, Route } from "react-router";
+import { Routes, Route, Outlet, Navigate, useNavigate } from "react-router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, push as firebasePush, onValue } from 'firebase/database'
+import firebase from 'firebase/compat/app';
 
 import FeedbackPage from "./FeedbackPage";
 import NavBar from "./NavBar";
@@ -12,23 +12,30 @@ import HomePage from './HomePage';
 import MenuPage from './MenuPage';
 import Staff from './Staff';
 import Login from './Login';
-import firebase from 'firebase/compat/app';
+
 
 export default function App(props) {
   const [currentUser, setCurrentUser] = useState(null);
+
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     const auth = getAuth();
 
     const unRegisteredFunction = onAuthStateChanged(auth, (FirebaseUser) => {
-      setCurrentUser(FirebaseUser);
+      if(FirebaseUser){
+        setCurrentUser(FirebaseUser);
+        navigateTo('/');
+      } else {
+        setCurrentUser(null);
+        console.log("not signed in");
+      }
     });
 
     return function cleanup() {
       unRegisteredFunction();
     };
   }, []);
-
 
   return (
     <>
@@ -37,19 +44,34 @@ export default function App(props) {
         />
       <Header />
       <Routes>
-      <Route path="/" element={<HomePage />} />
+      
 
-      <Route path="/menu" element={<MenuPage />} />
-      <Route path="/menu/:menuId" element={<MenuPage />} />
+      <Route element={<ProtectedPage currentUser={currentUser} />} >
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage currentUser={currentUser} />} />
+      </Route>
+      
+      <Route path="/menu/:menuId" element={<MenuPage currentUser={currentUser} />} />
 
       <Route path="/feedback" element={<FeedbackPage />} />
 
       <Route path="/staff" element={<Staff />} />
       <Route path="/staff/:menuId" element={<Staff />} />
 
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login currentUser={currentUser} />} />
       </Routes>
       <Footer />
     </>
   );
 }
+
+function ProtectedPage(props) {
+  //...determine if user is logged in
+  if(props.currentUser === null || props.currentUser.userId === null) { //not undefined
+    return <Navigate to="/login"/>
+  }
+  else { //otherwise, show the child route content
+    return <Outlet />
+  }
+}
+
