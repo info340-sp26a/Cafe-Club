@@ -18,11 +18,17 @@ export default function MenuPage(props) {
         event.preventDefault();
         const auth = getAuth();
         const currentUser = auth.currentUser;
+        
+        if (!currentUser) {
+            console.error("No user logged in");
+            return;
+        }
+        
         const db = getDatabase();
         const menuRef = ref(db, 'menus');
         const newMenuRef = push(menuRef,{
             title: menuTitle,
-            owner: currentUser,
+            ownerId: currentUser.uid,
             ownerName: currentUser.displayName,
             createdAt: Date.now()
         });

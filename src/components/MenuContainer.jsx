@@ -1,4 +1,4 @@
-
+import React, {useState} from 'react';
 
 const hotDrinks = [
     {name: "hot latte", price: 5, src: "/img/latte.png"},
@@ -26,7 +26,7 @@ const sections = [
 
 
 export default function MenuContainer(props) {
-    const sectionArray = sections.map((section) => {
+    const sectionArray = sections.map((section) => { //change to map the array fetched from the menu
         return <MenuSection section={section} key={section.name} />;
     });
 

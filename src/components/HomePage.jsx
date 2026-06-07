@@ -8,47 +8,47 @@ import { getAuth } from "firebase/auth";
 
 
 
-const userMenus = [
-  { src: "/img/menu1.png", alt:"a picture of the menu"},
-  { src: "/img/menu2.png", alt:"a picture of the menu"},
-  { src: "/img/menu3.png", alt:"a picture of the menu"},
-  { src: "/img/menu4.png", alt:"a picture of the menu"},
-];
+// const userMenus = [
+//   { src: "/img/menu1.png", alt:"a picture of the menu"},
+//   { src: "/img/menu2.png", alt:"a picture of the menu"},
+//   { src: "/img/menu3.png", alt:"a picture of the menu"},
+//   { src: "/img/menu4.png", alt:"a picture of the menu"},
+// ];
 
-const templates = [
-  { src: "/img/template1.png", alt:"a picture of the menu templates"},
-  { src: "/img/template2.png", alt:"a picture of the menu templates"},
-  { src: "/img/template3.png", alt:"a picture of the menu templates"},
-  { src: "/img/template4.png", alt:"a picture of the menu templates"}
+// const templates = [
+//   { src: "/img/template1.png", alt:"a picture of the menu templates"},
+//   { src: "/img/template2.png", alt:"a picture of the menu templates"},
+//   { src: "/img/template3.png", alt:"a picture of the menu templates"},
+//   { src: "/img/template4.png", alt:"a picture of the menu templates"}
 
-];
+// ];
 
-const recentlyViewed = [
+// const recentlyViewed = [
 
-  { src: "/img/menu1.png", alt:"a picture of the menu"},
-  { src: "/img/menu2.png", alt:"a picture of the menu"},
-  { src: "/img/menu3.png", alt:"a picture of the menu"},
-]
+//   { src: "/img/menu1.png", alt:"a picture of the menu"},
+//   { src: "/img/menu2.png", alt:"a picture of the menu"},
+//   { src: "/img/menu3.png", alt:"a picture of the menu"},
+// ]
 
-function MenuImageList( {items} ) {
+// function MenuImageList( {items} ) {
 
-  const menuImage = items.map((menu,index) =>
-  {
-    return (
-          <Link to="/menu" key={index}>
-          <img className="menu-link menu"
-          src={menu.src}
-          alt={menu.alt} />
-        </Link>
+//   const menuImage = items.map((menu,index) =>
+//   {
+//     return (
+//           <Link to="/menu" key={index}>
+//           <img className="menu-link menu"
+//           src={menu.src}
+//           alt={menu.alt} />
+//         </Link>
 
-    );
-  });
-  return(
-    <>
-    {menuImage}
-    </>
-  );
-}
+//     );
+//   });
+//   return(
+//     <>
+//     {menuImage}
+//     </>
+//   );
+// }
 
 
 export default function HomePage() {
@@ -124,21 +124,14 @@ export default function HomePage() {
 
         <div className="flex-container">
           <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
-          {userMenu.map((menu) => {
-            return ( <Link 
-              key={menu.Id}
-              to={`/menu/${menu.id}`} >
-                {menu.title}
-              </Link>
-            )
-          })}
+          {/* <MenuImageList items={userMenus} /> */}
         </div>
         
       </section>
 
       <div className="divider"></div>
 
-      <section>
+      {/* <section>
         <h2 className="subheader">Templates</h2>
 
         <div className="flex-container">
@@ -159,7 +152,7 @@ export default function HomePage() {
 
       </section>
 
-      <div className="divider"></div>
+      <div className="divider"></div> */}
 
       <section>
         <h2 className="subheader">Staff View</h2>
