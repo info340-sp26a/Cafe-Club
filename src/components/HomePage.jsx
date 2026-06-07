@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
+import MenuThumbnail from "./MenuThumbnail";
 
 
 
@@ -49,7 +50,6 @@ import { getAuth } from "firebase/auth";
 //     </>
 //   );
 // }
-
 
 export default function HomePage() {
 
@@ -121,12 +121,16 @@ export default function HomePage() {
   });
 }
 
-const userMenuLinks =  userMenu.map((menu) => {
-            return (<Link to={`/menu/${menu.id}`} key={menu.id} className="menu-link">
-        {menu.title}
-      </Link>
-            );
-          });
+const userMenuLinks = userMenu.map((menu) => {
+  return (
+      <div key={menu.id} className="menu-card-wrapper">
+        <span className="menu-card-title">{menu.title}</span>
+        <Link to={`/menu/${menu.id}`} className="menu-link menu-card">
+          <MenuThumbnail menu={menu} />
+        </Link>
+      </div>
+  );
+});
   return (
     <main>
       <div className="home-page-Title">
@@ -136,7 +140,10 @@ const userMenuLinks =  userMenu.map((menu) => {
         <h2>Your Menus:</h2>
 
         <div className="flex-container">
+          <div className="menu-card-wrapper">
+          <span className="menu-card-title">New Menu</span>
           <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
+        </div>
           {userMenuLinks}
 
         </div>
