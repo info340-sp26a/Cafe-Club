@@ -1,7 +1,10 @@
 import HomeTitle from "./HomeTitle";
 import { Link, useNavigate } from "react-router";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
+
+
 
 
 
@@ -49,8 +52,33 @@ function MenuImageList( {items} ) {
 
 
 export default function HomePage() {
+
   const [accessCode, setAccessCode] = useState("");
+  const [userMenu, setUserMenu] = useState("");
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const auth = getAuth();
+    const currentUser = auth.currentUser;
+
+    if (!currentUser){
+      return;
+    }
+
+    const db = getDatabase();
+    const menuRef = ref(db, "menus");
+
+    const menuArray = Object.keys(data).map((key) => {
+      return {
+        id: key,
+        ...data[key]
+      };
+    })
+    .filter((menu) => {
+      return menu.owner === currentUser.uid;
+    });
+  }, []);
 
   function handleAccessSubmit(event){
   event.preventDefault();
@@ -96,7 +124,14 @@ export default function HomePage() {
 
         <div className="flex-container">
           <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
-          <MenuImageList items={userMenus} />
+          {userMenu.map((menu) => {
+            return ( <Link 
+              key={menu.Id}
+              to={`/menu/${menu.id}`} >
+                {menu.title}
+              </Link>
+            )
+          })}
         </div>
         
       </section>
