@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { getDatabase, ref, push, set } from 'firebase/database';
 import { getAuth } from "firebase/auth";
 
@@ -8,8 +8,26 @@ export default function MenuBanner(props) {
   const [accessCode, setAccessCode] = useState("");
   const [savedCode, setSavedCode] = useState("");
   const [showModal, setShowModal] = useState(false);
+
   const auth = getAuth();
   const currentUser = auth.currentUser;
+
+
+      useEffect(() => {
+              if (!props.MenuId){
+                  return;
+              }
+      
+              const db = getDatabase();
+              const menuRef = ref(db, `menus/${props.MenuId}/accessCode`);
+              const unsubscribe = onValue(accessRef, (snapshot) => {
+                  const code = snapshot.val();
+      
+                  if (code) {
+                    setSavedCode(code);
+                  }
+          });
+          return () => unsubscribe(); }, [props.MenuId]);
 
   function handleOpenModal(){
     setShowModal(true);
@@ -30,7 +48,7 @@ export default function MenuBanner(props) {
     const db = getDatabase();
     const formattedCode = accessCode.toUpperCase();
 
-    set(ref(db, `menus/${menuId}/accessCode`), formattedCode);
+    set(ref(db, `menus/${props.menuId}/accessCode`), formattedCode);
 
     setSavedCode(formattedCode);
     setAccessCode("");
@@ -43,12 +61,17 @@ export default function MenuBanner(props) {
         <section className="banner container-fluid">
             <h1>  {currentUser?.displayName? `${currentUser.displayName}'s Menu`: "My Menu"} </h1>
             <button>
-              <span className="material-icons">save</span>
-               <span className="button-text">save</span>
+              <img className="buttons-icon" src="/img/save.png" alt="pixel folder icon"/>
+               <span className="save-btn">save</span>
                </button> {/*will be a form*/}
+               <button className="delete-icon" onClick={props.onDelete}> 
+                <img className="buttons-icon" src='/img/trash.png' alt="pixel trash can icon"/>
+                <span className="delete-btn">Delete</span>
+
+                </button>
+
             <button id="access-code" onClick={() => setShowModal(true)}>
-              <span className="material-icons">send
-              </span>
+              <img className="buttons-icon" src='/img/send.png' alt="pixel arrow icon"/>
               <span className="button-text">Access Code:
 
               </span>

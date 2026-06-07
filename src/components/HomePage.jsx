@@ -98,12 +98,6 @@ export default function HomePage() {
   
   const menuRef = ref(db, "menus");
 
-  if (accessCode === "MATCHALOVER") {
-    navigate("/staff");
-  }else {
-    alert("Invalid Access Code");
-  }
-
   onValue(menuRef, (snapshot) => {
     const data = snapshot.val();
 
@@ -173,11 +167,11 @@ export default function HomePage() {
       <div className="divider"></div> */}
 
       <section>
-        <h2 className="subheader">Staff View</h2>
+        <h2 className="subheader">Review a Menu</h2>
 
         <form className="access-form" onSubmit={handleAccessSubmit}>
           <label htmlFor="access-code" className="access">
-            Please enter a code to access the menu:
+            Have an access code? Review a menu and share feedback!
           </label>
 
           <input
