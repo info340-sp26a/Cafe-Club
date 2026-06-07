@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import { getDatabase, ref, push } from "firebase/database";
+import { getDatabase, ref, push, set } from "firebase/database";
 import MenuBanner from './MenuBanner';
 import CustomizeMenu  from './CustomizeMenu';
-import { getDatabase, ref, set } from 'firebase/database';
+import { getAuth } from "firebase/auth";
+
 
 import MenuContainer from './MenuContainer';
 
@@ -15,10 +16,14 @@ export default function MenuPage(props) {
 
     function createMenu(event){
         event.preventDefault();
+        const auth = getAuth();
+        const currentUser = auth.currentUser;
         const db = getDatabase();
         const menuRef = ref(db, 'menus');
         const newMenuRef = push(menuRef,{
             title: menuTitle,
+            owner: currentUser,
+            ownerName: currentUser.displayName,
             createdAt: Date.now()
         });
         setMenuId(newMenuRef.key);

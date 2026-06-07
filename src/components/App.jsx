@@ -35,11 +35,17 @@ export default function App(props) {
         />
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/menu" element={<MenuPage />} /> 
-        <Route path="/feedback" element={<FeedbackPage />} />
-        <Route path="/staff" element ={<Staff />} />
-        <Route path="/login" element={<Login />} />
+      <Route path="/" element={<HomePage />} />
+
+      <Route path="/menu" element={<MenuPage />} />
+      <Route path="/menu/:menuId" element={<MenuPage />} />
+
+      <Route path="/feedback" element={<FeedbackPage />} />
+
+      <Route path="/staff" element={<Staff />} />
+      <Route path="/staff/:menuId" element={<Staff />} />
+
+      <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>
