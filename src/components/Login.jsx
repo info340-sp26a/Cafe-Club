@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import StyledFirebaseAuth from "react-firebaseui/dist/StyledFirebaseAuth";
+import Alert from 'react-bootstrap/Alert';
 
 export default function Login() {
     const auth = getAuth();
+
+    const [alertMessage, setAlertMessage] = useState("");
 
 
     const firebaseUIConfig = {
@@ -29,10 +32,10 @@ export default function Login() {
         event.preventDefault()
 
         if (username.trim() === "" || password.trim() === "") {
-            alert("Please enter in a valid username or password!")
+            setAlertMessage("Please enter in a valid username or password!")
             return;
         }
-        alert('Welcome back, ${username}!');
+        setAlertMessage('Welcome back, ${username}!');
 
 
     }

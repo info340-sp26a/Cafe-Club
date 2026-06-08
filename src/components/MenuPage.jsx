@@ -4,6 +4,7 @@ import { getDatabase, ref, push, onValue, remove } from "firebase/database";
 import MenuBanner from './MenuBanner';
 import CustomizeMenu  from './CustomizeMenu';
 import { getAuth } from "firebase/auth";
+import Alert from 'react-bootstrap/Alert';
 
 
 import MenuContainer from './MenuContainer';
@@ -12,10 +13,14 @@ import MenuContainer from './MenuContainer';
 
 export default function MenuPage(props) {
     const navigate = useNavigate();
+
     const { menuId: urlMenuId } = useParams();
     const [menuId, setMenuId] = useState(null)
     const[menuTitle, setMenuTitle] = useState("");
     const [currentMenuTitle, setCurrentMenuTitle] = useState("");
+
+    const [alertMessage, setAlertMessage] = useState("");
+    
     useEffect(() => {
         if (!urlMenuId){
             return;
@@ -50,12 +55,12 @@ export default function MenuPage(props) {
                   const db = getDatabase();
       
                   await remove(ref(db, `menus/${menuId}`));
-                  alert("menu deleted");
+                  setAlertMessage("menu deleted");
                   navigate("/")
                }
                   catch(err)  {
                   console.error(err);
-                  alert("failed to delete");
+                  setAlertMessage("failed to delete");
               }
           }   
 
@@ -70,7 +75,7 @@ export default function MenuPage(props) {
         }
 
         if (menuTitle.trim() === "") {
-        alert("Please enter a menu title!");
+        setAlertMessage("Please enter a menu title!");
         return;
         }
         
@@ -104,6 +109,7 @@ export default function MenuPage(props) {
           />
           <button className="menuTitle"  type="submit">Create Menu</button>
         </form> )}
+        {message && (<Alert variant="warning" dismissible onClose={() => setMessage("")} > {message} </Alert>)}
 
        {menuId && (
         <div>

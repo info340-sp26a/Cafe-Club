@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import MenuThumbnail from "./MenuThumbnail";
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -52,6 +53,8 @@ import MenuThumbnail from "./MenuThumbnail";
 // }
 
 export default function HomePage() {
+
+  const [alertMessage, setAlertMessage] = useState("");
 
   const [accessCode, setAccessCode] = useState("");
   const [userMenu, setUserMenu] = useState([]);
@@ -104,7 +107,7 @@ export default function HomePage() {
     const data = snapshot.val();
 
     if (!data) {
-      alert("No Menu found!");
+      setAlertMessage("No Menu found!");
       return /*RETURN A DIV*/;
     }
         const menuId = Object.keys(data).find((key) => {
@@ -114,7 +117,7 @@ export default function HomePage() {
     if (menuId) {
       navigate(`/staff/${menuId}`);
     } else {
-      alert("Invalid access code.");
+      setAlertMessage("Invalid access code.");
     }
   }, {
     onlyOnce: true
@@ -194,6 +197,10 @@ const userMenuLinks = userMenu.map((menu) => {
 
           <button type="submit">Enter</button>
         </form>
+        {alertMessage && (
+        <Alert variant="danger" dismissible onClose={() => setAlertMessage("")}> {alertMessage}
+        </Alert>
+      )}
       </section>
     </main>
   );

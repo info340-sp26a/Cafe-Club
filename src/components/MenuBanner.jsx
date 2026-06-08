@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { getDatabase, ref, push, onValue, set } from 'firebase/database';
 import { getAuth } from "firebase/auth";
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -9,9 +10,10 @@ export default function MenuBanner(props) {
   const [savedCode, setSavedCode] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  const [alertMessage, setAlertMessage] = useState("");
+
   const auth = getAuth();
   const currentUser = auth.currentUser;
-
 
       useEffect(() => {
               if (!props.menuId){
@@ -42,7 +44,7 @@ export default function MenuBanner(props) {
 
 
     if (accessCode.trim() === ""){
-      alert("Please Enter an Access Code!");
+      setAlertMessage("Please Enter an Access Code!");
       return;
     }
     const db = getDatabase();
@@ -54,7 +56,7 @@ export default function MenuBanner(props) {
     setAccessCode("");
     setShowModal(false);
 
-    alert(`Access Code Saved: ${formattedCode.toUpperCase()}`);
+    setAlertMessage(`Access Code Saved: ${formattedCode.toUpperCase()}`);
   }
   return (
     <>
@@ -76,6 +78,11 @@ export default function MenuBanner(props) {
 
               </span>
               </button> {/*will be a modal*/}
+              {message && (
+              <Alert variant="info" dismissible onClose={() => setMessage("")} >
+                {message}
+                </Alert>
+              )}
 
         {savedCode && (
           <p className="saved-code">
