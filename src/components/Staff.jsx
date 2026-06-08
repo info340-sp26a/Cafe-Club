@@ -85,7 +85,7 @@ async function handleSubmit(event) {
 
 }
 catch(err){
-    console.error(err);
+    setAlertMessage("Failed to send feedback. Please try again.")
 
 }
 }
@@ -121,7 +121,7 @@ catch(err){
         
         <form className ="feedback-form" onSubmit={handleSubmit}>
             <label htmlFor="feedback">Feedback:</label>
-            <textarea id="feedback" placeholder="Write Your Feedback Here" 
+            <textarea name="feedback" id="feedback" placeholder="Write Your Feedback Here" 
             value={feedback} 
             onChange={(event) => setFeedback(event.target.value)}>
             </textarea>
@@ -135,10 +135,11 @@ catch(err){
 </p>
 
     <button type="submit" className="send-btn">Send</button>
-    </form>
     {alertMessage && (<Alert variant="success" dismissible onClose={() => setAlertMessage("")}> {alertMessage}
   </Alert>
     )}
+    </form>
+
 
     </section>
 </main>

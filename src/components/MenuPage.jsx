@@ -100,6 +100,7 @@ export default function MenuPage(props) {
           <label className="menuTitle" htmlFor="menuTitle">Menu Title:</label>
           <input
            className="menuTitle"
+           name="menuTitle"
             id="menuTitle"
             type="text"
             value={menuTitle}
@@ -108,8 +109,9 @@ export default function MenuPage(props) {
             required
           />
           <button className="menuTitle"  type="submit">Create Menu</button>
+        {alertMessage && (<Alert variant="warning" dismissible onClose={() => setAlertMessage("")} > {alertMessage} </Alert>)}
         </form> )}
-        {message && (<Alert variant="warning" dismissible onClose={() => setMessage("")} > {message} </Alert>)}
+
 
        {menuId && (
         <div>

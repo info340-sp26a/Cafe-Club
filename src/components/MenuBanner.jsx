@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { getDatabase, ref, push, onValue, set } from 'firebase/database';
+import { getDatabase, ref, push, onValue, set, get } from 'firebase/database';
 import { getAuth } from "firebase/auth";
 import Alert from 'react-bootstrap/Alert';
 
@@ -39,24 +39,46 @@ export default function MenuBanner(props) {
     setShowModal(false);
   }
 
-  function handleSendToStaff(event) {
+  async function handleSendToStaff(event) {
     event.preventDefault()
 
-
+    try{
     if (accessCode.trim() === ""){
       setAlertMessage("Please Enter an Access Code!");
       return;
     }
     const db = getDatabase();
-    const formattedCode = accessCode.toUpperCase();
+    const formattedCode = accessCode.trim().toUpperCase();
 
-    set(ref(db, `menus/${props.menuId}/accessCode`), formattedCode);
+    const snapshot = await get(ref(db, "menus"));
+    const data = snapshot.val();
+
+    let codeExist = false;
+    
+    if (data) {
+      Object.keys(data).forEach((menuId) => {
+        if (menuId !== props.menuId && data[menuId].accessCode === formattedCode) {
+          codeExist = true;
+        }
+      });
+    }
+    if (codeExist) {
+      setAlertMessage("This access code is already being used. Please Try Again")
+      return;
+    }
+
+    await set(ref(db, `menus/${props.menuId}/accessCode`), formattedCode);
 
     setSavedCode(formattedCode);
     setAccessCode("");
     setShowModal(false);
 
     setAlertMessage(`Access Code Saved: ${formattedCode.toUpperCase()}`);
+
+  } catch(err){
+    console.error(err);
+    setAlertMessage("Unable to save code. Please try again later.");
+  }
   }
   return (
     <>
@@ -78,11 +100,7 @@ export default function MenuBanner(props) {
 
               </span>
               </button> {/*will be a modal*/}
-              {message && (
-              <Alert variant="info" dismissible onClose={() => setMessage("")} >
-                {message}
-                </Alert>
-              )}
+              
 
         {savedCode && (
           <p className="saved-code">
@@ -98,9 +116,15 @@ export default function MenuBanner(props) {
             <p>Staff can use this code to review your menu.</p>
 
             <form onSubmit={handleSendToStaff}>
+              {alertMessage && (
+              <Alert variant="info" dismissible onClose={() => setAlertMessage("")} >
+                {alertMessage}
+                </Alert>
+              )}
               <label htmlFor="menu-access-code">Access Code:</label>
 
               <input
+                name="accessCode"
                 id="menu-access-code"
                 type="text"
                 value={accessCode}

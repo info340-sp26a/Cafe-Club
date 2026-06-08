@@ -78,14 +78,14 @@ export default function FeedbackPage() {
       Object.keys(data).forEach((menuId) => {
               const menu = data[menuId];
 
-      if (menu.ownerId === currentUser.uid || menu.owner === currentUser.uid) {
+      if (menu.ownerId === currentUser.uid || menu.ownerId === currentUser.uid) {
         if (menu.feedback) {
           Object.keys(menu.feedback).forEach((feedbackId) => {
             allFeedback.push({
               id: feedbackId,
               menuId: menuId,
               title: menu.title,
-              from: "Staff",
+              from: currentUser.displayName,
               date: new Date(menu.feedback[feedbackId].createdAt).toLocaleDateString(),
               rating: "★".repeat(menu.feedback[feedbackId].rating),
               text: menu.feedback[feedbackId].text,
@@ -117,14 +117,7 @@ export default function FeedbackPage() {
 
         });
 
-        // const updateApprovedFeedback = [feedback, ...approvedFeedback];
-
-        // const updatePendingFeedback = pendingFeedback.filter((item) => {
-        //     return item.id !== feedback.id
-        // });
-
-        // setApprovedFeedback(updateApprovedFeedback);
-        // setPendingFeedback(updatePendingFeedback);
+       
     }
 
     function rejectFeedback(feedback) {
@@ -132,10 +125,7 @@ export default function FeedbackPage() {
         const db = getDatabase();
 
         remove(ref(db, `menus/${feedback.menuId}/feedback/${feedback.id}`));
-        // const updatedPendingFeedback = pendingFeedback.filter((item) => {
-        //     return item.id !== id;
-        // });
-        // setPendingFeedback(updatedPendingFeedback);
+
     }
 
 
@@ -172,17 +162,17 @@ export default function FeedbackPage() {
             </div>
             <div className="feedback-flexbox">
                 <section className="feedback-column">
-                    <h2>Pending Feedback</h2>
+                    <h2>Recent Feedback</h2>
 
                     {pendingFeedback.length === 0 && (
-                        <p>No pending feedback right now!</p>
+                        <p>No feedback right now!</p>
                     )} 
 
                     {pendingFeedback.length > 0 && pendingFeedbackCards}
                 </section>
 
                 <section className="feedback-column approved-section">
-                    <h2>Approved Feedback History</h2>
+                    <h2>Reviewed Feedback History</h2>
 
                     {approvedFeedbackCards}
                 </section>

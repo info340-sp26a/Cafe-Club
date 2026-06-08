@@ -12,7 +12,7 @@ export default function FeedbackBanner({ pendingCount, approvedCount }) {
 
       <div className="feedback-summary">
         <SummaryCard icon="/img/loading.svg" iconClass="star-icon" label={`${pendingCount} Pending`} />
-        <SummaryCard icon="/img/approved.svg" label={`${approvedCount} Approved`} />
+        <SummaryCard icon="/img/approved.svg" label={`${approvedCount} Reviewed`} />
       </div>
     </section>
   );

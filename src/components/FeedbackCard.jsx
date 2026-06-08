@@ -8,15 +8,15 @@ export default function FeedbackCard({ feedback, showButtons, onApprove, onRejec
     onReject(feedback);
   }
 
-  let actionContent = <p className="status"> Status: Approved </p>
+  let actionContent = <p className="status"> Status: Reviewed </p>
 
   if (showButtons) {
     actionContent = (
       <div className="feedback-actions">
-      <button className="approve-btn" onClick={handleApproveClick}>Approve
+      <button className="approve-btn" onClick={handleApproveClick}>Mark Reviewed 
       </button>
 
-      <button className="reject-btn" onClick={handleRejectClick}>Reject
+      <button className="reject-btn" onClick={handleRejectClick}>Remove
       </button>
 
       </div>

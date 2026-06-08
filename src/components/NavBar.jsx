@@ -6,6 +6,7 @@ export default function Navbar({ currentUser }) {
     const auth = getAuth();
 
     signOut(auth).catch((err) => {
+      setAlertMessage("Please try again.")
     });
   }
   return (
@@ -26,7 +27,7 @@ export default function Navbar({ currentUser }) {
         </li>
 
         <li>
-          <Link to="/feedback">Feedback & Approval</Link>
+          <Link to="/feedback">Feedback Dashboard</Link>
         </li>
 
         <li className="auth-links">

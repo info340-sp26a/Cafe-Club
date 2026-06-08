@@ -28,17 +28,6 @@ export default function Login() {
 
     };
 
-    function handleSubmit(event) {
-        event.preventDefault()
-
-        if (username.trim() === "" || password.trim() === "") {
-            setAlertMessage("Please enter in a valid username or password!")
-            return;
-        }
-        setAlertMessage('Welcome back, ${username}!');
-
-
-    }
     return (
 
         <main className="auth-page">
@@ -52,7 +41,7 @@ export default function Login() {
                     uiConfig={firebaseUIConfig}
                     firebaseAuth={auth}
                 />
-
+                
                 <span alt="Angel emoticon holding matcha">
                     ଘ( つ⁰̷̴͈ ᵕ ˘͈)つ* 🍵
                 </span>
