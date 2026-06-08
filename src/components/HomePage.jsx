@@ -177,7 +177,7 @@ export default function HomePage() {
 
         <form className="access-form" onSubmit={handleAccessSubmit}>
           <label htmlFor="access-code" className="access">
-            Please enter access code:
+            Please enter a code to access the menu:
           </label>
 
           <input

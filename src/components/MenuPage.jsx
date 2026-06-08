@@ -68,6 +68,11 @@ export default function MenuPage(props) {
             console.error("No user logged in");
             return;
         }
+
+        if (menuTitle.trim() === "") {
+        alert("Please enter a menu title!");
+        return;
+        }
         
         const db = getDatabase();
         const menuRef = ref(db, 'menus');
@@ -94,6 +99,7 @@ export default function MenuPage(props) {
             value={menuTitle}
             onChange={(event) => setMenuTitle(event.target.value)}
             placeholder="Enter menu title"
+            required
           />
           <button className="menuTitle"  type="submit">Create Menu</button>
         </form>

@@ -2,22 +2,9 @@ import { useState, useEffect } from "react";
 import FeedbackBanner from "./FeedbackBanner";
 import FeedbackCard from "./FeedbackCard";
 import FeedbackTitle from "./FeedbackTitle";
-import { getDatabase, ref, push, onValue } from "firebase/database";
+import { getDatabase, ref, push, onValue, update, remove } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
-function handleSubmit(event) {
-    event.preventDefault();
-    const db = getDatabase();
-
-    push(ref(db, "feedback"), {
-        rating: rating,
-        message: feedback,
-        createdAt: Date.now(),
-        author: currentUser.email
-    });
-    alert("Feedback Submitted!!")
-
-}
 
 
 // const initialPending = [
@@ -123,21 +110,32 @@ export default function FeedbackPage() {
 }, []);
 
     function approveFeedback(feedback){
-        const updateApprovedFeedback = [feedback, ...approvedFeedback];
+        const db = getDatabase();
 
-        const updatePendingFeedback = pendingFeedback.filter((item) => {
-            return item.id !== feedback.id
+        update(ref(db, `menus/${feedback.menuId}/feedback/${feedback.id}`), {
+        status: "approved"
+
         });
 
-        setApprovedFeedback(updateApprovedFeedback);
-        setPendingFeedback(updatePendingFeedback);
+        // const updateApprovedFeedback = [feedback, ...approvedFeedback];
+
+        // const updatePendingFeedback = pendingFeedback.filter((item) => {
+        //     return item.id !== feedback.id
+        // });
+
+        // setApprovedFeedback(updateApprovedFeedback);
+        // setPendingFeedback(updatePendingFeedback);
     }
 
-    function rejectFeedback(id) {
-        const updatedPendingFeedback = pendingFeedback.filter((item) => {
-            return item.id !== id;
-        });
-        setPendingFeedback(updatedPendingFeedback);
+    function rejectFeedback(feedback) {
+
+        const db = getDatabase();
+
+        remove(ref(db, `menus/${feedback.menuId}/feedback/${feedback.id}`));
+        // const updatedPendingFeedback = pendingFeedback.filter((item) => {
+        //     return item.id !== id;
+        // });
+        // setPendingFeedback(updatedPendingFeedback);
     }
 
 
