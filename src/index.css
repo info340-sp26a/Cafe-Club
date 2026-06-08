@@ -742,6 +742,8 @@ textarea {
     gap: 1.5rem;
     margin: 2rem 0;
     margin-bottom: 2rem;
+    flex-direction: row;
+    
 }
 
 .feedback-summary div {
@@ -772,6 +774,7 @@ textarea {
     max-width: 320px;
     height: 160px;
     font-size: 1.5rem;
+
 }
 
 .summary-card img {
@@ -976,10 +979,6 @@ footer p {
     line-height: 1.2;
 }
 
-.sparkle {
-    display: none;
-
-}
 
 .banner-subtext {
     font-size: 1.2rem;
@@ -989,17 +988,7 @@ footer p {
 
 }
 
-.feedback-summary{
-    flex-direction: column;
-    align-items: center;
-}
 
-.summary-card {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    padding: 1rem;
-}
 
 @media (min-width: 468px) {
 
@@ -1041,9 +1030,7 @@ footer p {
     gap: 20px;
   }
 
-  .feedback-summary {
-    flex-direction: row;
-  }
+  
 
   .feedback-banner {
     width: 75%;
@@ -1054,12 +1041,6 @@ footer p {
   }
 
 
-  .feedback-summary {
-
-    flex-direction: row;
-
-  }
-
   .menu-editor-layout {
     display: flex;
     align-items: flex-start;
@@ -1068,6 +1049,11 @@ footer p {
 
   .menu-container {
     padding: 2rem;
+  }
+   .feedback-summary {
+
+    flex-direction: row;
+
   }
 
   .customize {
