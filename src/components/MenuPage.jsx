@@ -15,8 +15,8 @@ export default function MenuPage(props) {
     const navigate = useNavigate();
 
     const { menuId: urlMenuId } = useParams();
-    const [menuId, setMenuId] = useState(null)
-    const[menuTitle, setMenuTitle] = useState("");
+    const [menuId, setMenuId] = useState(null);
+    const [menuTitle, setMenuTitle] = useState("");
     const [currentMenuTitle, setCurrentMenuTitle] = useState("");
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
@@ -36,8 +36,9 @@ export default function MenuPage(props) {
                 setMenuId(urlMenuId);
                 setCurrentMenuTitle(data.title);
             }
-    });
-    return () => unsubscribe(); }, [urlMenuId]);
+        });
+        return () => unsubscribe(); 
+    }, [urlMenuId]);
 
 
            async function handleDelete(menuId) {
@@ -110,7 +111,7 @@ export default function MenuPage(props) {
         setMenuId(newMenuRef.key);
         setCurrentMenuTitle(menuTitle);
         setMenuTitle("");
-        }
+    }
 
     return (
     <> 
