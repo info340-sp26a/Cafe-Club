@@ -44,21 +44,23 @@ export default function App(props) {
         />
       <Header />
       <Routes>
+         <Route path="/login" element={<Login currentUser={currentUser} />} />
+
       
 
       <Route element={<ProtectedPage currentUser={currentUser} />} >
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage currentUser={currentUser} />} />
+        <Route path="/menu/:menuId" element={<MenuPage currentUser={currentUser} />} />
+
+        <Route path="/feedback" element={<FeedbackPage />} />
+
+        <Route path="/staff" element={<Staff />} />
+        <Route path="/staff/:menuId" element={<Staff />} />
+
+       <Route path="/login" element={<Login currentUser={currentUser} />} />
       </Route>
       
-      <Route path="/menu/:menuId" element={<MenuPage currentUser={currentUser} />} />
-
-      <Route path="/feedback" element={<FeedbackPage />} />
-
-      <Route path="/staff" element={<Staff />} />
-      <Route path="/staff/:menuId" element={<Staff />} />
-
-      <Route path="/login" element={<Login currentUser={currentUser} />} />
       </Routes>
       <Footer />
     </>

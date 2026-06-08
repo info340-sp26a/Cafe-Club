@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams, useNavigate } from 'react-router';
-import { getDatabase, ref, push, set, onValue, remove } from "firebase/database";
+import { getDatabase, ref, push, onValue, remove } from "firebase/database";
 import MenuBanner from './MenuBanner';
 import CustomizeMenu  from './CustomizeMenu';
 import { getAuth } from "firebase/auth";
@@ -16,32 +16,6 @@ export default function MenuPage(props) {
     const [menuId, setMenuId] = useState(null);
     const [menuTitle, setMenuTitle] = useState("");
     const [currentMenuTitle, setCurrentMenuTitle] = useState("");
-
-    async function handleDelete() {
-        if (!menuId){
-            return;
-        }
-
-        const confirmDelete = window.confirm("Are you sure you want to delete this?");
-
-        if (!confirmDelete){
-            return;
-        }
-
-        try{
-
-            const db = getDatabase();
-
-            await remove(ref(db, `menus/${menuId}`));
-            alert("menu deleted");
-            navigate("/")
-        }
-        catch(err)  {
-            console.error(err);
-            alert("failed to delete");
-        }
-    }    
-
     useEffect(() => {
         if (!urlMenuId){
             return;
@@ -58,6 +32,32 @@ export default function MenuPage(props) {
             }
     });
     return () => unsubscribe(); }, [urlMenuId]);
+
+
+           async function handleDelete() {
+              if (!menuId){
+                  return;
+              }
+      
+              const confirmDelete = window.confirm("Are you sure you want to delete this?");
+      
+              if (!confirmDelete){
+                  return;
+              }
+      
+              try{
+      
+                  const db = getDatabase();
+      
+                  await remove(ref(db, `menus/${menuId}`));
+                  alert("menu deleted");
+                  navigate("/")
+               }
+                  catch(err)  {
+                  console.error(err);
+                  alert("failed to delete");
+              }
+          }   
 
     function createMenu(event){
         event.preventDefault();
@@ -89,8 +89,9 @@ export default function MenuPage(props) {
 
     return (
     <> 
-        <MenuBanner />
-        <form onSubmit={createMenu}>
+       {menuId && <MenuBanner menuId={menuId} onDelete={handleDelete}/>}
+       
+       {!menuId && ( <form onSubmit={createMenu}>
           <label className="menuTitle" htmlFor="menuTitle">Menu Title:</label>
           <input
            className="menuTitle"
@@ -102,12 +103,11 @@ export default function MenuPage(props) {
             required
           />
           <button className="menuTitle"  type="submit">Create Menu</button>
-        </form>
+        </form> )}
+
        {menuId && (
         <div>
           <h2 className="currMenuTitle">{currentMenuTitle}</h2>
-          <button className="delete-btn" onClick={handleDelete}>Delete Menu</button>
-
           <div className="menu-editor-layout">
             <CustomizeMenu menuId={menuId}/>
             <MenuContainer menuId={menuId} />
@@ -117,4 +117,3 @@ export default function MenuPage(props) {
     </>
   );
 }
-

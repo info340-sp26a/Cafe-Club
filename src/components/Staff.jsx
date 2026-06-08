@@ -12,8 +12,6 @@ export default function Staff() {
     const [feedback, setFeedback] = useState("");
     const [message, setMessage ] = useState("");
     const [rating, setRating] = useState(0);
-    const starButton = [1, 2, 3, 4, 5].map((star) => {
-
 
     useEffect(() => {
         if(!menuId){
@@ -33,6 +31,8 @@ export default function Staff() {
 
     }, [menuId]);
 
+    
+    const starButton = [1, 2, 3, 4, 5].map((star) => {
         function handleStarClick(){
             setRating(star);
         }

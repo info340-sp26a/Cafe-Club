@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
+import MenuThumbnail from "./MenuThumbnail";
 
 
 
@@ -50,7 +51,6 @@ import { getAuth } from "firebase/auth";
 //   );
 // }
 
-
 export default function HomePage() {
 
   const [accessCode, setAccessCode] = useState("");
@@ -75,7 +75,8 @@ export default function HomePage() {
       if (!data) {
         setUserMenu([]);
         return;
-      } 
+      }
+
 
     const menuArray = Object.keys(data).map((key) => {
       return {
@@ -91,18 +92,13 @@ export default function HomePage() {
     return () => unsubscribe();
   }, []);
 
+
   function handleAccessSubmit(event){
   event.preventDefault();
 
   const db = getDatabase();
   
   const menuRef = ref(db, "menus");
-
-  if (accessCode === "MATCHALOVER") {
-    navigate("/staff");
-  }else {
-    alert("Invalid Access Code");
-  }
 
   onValue(menuRef, (snapshot) => {
     const data = snapshot.val();
@@ -125,6 +121,16 @@ export default function HomePage() {
   });
 }
 
+const userMenuLinks = userMenu.map((menu) => {
+  return (
+      <div key={menu.id} className="menu-card-wrapper">
+        <span className="menu-card-title">{menu.title}</span>
+        <Link to={`/menu/${menu.id}`} className="menu-link menu-card">
+          <MenuThumbnail menu={menu} />
+        </Link>
+      </div>
+  );
+});
   return (
     <main>
       <div className="home-page-Title">
@@ -134,15 +140,12 @@ export default function HomePage() {
         <h2>Your Menus:</h2>
 
         <div className="flex-container">
+          <div className="menu-card-wrapper">
+          <span className="menu-card-title">New Menu</span>
           <Link to="/menu" className="menu-link menu-add-btn" aria-label="Create a new menu">+</Link>
-          {userMenu.map((menu) => {
-            return (<Link to={`/menu/${menu.id}`} key={menu.id} className="menu-link">
-        {menu.title}
-      </Link>
-      );
-          }
-          )}
-        {/* <MenuImageList items={userMenus} /> */}
+        </div>
+          {userMenuLinks}
+
         </div>
         
       </section>
@@ -173,11 +176,11 @@ export default function HomePage() {
       <div className="divider"></div> */}
 
       <section>
-        <h2 className="subheader">Staff View</h2>
+        <h2 className="subheader">Review a Menu</h2>
 
         <form className="access-form" onSubmit={handleAccessSubmit}>
           <label htmlFor="access-code" className="access">
-            Please enter a code to access the menu:
+            Have an access code? Review a menu and share feedback!
           </label>
 
           <input

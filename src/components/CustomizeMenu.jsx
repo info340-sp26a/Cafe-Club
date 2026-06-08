@@ -1,10 +1,23 @@
-import React, {useState} from 'react';
-import { getDatabase, ref, set } from "firebase/database";
+import React, {useState, useEffect} from 'react';
+import { getDatabase, ref, set, onValue } from "firebase/database";
  
 export default function CustomizeMenu(props) {
   const [isExpanded, setIsExpanded] = useState(true);
   const [menuColor, setMenuColor] = useState('');
   const [menuStyle, setMenuStyle] = useState('');
+
+    useEffect(()=>{
+    const db=getDatabase();
+    const customizeRef=ref(db,'menus/'+props.menuId+'/customization');
+    onValue(customizeRef, (snapshot)=>{
+      const data=snapshot.val();
+      if (data){
+        setMenuColor(data.color || '');
+        setMenuStyle(data.style || '');
+      }
+    }, { onlyOnce:true });
+  }, [props.menuId]);
+
 
   function handleUpdate(event){
     event.preventDefault();
