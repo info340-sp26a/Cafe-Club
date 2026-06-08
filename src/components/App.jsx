@@ -28,7 +28,6 @@ export default function App(props) {
         navigateTo('/');
       } else {
         setCurrentUser(null);
-        console.log("not signed in");
       }
     });
 

@@ -2,6 +2,7 @@
 import { useState , useEffect} from "react";
 import { Link, useParams } from "react-router";
 import { getDatabase, ref, push, onValue } from "firebase/database"
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -12,6 +13,8 @@ export default function Staff() {
     const [feedback, setFeedback] = useState("");
     const [message, setMessage ] = useState("");
     const [rating, setRating] = useState(0);
+
+    const [alertMessage, setAlertMessage] = useState("");
 
     useEffect(() => {
         if(!menuId){
@@ -31,7 +34,7 @@ export default function Staff() {
 
     }, [menuId]);
 
-    
+
     const starButton = [1, 2, 3, 4, 5].map((star) => {
         function handleStarClick(){
             setRating(star);
@@ -52,13 +55,13 @@ async function handleSubmit(event) {
     event.preventDefault();
 
     if (!menuId){
-        alert("No menu selected")
+        setAlertMessage("No menu selected")
         return;
 
     }
 
     if (feedback.trim() === ""){
-        alert("please enter feedback")
+        setAlertMessage("please enter feedback")
 
         return;
     }
@@ -76,13 +79,13 @@ async function handleSubmit(event) {
                 createdAt: Date.now()
             }
         );
-        alert("message sucess")
+        setAlertMessage("message sucess")
         setFeedback("")
         setRating(0);
 
 }
 catch(err){
-    console.error(err);
+    setAlertMessage("Failed to send feedback. Please try again.")
 
 }
 }
@@ -118,7 +121,7 @@ catch(err){
         
         <form className ="feedback-form" onSubmit={handleSubmit}>
             <label htmlFor="feedback">Feedback:</label>
-            <textarea id="feedback" placeholder="Write Your Feedback Here" 
+            <textarea name="feedback" id="feedback" placeholder="Write Your Feedback Here" 
             value={feedback} 
             onChange={(event) => setFeedback(event.target.value)}>
             </textarea>
@@ -132,7 +135,11 @@ catch(err){
 </p>
 
     <button type="submit" className="send-btn">Send</button>
+    {alertMessage && (<Alert variant="success" dismissible onClose={() => setAlertMessage("")}> {alertMessage}
+  </Alert>
+    )}
     </form>
+
 
     </section>
 </main>

@@ -60,11 +60,7 @@ h3 {
     padding-right: 10px;
     font-size: 20px;
 }
-.app-title {
-    font-family: "Cedarville Cursive", cursive;
-    font-size: 2rem;
-    padding: 20px 0;
-}
+
 .menuTitle{
     padding-left: 10px;
     padding-right: 10px;
@@ -848,21 +844,23 @@ textarea {
 }
 
 .feedback-actions {
+    border-color: #000000;
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 1rem;
     margin-top: 1rem;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .approve-btn,
 .reject-btn {
-    width: 150px;
-    font-size: 1.25rem;
+
+    padding: 1rem 1rem;
+    width: auto;
+    height: auto;
+
+    font-size: 1rem;
     padding: 18px 40px;
     cursor: pointer;
-    flex: none;
 }
 
 .status {
@@ -1110,6 +1108,10 @@ footer p {
     width: 250px;
     height: 250px;
   }
+
+  .search-bar {
+    width: 400px;
+  }
   
  
 }
@@ -1290,4 +1292,50 @@ footer p {
 
 .currMenuTitle, .subheader {
     font-family: "Cedarville Cursive", cursive;
+}
+
+.alert-message {
+    background-color: #ffe6e6;
+    color: #b00020;
+    border: 1px solid #ffb3b3;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+.app-header {
+    display:flex;
+    align-items: center;
+    gap: 20px;
+
+    height: 200px;
+
+}
+
+.app-title {
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.header img{
+    height: 220px;
+  width: auto;
+}
+
+
+.search-bar {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+
+  margin: 1rem auto;
+  padding: 12px;
+
+  border: 2px solid #f2d3de;
+  border-radius: 15px;
+
+  font-size: 1rem;
 }

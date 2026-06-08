@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import MenuThumbnail from "./MenuThumbnail";
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -53,6 +54,10 @@ import MenuThumbnail from "./MenuThumbnail";
 
 export default function HomePage() {
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [alertMessage, setAlertMessage] = useState("");
+
   const [accessCode, setAccessCode] = useState("");
   const [userMenu, setUserMenu] = useState([]);
 
@@ -92,6 +97,9 @@ export default function HomePage() {
     return () => unsubscribe();
   }, []);
 
+const filteredMenus = userMenu.filter((menu) => {
+  return menu.title.toLowerCase().includes(searchTerm.toLowerCase());
+});
 
   function handleAccessSubmit(event){
   event.preventDefault();
@@ -104,7 +112,7 @@ export default function HomePage() {
     const data = snapshot.val();
 
     if (!data) {
-      alert("No Menu found!");
+      setAlertMessage("No Menu found!");
       return /*RETURN A DIV*/;
     }
         const menuId = Object.keys(data).find((key) => {
@@ -114,14 +122,14 @@ export default function HomePage() {
     if (menuId) {
       navigate(`/staff/${menuId}`);
     } else {
-      alert("Invalid access code.");
+      setAlertMessage("Invalid access code.");
     }
   }, {
     onlyOnce: true
   });
 }
 
-const userMenuLinks = userMenu.map((menu) => {
+const userMenuLinks = filteredMenus.map((menu) => {
   return (
       <div key={menu.id} className="menu-card-wrapper">
         <span className="menu-card-title">{menu.title}</span>
@@ -131,6 +139,9 @@ const userMenuLinks = userMenu.map((menu) => {
       </div>
   );
 });
+
+
+
   return (
     <main>
       <div className="home-page-Title">
@@ -138,7 +149,8 @@ const userMenuLinks = userMenu.map((menu) => {
       </div>
       <section>
         <h2>Your Menus:</h2>
-
+        <input className = "search-bar" type="text" placeholder="Search for a menu" id="menu-search" name="menuSearch" value={searchTerm} 
+        onChange={(event) => setSearchTerm(event.target.value)}/>
         <div className="flex-container">
           <div className="menu-card-wrapper">
           <span className="menu-card-title">New Menu</span>
@@ -193,6 +205,10 @@ const userMenuLinks = userMenu.map((menu) => {
           />
 
           <button type="submit">Enter</button>
+          {alertMessage && (
+        <Alert className='alert-message' variant="danger" dismissible onClose={() => setAlertMessage("")}> {alertMessage}
+        </Alert>
+      )}
         </form>
       </section>
     </main>

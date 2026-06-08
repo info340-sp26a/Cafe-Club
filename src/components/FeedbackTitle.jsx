@@ -7,7 +7,7 @@
 
 
         <section className="feedback-dashboard">
-            <h1 className="staff-message"> ✨ Staff Feedback Review ✨</h1>
+            <h1 className="staff-message"> ✨ Feedback Review ✨</h1>
             </section>
             </div>);
     }

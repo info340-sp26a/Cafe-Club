@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { getDatabase, ref, push, onValue, set } from 'firebase/database';
+import { getDatabase, ref, push, onValue, set, get } from 'firebase/database';
 import { getAuth } from "firebase/auth";
+import Alert from 'react-bootstrap/Alert';
 
 
 
@@ -9,9 +10,10 @@ export default function MenuBanner(props) {
   const [savedCode, setSavedCode] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  const [alertMessage, setAlertMessage] = useState("");
+
   const auth = getAuth();
   const currentUser = auth.currentUser;
-
 
       useEffect(() => {
               if (!props.menuId){
@@ -37,34 +39,52 @@ export default function MenuBanner(props) {
     setShowModal(false);
   }
 
-  function handleSendToStaff(event) {
+  async function handleSendToStaff(event) {
     event.preventDefault()
 
-
+    try{
     if (accessCode.trim() === ""){
-      alert("Please Enter an Access Code!");
+      setAlertMessage("Please Enter an Access Code!");
       return;
     }
     const db = getDatabase();
-    const formattedCode = accessCode.toUpperCase();
+    const formattedCode = accessCode.trim().toUpperCase();
 
-    set(ref(db, `menus/${props.menuId}/accessCode`), formattedCode);
+    const snapshot = await get(ref(db, "menus"));
+    const data = snapshot.val();
+
+    let codeExist = false;
+    
+    if (data) {
+      Object.keys(data).forEach((menuId) => {
+        if (menuId !== props.menuId && data[menuId].accessCode === formattedCode) {
+          codeExist = true;
+        }
+      });
+    }
+    if (codeExist) {
+      setAlertMessage("This access code is already being used. Please Try Again")
+      return;
+    }
+
+    await set(ref(db, `menus/${props.menuId}/accessCode`), formattedCode);
 
     setSavedCode(formattedCode);
     setAccessCode("");
     setShowModal(false);
 
-    alert(`Access Code Saved: ${formattedCode.toUpperCase()}`);
+    setAlertMessage(`Access Code Saved: ${formattedCode.toUpperCase()}`);
+
+  } catch(err){
+    console.error(err);
+    setAlertMessage("Unable to save code. Please try again later.");
+  }
   }
 
   return (
     <>
         <section className="banner container-fluid">
             <h1>  {currentUser?.displayName? `${currentUser.displayName}'s Menu`: "My Menu"} </h1>
-            <button>
-              <img className="buttons-icon" src="/img/save.png" alt="pixel folder icon"/>
-              <span className="save-btn">save</span>
-            </button> {/*will be a form*/}
             
             <button className="delete-icon" onClick={props.onDelete}> 
               <img className="buttons-icon" src='/img/trash.png' alt="pixel trash can icon"/>
@@ -91,9 +111,15 @@ export default function MenuBanner(props) {
             <p>Staff can use this code to review your menu.</p>
 
             <form onSubmit={handleSendToStaff}>
+              {alertMessage && (
+              <Alert variant="info" dismissible onClose={() => setAlertMessage("")} >
+                {alertMessage}
+                </Alert>
+              )}
               <label htmlFor="menu-access-code">Access Code:</label>
 
               <input
+                name="accessCode"
                 id="menu-access-code"
                 type="text"
                 value={accessCode}

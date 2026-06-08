@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import StyledFirebaseAuth from "react-firebaseui/dist/StyledFirebaseAuth";
+import Alert from 'react-bootstrap/Alert';
 
 export default function Login() {
     const auth = getAuth();
+
+    const [alertMessage, setAlertMessage] = useState("");
 
 
     const firebaseUIConfig = {
@@ -25,17 +28,6 @@ export default function Login() {
 
     };
 
-    function handleSubmit(event) {
-        event.preventDefault()
-
-        if (username.trim() === "" || password.trim() === "") {
-            alert("Please enter in a valid username or password!")
-            return;
-        }
-        alert('Welcome back, ${username}!');
-
-
-    }
     return (
 
         <main className="auth-page">
@@ -49,7 +41,7 @@ export default function Login() {
                     uiConfig={firebaseUIConfig}
                     firebaseAuth={auth}
                 />
-
+                
                 <span alt="Angel emoticon holding matcha">
                     ଘ( つ⁰̷̴͈ ᵕ ˘͈)つ* 🍵
                 </span>
