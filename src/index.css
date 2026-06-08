@@ -730,7 +730,7 @@ textarea {
 }
 
 .bunny, .buttons-icon {
-  width: 60px;
+  width: 30px;
   height: auto;
   flex-shrink: 0;
 }
@@ -1002,133 +1002,7 @@ footer p {
     padding: 1rem;
 }
 
-@media (min-width: 468px) {
 
-    .button-text {
-        display: inline;
-    }
-}
-
-@media (min-width: 714px) {
-  nav {
-    height: 70px;
-    padding: 0 1rem;
-  }
-
-  nav ul {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 2rem;
-  }
-
-  .navbar a {
-    font-size: 1.25rem;
-  }
-
-  .navbar img,
-  .custom-icon {
-    width: 42px;
-    height: 42px;
-  }
-
-  img.cakepixel,
-  img.matchapixel {
-    max-width: 65px;
-  }
-
-  .quotes {
-    flex-direction: row;
-    max-width: 900px;
-    gap: 20px;
-  }
-
-  .feedback-summary {
-    flex-direction: row;
-  }
-
-  .feedback-banner {
-    width: 75%;
-  }
-
-  .feedback-column {
-    width: 420px;
-  }
-
-
-  .feedback-summary {
-
-    flex-direction: row;
-
-  }
-
-  .menu-editor-layout {
-    display: flex;
-    align-items: flex-start;
-    flex: 1 1 auto;
-  }
-
-  .menu-container {
-    padding: 2rem;
-  }
-
-  .customize {
-    width: fit-content;
-    flex-shrink: 0;
-    border-bottom: none;
-    border-right: black solid 1px;
-    min-height: 100%;
-    align-self: stretch;
-    transition: width 0.3s ease;
-  }
- 
-  .customize-header {
-    flex-direction: column;
-    align-items: center;
-    padding: 0.75rem 0;
-    gap: 0.5rem;
-    white-space: nowrap;
-  }
-
-  .customize button.collapsible .customize-arrow {
-    transform: rotate(-90deg);
-    transition: transform 0.3s ease;
-  }
-
-  .customize.customize--collapsed button.collapsible .customize-arrow {
-    transform: rotate(90deg);
-  }
-
-  .flex-container {
-    flex-direction: row;
-    justify-content: center;
-    align-items: wrap;
-    gap: 1.5rem;
-  }
-  .menu-link {
-    width: 250px;
-    height: 250px;
-  }
-
-  .search-bar {
-    width: 400px;
-  }
-  
- 
-}
-
-
-@media (min-width: 1024px) {
-
-    .message, .app-title {
-        font-size: 3rem;
-    }
-
-    .feedback-banner {
-        width: 75%;
-    }
-
-
-}
 
 
 .auth-page {
@@ -1316,7 +1190,7 @@ footer p {
 
 .app-title {
     font-family: "Cedarville Cursive", cursive;
-    font-size: 4rem;
+    font-size: 2.5rem;
     margin: 0;
 }
 
@@ -1338,4 +1212,137 @@ footer p {
   border-radius: 15px;
 
   font-size: 1rem;
+}
+
+@media (min-width: 468px) {
+
+    .button-text {
+        display: inline;
+    }
+
+    .buttons-icon {
+        width: 50px;
+        height: auto;
+    }
+}
+
+@media (min-width: 714px) {
+  nav {
+    height: 70px;
+    padding: 0 1rem;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 2rem;
+  }
+
+  .navbar a {
+    font-size: 1.25rem;
+  }
+
+  .navbar img,
+  .custom-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  img.cakepixel,
+  img.matchapixel {
+    max-width: 65px;
+  }
+
+  .quotes {
+    flex-direction: row;
+    max-width: 900px;
+    gap: 20px;
+  }
+
+  .feedback-summary {
+    flex-direction: row;
+  }
+
+  .feedback-banner {
+    width: 75%;
+  }
+
+  .feedback-column {
+    width: 420px;
+  }
+
+
+  .feedback-summary {
+
+    flex-direction: row;
+
+  }
+
+  .menu-editor-layout {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 1 auto;
+  }
+
+  .menu-container {
+    padding: 2rem;
+  }
+
+  .customize {
+    width: fit-content;
+    flex-shrink: 0;
+    border-bottom: none;
+    border-right: black solid 1px;
+    min-height: 100%;
+    align-self: stretch;
+    transition: width 0.3s ease;
+  }
+ 
+  .customize-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 0;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .customize button.collapsible .customize-arrow {
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+  }
+
+  .customize.customize--collapsed button.collapsible .customize-arrow {
+    transform: rotate(90deg);
+  }
+
+  .flex-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: wrap;
+    gap: 1.5rem;
+  }
+  .menu-link {
+    width: 250px;
+    height: 250px;
+  }
+
+  .search-bar {
+    width: 400px;
+  }
+  
+ 
+}
+
+
+@media (min-width: 1024px) {
+
+    .message, .app-title {
+        font-size: 3rem;
+    }
+
+    .feedback-banner {
+        width: 75%;
+    }
+
+
 }

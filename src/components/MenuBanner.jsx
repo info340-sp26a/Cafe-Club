@@ -88,13 +88,13 @@ export default function MenuBanner(props) {
             
             <button className="delete-icon" onClick={props.onDelete}> 
               <img className="buttons-icon" src='/img/trash.png' alt="pixel trash can icon"/>
-              <span className="delete-btn">Delete</span>
+              <span className="delete-btn button-text">Delete</span>
 
             </button>
 
             <button id="access-code" onClick={() => setShowModal(true)}>
               <img className="buttons-icon" src='/img/send.png' alt="pixel arrow icon"/>
-              <span className="button-text">Access Code:</span>
+              <span className="button-text">Share</span>
             </button>
 
         {savedCode && (
