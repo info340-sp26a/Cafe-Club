@@ -1002,6 +1002,21 @@ footer p {
 }
 
 @media (min-width: 468px) {
+.thumbnail-wrapper {
+  width: 190px;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  position: relative;
+}
+ .menu-link {
+    width: 250px;
+    height: 250px;
+  }
+ 
+
 
     .button-text {
         display: inline;
