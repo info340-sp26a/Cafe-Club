@@ -30,34 +30,35 @@ export default function MenuPage(props) {
                 setMenuId(urlMenuId);
                 setCurrentMenuTitle(data.title);
             }
-    });
-    return () => unsubscribe(); }, [urlMenuId]);
+        });
+        return () => unsubscribe(); 
+    }, [urlMenuId]);
 
 
-           async function handleDelete() {
-              if (!menuId){
-                  return;
-              }
-      
-              const confirmDelete = window.confirm("Are you sure you want to delete this?");
-      
-              if (!confirmDelete){
-                  return;
-              }
-      
-              try{
-      
-                  const db = getDatabase();
-      
-                  await remove(ref(db, `menus/${menuId}`));
-                  alert("menu deleted");
-                  navigate("/")
-               }
-                  catch(err)  {
-                  console.error(err);
-                  alert("failed to delete");
-              }
-          }   
+    async function handleDelete() {
+        if (!menuId){
+            return;
+        }
+
+        const confirmDelete = window.confirm("Are you sure you want to delete this?");
+
+        if (!confirmDelete){
+            return;
+        }
+
+        try{
+
+            const db = getDatabase();
+
+            await remove(ref(db, `menus/${menuId}`));
+            alert("menu deleted");
+            navigate("/")
+        }
+            catch(err)  {
+            console.error(err);
+            alert("failed to delete");
+        }
+    }   
 
     function createMenu(event){
         event.preventDefault();
@@ -85,7 +86,7 @@ export default function MenuPage(props) {
         setMenuId(newMenuRef.key);
         setCurrentMenuTitle(menuTitle);
         setMenuTitle("");
-        }
+    }
 
     return (
     <> 

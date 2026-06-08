@@ -78,17 +78,17 @@ export default function HomePage() {
       }
 
 
-    const menuArray = Object.keys(data).map((key) => {
-      return {
-        id: key,
-        ...data[key]
-      };
-    })
-    .filter((menu) => {
-      return menu.ownerId === currentUser.uid;
+      const menuArray = Object.keys(data).map((key) => {
+        return {
+          id: key,
+          ...data[key]
+        };
+      })
+      .filter((menu) => {
+        return menu.ownerId === currentUser.uid;
+      });
+      setUserMenu(menuArray);
     });
-    setUserMenu(menuArray);
-  });
     return () => unsubscribe();
   }, []);
 

@@ -76,10 +76,6 @@ export default function MenuBanner(props) {
               <img className="buttons-icon" src='/img/send.png' alt="pixel arrow icon"/>
               <span className="button-text">Access Code:</span>
             </button>
-            <button id="access-code" onClick={() => setShowModal(true)}>
-              <span className="material-icons">send</span>
-              <span className="button-text">Access Code: </span>
-            </button>
 
         {savedCode && (
           <p className="saved-code">
