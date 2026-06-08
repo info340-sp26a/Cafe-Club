@@ -4,54 +4,13 @@ import FeedbackCard from "./FeedbackCard";
 import FeedbackTitle from "./FeedbackTitle";
 import { getDatabase, ref, push, onValue, update, remove } from "firebase/database";
 import { getAuth } from "firebase/auth";
+import Alert from 'react-bootstrap/Alert';
 
-
-
-// const initialPending = [
-//     {
-//         id: 1,
-//         title: "Isabella's Menu",
-//         from: "Divya",
-//         date: "May 21, 2026",
-//         rating: "★★★★☆",
-//         text: "The drink names are cute, but the seasonal section could be better",
-//         image: "/img/menu1.png"
-//     },
-//     {
-//         id: 2,
-//         title: "Divya's Menu",
-//         from: "Isabella",
-//         date: "May 22, 2026",
-//         rating: "★★★★★",
-//         text: "The menu is easy to follow and the visuals are helpful.",
-//         image: "/img/menu2.png"
-//     }
-// ];
-
-// const initialApproved = [
-//     {
-//         id: 3,
-//         title: "Cafe Yoka Menu",
-//         from: "Isabella",
-//         date: "May 21, 2026",
-//         rating: "★★★★★",
-//         text: "The pictures and visuals are helpful for customers.",
-//         image: "/img/template1.png"
-//     },
-//     {
-//         id: 4,
-//         title: "Phe",
-//         from: "Tatevik",
-//         date: "May 30, 2026",
-//         rating: "★★★★★",
-//         text: "I wish we had more items on the menu, it feels a little bit limited",
-//         image: "/img/template1.png"
-//     }
-// ];
 
 export default function FeedbackPage() {
     const [pendingFeedback, setPendingFeedback] = useState([]);
     const [approvedFeedback, setApprovedFeedback] = useState([]);
+    const [alertMessage, setAlertMessage] = useState("");
 
     useEffect(() => {
         const auth = getAuth();
@@ -109,24 +68,35 @@ export default function FeedbackPage() {
   return () => unsubscribe();
 }, []);
 
-    function approveFeedback(feedback){
+   async function approveFeedback(feedback){
+    try {
         const db = getDatabase();
 
-        update(ref(db, `menus/${feedback.menuId}/feedback/${feedback.id}`), {
+        await update(ref(db, `menus/${feedback.menuId}/feedback/${feedback.id}`), {
         status: "approved"
 
         });
 
-       
+    
+    }
+    catch (err){
+
+        setAlertMessage("Please try again!")
+    }
     }
 
-    function rejectFeedback(feedback) {
+    async function rejectFeedback(feedback) {
 
+        try {
         const db = getDatabase();
 
         remove(ref(db, `menus/${feedback.menuId}/feedback/${feedback.id}`));
 
     }
+    catch (err){
+        setAlertMessage("Please try again!");
+    }
+}
 
 
     const pendingFeedbackCards = pendingFeedback.map((feedback) =>{
@@ -155,6 +125,11 @@ export default function FeedbackPage() {
         <main className="feedback-main">
             <div className="title-banner">
             <FeedbackTitle />
+                {alertMessage && (<Alert variant="info" dismissible onClose={() => setAlertMessage("")}>
+        {alertMessage}
+      </Alert>
+    )}
+
             <FeedbackBanner
                 pendingCount={pendingFeedback.length}
                 approvedCount={approvedFeedback.length}

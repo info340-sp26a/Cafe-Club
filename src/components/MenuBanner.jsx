@@ -10,6 +10,8 @@ export default function MenuBanner(props) {
   const [savedCode, setSavedCode] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  
+
   const [alertMessage, setAlertMessage] = useState("");
 
   const auth = getAuth();
