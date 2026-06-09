@@ -29,6 +29,7 @@ export default function CustomizeMenu(props) {
       color: menuColor,
       style: menuStyle
     });
+     props.onColorChange(menuColor);
   }
  
   return (

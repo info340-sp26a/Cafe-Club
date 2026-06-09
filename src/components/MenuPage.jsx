@@ -10,6 +10,12 @@ import Alert from 'react-bootstrap/Alert';
 import MenuContainer from './MenuContainer';
 import { bgColors, fontColors } from './menuColors';
 
+const colorMap = {
+    pink: "#ffb6c1",
+    green: "#90ee90",
+    yellow: "#ffffe0",
+    blue: "#add8e6",
+};
 export default function MenuPage(props) {
     const navigate = useNavigate();
 
@@ -21,7 +27,8 @@ export default function MenuPage(props) {
 
     const [alertMessage, setAlertMessage] = useState("");
     const [menuColor, setMenuColor] = useState("");
-    
+
+  
     useEffect(() => {
         if (!urlMenuId){
             return;
@@ -35,7 +42,7 @@ export default function MenuPage(props) {
             if (data) {
                 setMenuId(urlMenuId);
                 setCurrentMenuTitle(data.title);
-                setMenuColor(data.customization?.color || "");
+                setMenuColor(data.customization?.color || '');
             }
         });
         return () => unsubscribe(); 
@@ -129,7 +136,7 @@ export default function MenuPage(props) {
         <div className="menu-page-content">
           <h2 className="currMenuTitle">{currentMenuTitle}</h2>
           <div className="menu-editor-layout">
-            <CustomizeMenu menuId={menuId}/>
+            <CustomizeMenu menuId={menuId} onColorChange={(color) => setMenuColor(color)} />
             <MenuContainer menuId={menuId} menuColor={menuColor} bgColors={bgColors} fontColors={fontColors} />
           </div>
         </div>
