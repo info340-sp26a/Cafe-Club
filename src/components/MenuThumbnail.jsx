@@ -1,7 +1,7 @@
 import { bgColors, fontColors } from './menuColors';
 
 export default function MenuThumbnail({ menu }) {
-  const sections = Object.values(menu.sections ?? {});
+  const sections = Object.values(menu?.sections ?? {});
   const color = menu.customization?.color || "";
   const bgColor = bgColors[color] || "";
   const fontColor = fontColors[color] || "";

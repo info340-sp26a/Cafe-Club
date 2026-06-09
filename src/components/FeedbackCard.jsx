@@ -32,7 +32,7 @@ export default function FeedbackCard({ feedback, showButtons, onApprove, onRejec
   return (
     <article className="feedback-card">
       <MenuThumbnail menu={feedback.menu} />
-
+      <div className="feedback-details">
       <h3>{feedback.title}</h3>
 
       <p className="feedback-source">
@@ -43,6 +43,7 @@ export default function FeedbackCard({ feedback, showButtons, onApprove, onRejec
 
       <p>{feedback.text}</p>
       {actionContent}
+      </div>
     </article>
   );
 }

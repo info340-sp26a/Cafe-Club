@@ -1336,6 +1336,19 @@ footer p {
     display: none;
   }
 
+.feedback-card .thumbnail-wrapper {
+  width: 100%;
+  max-width: 520px;
+  height: 300px;
+  margin: 0 auto 1.5rem;
+}
+.feedback-card .thumbnail-inner {
+  transform: scale(0.75);
+  transform-origin: top left;
+  width: calc(100% / 0.75);
+  height: calc(100% / 0.75);
+}
+
  
 }
 

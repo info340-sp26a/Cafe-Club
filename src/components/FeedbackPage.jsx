@@ -50,7 +50,7 @@ export default function FeedbackPage() {
               date: new Date(menu.feedback[feedbackId].createdAt).toLocaleDateString(),
               rating: "★".repeat(menu.feedback[feedbackId].rating),
               text: menu.feedback[feedbackId].text,
-              image: menu,
+              menu: menu,
               status: menu.feedback[feedbackId].status || "pending"
             });
           });
