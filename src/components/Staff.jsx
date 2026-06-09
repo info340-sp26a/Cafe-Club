@@ -2,6 +2,7 @@ import { useState , useEffect} from "react";
 import { Link, useParams } from "react-router";
 import { getDatabase, ref, push, onValue } from "firebase/database"
 import Alert from 'react-bootstrap/Alert';
+import { bgColors, fontColors } from './menuColors';
 
 
 export default function Staff() {
@@ -107,8 +108,12 @@ catch(err){
 
     <div className="menu">
         <div className="menu-container">
-            {menuData && Object.values(menuData.sections ?? {}).map((section, i) => (
-                <div key={i} className="menu-section-preview">
+            {menuData && Object.values(menuData.sections ?? {}).map((section, i) => {
+              const color = menuData.customization?.color || "";
+              const bgColor = bgColors[color] || "";
+              const fontColor = fontColors[color] || "";
+              return (
+                <div key={i} className="menu-section-preview" style={{ backgroundColor: bgColor, color: fontColor }}>
                     <div className="menu-section-header">
                         <h3 className="menu-section-title">{section.name}</h3>
                     </div>
@@ -119,7 +124,8 @@ catch(err){
                         </div>
                     ))}
                 </div>
-            ))}
+              );
+            })}
             {menuData && Object.keys(menuData.sections ?? {}).length === 0 && (
                 <p>This menu has no sections yet.</p>
             )}

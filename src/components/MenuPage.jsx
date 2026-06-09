@@ -8,8 +8,7 @@ import Alert from 'react-bootstrap/Alert';
 
 
 import MenuContainer from './MenuContainer';
-
-
+import { bgColors, fontColors } from './menuColors';
 
 export default function MenuPage(props) {
     const navigate = useNavigate();
@@ -21,6 +20,7 @@ export default function MenuPage(props) {
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     const [alertMessage, setAlertMessage] = useState("");
+    const [menuColor, setMenuColor] = useState("");
     
     useEffect(() => {
         if (!urlMenuId){
@@ -35,6 +35,7 @@ export default function MenuPage(props) {
             if (data) {
                 setMenuId(urlMenuId);
                 setCurrentMenuTitle(data.title);
+                setMenuColor(data.customization?.color || "");
             }
         });
         return () => unsubscribe(); 
@@ -153,7 +154,7 @@ export default function MenuPage(props) {
           <h2 className="currMenuTitle">{currentMenuTitle}</h2>
           <div className="menu-editor-layout">
             <CustomizeMenu menuId={menuId}/>
-            <MenuContainer menuId={menuId} />
+            <MenuContainer menuId={menuId} menuColor={menuColor} bgColors={bgColors} fontColors={fontColors} />
           </div>
         </div>
       )}

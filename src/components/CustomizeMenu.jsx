@@ -3,8 +3,8 @@ import { getDatabase, ref, set, onValue } from "firebase/database";
  
 export default function CustomizeMenu(props) {
   const [isExpanded, setIsExpanded] = useState(true);
-  const [menuColor, setMenuColor] = useState('');
-  const [menuStyle, setMenuStyle] = useState('');
+  const [menuColor, setMenuColor] = useState("");
+  const [menuStyle, setMenuStyle] = useState("");
 
     useEffect(()=>{
     const db=getDatabase();
