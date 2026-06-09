@@ -66,12 +66,17 @@ export default function MenuContainer(props) {
         remove(ref(db, `menus/${menuId}/sections/${sectionId}`));
     }
 
+    const bgColor = props.bgColors?.[props.menuColor] || "";
+    const fontColor = props.fontColors?.[props.menuColor] || "";
+
     const sectionArray = sections.map((section) => (
         <MenuSection
             section={section}
             menuId={menuId}
             key={section.id}
             onDeleteSection={handleDeleteSection}
+            bgColor={bgColor}
+            fontColor={fontColor}
         />
     ));
 
@@ -133,7 +138,7 @@ export default function MenuContainer(props) {
 
 
 function MenuSection(props) {
-    const { section, menuId, onDeleteSection } = props;
+    const { section, menuId, onDeleteSection, bgColor, fontColor } = props;
 
     const [inProgress, setInProgress] = useState(false);
     const [itemName, setItemName] = useState("");
@@ -171,7 +176,7 @@ function MenuSection(props) {
     ));
 
     return (
-        <div className="menu-section-preview">
+        <div className="menu-section-preview" style={{ backgroundColor: bgColor || "", color: fontColor || "" }}>
             <div className="menu-section-header">
                 <h3 className="menu-section-title">{section.name}</h3>
                 <button
@@ -212,11 +217,10 @@ function MenuSection(props) {
 
             {inProgress && (
                 <form onSubmit={addItem}>
-                    <label className="menuTitle" htmlFor={`itemName-${section.id}`}>
+                    <label htmlFor={`itemName-${section.id}`}>
                         Item Name:
                     </label>
                     <input
-                        className="menuTitle"
                         id={`itemName-${section.id}`}
                         type="text"
                         value={itemName}
@@ -226,11 +230,12 @@ function MenuSection(props) {
                         required
                     />
 
-                    <label className="menuTitle" htmlFor={`itemPrice-${section.id}`}>
+                    <div> </div>
+
+                    <label className="item-question" htmlFor={`itemPrice-${section.id}`}>
                         Item Price:
                     </label>
                     <input
-                        className="menuTitle"
                         id={`itemPrice-${section.id}`}
                         type="number"
                         min="0"
@@ -241,11 +246,10 @@ function MenuSection(props) {
                         required
                     />
 
-                    <button className="menuTitle" type="submit">
+                    <button type="submit">
                         Save Item
                     </button>
                     <button
-                        className="menuTitle"
                         type="button"
                         onClick={() => {
                             setInProgress(false);
