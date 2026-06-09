@@ -462,6 +462,10 @@ button.collapsible {
     justify-content: center;
 }
 
+.item-question {
+    margin-top: 2rem;
+}
+
 .small.circle-plus-btn {
     width: 0.5em;
     height: 0.5em;

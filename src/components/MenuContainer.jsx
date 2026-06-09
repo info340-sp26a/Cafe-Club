@@ -217,11 +217,10 @@ function MenuSection(props) {
 
             {inProgress && (
                 <form onSubmit={addItem}>
-                    <label className="menuTitle" htmlFor={`itemName-${section.id}`}>
+                    <label htmlFor={`itemName-${section.id}`}>
                         Item Name:
                     </label>
                     <input
-                        className="menuTitle"
                         id={`itemName-${section.id}`}
                         type="text"
                         value={itemName}
@@ -231,11 +230,12 @@ function MenuSection(props) {
                         required
                     />
 
-                    <label className="menuTitle" htmlFor={`itemPrice-${section.id}`}>
+                    <div> </div>
+
+                    <label className="item-question" htmlFor={`itemPrice-${section.id}`}>
                         Item Price:
                     </label>
                     <input
-                        className="menuTitle"
                         id={`itemPrice-${section.id}`}
                         type="number"
                         min="0"
@@ -246,11 +246,10 @@ function MenuSection(props) {
                         required
                     />
 
-                    <button className="menuTitle" type="submit">
+                    <button type="submit">
                         Save Item
                     </button>
                     <button
-                        className="menuTitle"
                         type="button"
                         onClick={() => {
                             setInProgress(false);
