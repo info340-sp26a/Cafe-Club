@@ -37,9 +37,8 @@ export default function FeedbackPage() {
       Object.keys(data).forEach((menuId) => {
               const menu = data[menuId];
 
-              console.log("MENU FOR FEEDBACK:", menu);
 
-      if (menu.ownerId === currentUser.uid || menu.ownerId === currentUser.uid) {
+      if (menu.ownerId === currentUser.uid) {
         if (menu.feedback) {
           Object.keys(menu.feedback).forEach((feedbackId) => {
             allFeedback.push({

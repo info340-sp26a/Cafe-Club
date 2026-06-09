@@ -1,53 +1,11 @@
 import HomeTitle from "./HomeTitle";
 import { Link, useNavigate } from "react-router";
 import { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, get } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import MenuThumbnail from "./MenuThumbnail";
 import Alert from 'react-bootstrap/Alert';
 
-
-// const userMenus = [
-//   { src: "/img/menu1.png", alt:"a picture of the menu"},
-//   { src: "/img/menu2.png", alt:"a picture of the menu"},
-//   { src: "/img/menu3.png", alt:"a picture of the menu"},
-//   { src: "/img/menu4.png", alt:"a picture of the menu"},
-// ];
-
-// const templates = [
-//   { src: "/img/template1.png", alt:"a picture of the menu templates"},
-//   { src: "/img/template2.png", alt:"a picture of the menu templates"},
-//   { src: "/img/template3.png", alt:"a picture of the menu templates"},
-//   { src: "/img/template4.png", alt:"a picture of the menu templates"}
-
-// ];
-
-// const recentlyViewed = [
-
-//   { src: "/img/menu1.png", alt:"a picture of the menu"},
-//   { src: "/img/menu2.png", alt:"a picture of the menu"},
-//   { src: "/img/menu3.png", alt:"a picture of the menu"},
-// ]
-
-// function MenuImageList( {items} ) {
-
-//   const menuImage = items.map((menu,index) =>
-//   {
-//     return (
-//           <Link to="/menu" key={index}>
-//           <img className="menu-link menu"
-//           src={menu.src}
-//           alt={menu.alt} />
-//         </Link>
-
-//     );
-//   });
-//   return(
-//     <>
-//     {menuImage}
-//     </>
-//   );
-// }
 
 export default function HomePage() {
 
@@ -98,15 +56,16 @@ const filteredMenus = userMenu.filter((menu) => {
   return menu.title.toLowerCase().includes(searchTerm.toLowerCase());
 });
 
-  function handleAccessSubmit(event){
+  async function handleAccessSubmit(event){
   event.preventDefault();
 
   const db = getDatabase();
   
   const menuRef = ref(db, "menus");
 
-  onValue(menuRef, (snapshot) => {
-    const data = snapshot.val();
+  const snapshot = await get(menuRef);
+  const data = snapshot.val();
+
 
     if (!data) {
       setAlertMessage("No Menu found!");
@@ -121,11 +80,8 @@ const filteredMenus = userMenu.filter((menu) => {
     } else {
       setAlertMessage("Invalid access code.");
     }
-  }, {
-    onlyOnce: true
-  });
-}
 
+  }
 const userMenuLinks = filteredMenus.map((menu) => {
   return (
       <div key={menu.id} className="menu-card-wrapper">

@@ -24,7 +24,7 @@ export default function Staff() {
         const db = getDatabase();
         const menuRef = ref(db, `menus/${menuId}`); 
         
-        onValue(menuRef, (snapshot) => {
+       const unsubscribe= onValue(menuRef, (snapshot) => {
             const data = snapshot.val();
 
             if (data) {
@@ -32,7 +32,7 @@ export default function Staff() {
                 setMenuData(data);
             }
         });
-
+        return () => unsubscribe();
     }, [menuId]);
 
 

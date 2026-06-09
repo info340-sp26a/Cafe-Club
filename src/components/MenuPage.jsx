@@ -60,31 +60,7 @@ export default function MenuPage(props) {
                 setAlertMessage("Unable to delete menu.");
             }
         }
-    
-              
-        //     if (!menuId){
-        //           return;
-        //       }
-      
-        //       const confirmDelete = window.confirm("Are you sure you want to delete this?");
-      
-        //       if (!confirmDelete){
-        //           return;
-        //       }
-      
-        //       try{
-      
-        //           const db = getDatabase();
-      
-        //           await remove(ref(db, `menus/${menuId}`));
-        //           setAlertMessage("menu deleted");
-        //           navigate("/")
-        //        }
-        //           catch(err)  {
-        //           console.error(err);
-        //           setAlertMessage("failed to delete");
-        //       }
-        //   }   
+
 
     function createMenu(event){
         event.preventDefault();
@@ -92,7 +68,7 @@ export default function MenuPage(props) {
         const currentUser = auth.currentUser;
         
         if (!currentUser) {
-            console.error("No user logged in");
+            setAlertMessage("No User logged in")
             return;
         }
 

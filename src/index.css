@@ -963,11 +963,7 @@ textarea {
     color: #333;
 }
 
-.thumbnail-section-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: #555;
-}
+
 
 .thumbnail-item {
   font-size: 11px;
@@ -1299,10 +1295,6 @@ footer p {
     justify-content: center;
     align-items: wrap;
     gap: 1.5rem;
-  }
-  .menu-link {
-    width: 250px;
-    height: 250px;
   }
 
   .search-bar {

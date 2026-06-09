@@ -1,0 +1,18 @@
+mutation CreateCafe($name: String!, $ownerId: String!) @auth(level: USER) {
+  cafe_insert(data: { name: $name, ownerId: $ownerId })
+}
+
+mutation UpdateCafeAddress($id: UUID!, $newAddress: String!) @auth(level: USER) {
+  cafe_update(id: $id, data: { address: $newAddress })
+}
+
+query ListCategoriesByCafe($cafeId: UUID!) @auth(level: USER) {
+  categories(where: { cafeId: { eq: $cafeId } }) {
+    name
+    displayOrder
+  }
+}
+
+mutation DeleteMenuItem($itemId: UUID!) @auth(level: USER) {
+  menuItem_delete(id: $itemId)
+}

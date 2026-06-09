@@ -10,6 +10,7 @@ export default function MenuContainer(props) {
     const [sections, setSections] = useState([]);
     const [addingSectionName, setAddingSectionName] = useState("");
     const [showSectionForm, setShowSectionForm] = useState(false);
+    const [alertMessage, setAlertMessage] = useState("");
 
     useEffect(() => {
         if (!menuId) return;
@@ -50,7 +51,6 @@ export default function MenuContainer(props) {
         event.preventDefault();
 
         if (addingSectionName.trim() === "") {
-            alert("Please enter a section name!");
             return;
         }
 
@@ -115,6 +115,16 @@ export default function MenuContainer(props) {
                                 autoFocus
                                 required
                             />
+                            {alertMessage && (
+                             <Alert
+                            variant="danger"
+                             dismissible
+                            onClose={() => setAlertMessage("")}
+                             >
+                            {alertMessage}
+                            </Alert>
+                            )}
+
                             <button className="menuTitle" type="submit">
                                 Save Section
                             </button>
@@ -149,7 +159,7 @@ function MenuSection(props) {
         event.preventDefault();
 
         if (itemName.trim() === "") {
-            alert("Please enter an item name!");
+            setItemAlertMessage("Please enter an item name!");
             return;
         }
 
@@ -202,7 +212,7 @@ function MenuSection(props) {
 
             {itemArray}
 
-            {!inProgress && (
+            {!inProgress && ( 
                 <div className="add-item">
                     <button
                         className="small circle-plus-btn"
@@ -211,7 +221,7 @@ function MenuSection(props) {
                     >
                         +
                     </button>
-                    <label>Add Item</label>
+                    <p>Add Item</p>
                 </div>
             )}
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Outlet, Navigate, useNavigate } from "react-router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, push as firebasePush, onValue } from 'firebase/database'
+
 import firebase from 'firebase/compat/app';
 
 import FeedbackPage from "./FeedbackPage";
@@ -56,8 +56,6 @@ export default function App(props) {
 
         <Route path="/staff" element={<Staff />} />
         <Route path="/staff/:menuId" element={<Staff />} />
-
-       <Route path="/login" element={<Login currentUser={currentUser} />} />
       </Route>
       
       </Routes>
