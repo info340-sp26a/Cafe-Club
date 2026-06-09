@@ -1,4 +1,10 @@
+
+import MenuThumbnail from "./MenuThumbnail";
+
+
 export default function FeedbackCard({ feedback, showButtons, onApprove, onReject }) {
+
+
 
   function handleApproveClick(){
     onApprove(feedback);
@@ -25,7 +31,7 @@ export default function FeedbackCard({ feedback, showButtons, onApprove, onRejec
     }
   return (
     <article className="feedback-card">
-      <img className="tiny-menu" src={feedback.image} alt={`${feedback.title} preview`} />
+      <MenuThumbnail menu={feedback.menu} />
 
       <h3>{feedback.title}</h3>
 

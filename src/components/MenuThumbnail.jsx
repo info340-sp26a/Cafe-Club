@@ -1,10 +1,10 @@
 export default function MenuThumbnail({ menu }) {
-  const sections = Object.values(menu.sections ?? {});
+  const sections = Object.values(menu?.sections ?? {});
 
   return (
     <div className="thumbnail-wrapper">
       <div className="thumbnail-inner">
-        <div className="thumbnail-title">{menu.title}</div>
+        <div className="thumbnail-title">{menu?.title ?? "menu preview"}</div>
 
         {sections.map((section, i)=>{
           const items = Object.values(section.items??{});

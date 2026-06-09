@@ -161,29 +161,6 @@ const userMenuLinks = filteredMenus.map((menu) => {
 
       <div className="divider"></div>
 
-      {/* <section>
-        <h2 className="subheader">Templates</h2>
-
-        <div className="flex-container">
-          <MenuImageList items={templates} />
-        </div>
-        
-      </section>
-
-      <div className="divider"></div>
-
-      <section>
-        <h2 className="subheader">Recently Viewed:</h2>
-
-        <div className="flex-container">
-          <MenuImageList items={recentlyViewed}/>
-        </div>
-        
-
-      </section>
-
-      <div className="divider"></div> */}
-
       <section>
         <h2 className="subheader">Review a Menu</h2>
 

@@ -1022,7 +1022,7 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     background-color: #fff5f8;
 }
 
@@ -1304,7 +1304,34 @@ footer p {
   .search-bar {
     width: 400px;
   }
+  .auth-page {
+    padding: 2rem;
+  }
+
+  .auth-card {
+    width: 95%;
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .auth-card h1 {
+    font-size: 2.5rem;
+  }
+
+  .auth-card p {
+    font-size: 1rem;
+  }
+    .auth-form input,
+  .auth-form button {
+    font-size: 1rem;
+    padding: 10px;
+  }
   
+  .bunny-left,
+  .bunny-right {
+    display: none;
+  }
+
  
 }
 
