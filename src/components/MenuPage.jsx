@@ -15,9 +15,10 @@ export default function MenuPage(props) {
     const navigate = useNavigate();
 
     const { menuId: urlMenuId } = useParams();
-    const [menuId, setMenuId] = useState(null)
-    const[menuTitle, setMenuTitle] = useState("");
+    const [menuId, setMenuId] = useState(null);
+    const [menuTitle, setMenuTitle] = useState("");
     const [currentMenuTitle, setCurrentMenuTitle] = useState("");
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     const [alertMessage, setAlertMessage] = useState("");
     
@@ -35,34 +36,54 @@ export default function MenuPage(props) {
                 setMenuId(urlMenuId);
                 setCurrentMenuTitle(data.title);
             }
-    });
-    return () => unsubscribe(); }, [urlMenuId]);
+        });
+        return () => unsubscribe(); 
+    }, [urlMenuId]);
 
 
-           async function handleDelete() {
-              if (!menuId){
-                  return;
+           async function handleDelete(menuId) {
+              if (!menuId) {
+             setAlertMessage("No menu selected.");
+                return;
               }
+
+                try {
+                const db= getDatabase();
+                await remove(ref(db, `menus/${menuId}`));
+                setAlertMessage("Menu Deleted");
+                setShowDeleteConfirm(false);
+                setMenuId(null);
+                navigate("/");
+             }
+                catch (err) {
+                setAlertMessage("Unable to delete menu.");
+            }
+        }
+    
+              
+        //     if (!menuId){
+        //           return;
+        //       }
       
-              const confirmDelete = window.confirm("Are you sure you want to delete this?");
+        //       const confirmDelete = window.confirm("Are you sure you want to delete this?");
       
-              if (!confirmDelete){
-                  return;
-              }
+        //       if (!confirmDelete){
+        //           return;
+        //       }
       
-              try{
+        //       try{
       
-                  const db = getDatabase();
+        //           const db = getDatabase();
       
-                  await remove(ref(db, `menus/${menuId}`));
-                  setAlertMessage("menu deleted");
-                  navigate("/")
-               }
-                  catch(err)  {
-                  console.error(err);
-                  setAlertMessage("failed to delete");
-              }
-          }   
+        //           await remove(ref(db, `menus/${menuId}`));
+        //           setAlertMessage("menu deleted");
+        //           navigate("/")
+        //        }
+        //           catch(err)  {
+        //           console.error(err);
+        //           setAlertMessage("failed to delete");
+        //       }
+        //   }   
 
     function createMenu(event){
         event.preventDefault();
@@ -90,11 +111,25 @@ export default function MenuPage(props) {
         setMenuId(newMenuRef.key);
         setCurrentMenuTitle(menuTitle);
         setMenuTitle("");
-        }
+    }
 
     return (
     <> 
-       {menuId && <MenuBanner menuId={menuId} onDelete={handleDelete}/>}
+       {menuId && <MenuBanner menuId={menuId}  onDelete={() => setShowDeleteConfirm(true)}/>}
+
+        {showDeleteConfirm && (
+        <Alert variant="warning" dismissible onClose={() => setShowDeleteConfirm(false)}>
+         <p>Are you sure you want to delete this menu?</p>
+
+         <button type="button" onClick={() => handleDelete(menuId)}>
+         Yes, delete
+        </button>
+
+        <button type="button" onClick={() => setShowDeleteConfirm(false)}>
+        Cancel
+        </button>
+        </Alert>
+        )}
        
        {!menuId && ( <form onSubmit={createMenu}>
           <label className="menuTitle" htmlFor="menuTitle">Menu Title:</label>

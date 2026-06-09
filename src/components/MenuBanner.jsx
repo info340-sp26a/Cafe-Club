@@ -10,6 +10,8 @@ export default function MenuBanner(props) {
   const [savedCode, setSavedCode] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  
+
   const [alertMessage, setAlertMessage] = useState("");
 
   const auth = getAuth();
@@ -80,27 +82,22 @@ export default function MenuBanner(props) {
     setAlertMessage("Unable to save code. Please try again later.");
   }
   }
+
   return (
     <>
         <section className="banner container-fluid">
             <h1>  {currentUser?.displayName? `${currentUser.displayName}'s Menu`: "My Menu"} </h1>
-            <button>
-              <img className="buttons-icon" src="/img/save.png" alt="pixel folder icon"/>
-               <span className="save-btn">save</span>
-               </button> {/*will be a form*/}
-               <button className="delete-icon" onClick={props.onDelete}> 
-                <img className="buttons-icon" src='/img/trash.png' alt="pixel trash can icon"/>
-                <span className="delete-btn">Delete</span>
+            
+            <button className="delete-icon" onClick={props.onDelete}> 
+              <img className="buttons-icon" src='/img/trash.png' alt="pixel trash can icon"/>
+              <span className="delete-btn button-text">Delete</span>
 
-                </button>
+            </button>
 
             <button id="access-code" onClick={() => setShowModal(true)}>
               <img className="buttons-icon" src='/img/send.png' alt="pixel arrow icon"/>
-              <span className="button-text">Access Code:
-
-              </span>
-              </button> {/*will be a modal*/}
-              
+              <span className="button-text">Share</span>
+            </button>
 
         {savedCode && (
           <p className="saved-code">
@@ -148,5 +145,3 @@ export default function MenuBanner(props) {
   );
 }
       
-
-        
