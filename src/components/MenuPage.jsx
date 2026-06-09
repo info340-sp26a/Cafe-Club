@@ -129,8 +129,13 @@ export default function MenuPage(props) {
         <div className="menu-page-content">
           <h2 className="currMenuTitle">{currentMenuTitle}</h2>
           <div className="menu-editor-layout">
-            <CustomizeMenu menuId={menuId}/>
-            <MenuContainer menuId={menuId} menuColor={menuColor} bgColors={bgColors} fontColors={fontColors} />
+            <CustomizeMenu menuId={menuId} setMenuColor={setMenuColor}/>
+            <MenuContainer 
+            menuId={menuId} 
+            menuColor={menuColor} 
+            setMenuColor={setMenuColor}
+            bgColors={bgColors} 
+            fontColors={fontColors} />
           </div>
         </div>
       )}
