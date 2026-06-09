@@ -7,9 +7,6 @@ import MenuThumbnail from "./MenuThumbnail";
 import Alert from 'react-bootstrap/Alert';
 
 
-
-
-
 // const userMenus = [
 //   { src: "/img/menu1.png", alt:"a picture of the menu"},
 //   { src: "/img/menu2.png", alt:"a picture of the menu"},

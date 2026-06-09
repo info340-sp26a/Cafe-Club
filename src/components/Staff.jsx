@@ -1,9 +1,7 @@
-
 import { useState , useEffect} from "react";
 import { Link, useParams } from "react-router";
 import { getDatabase, ref, push, onValue } from "firebase/database"
 import Alert from 'react-bootstrap/Alert';
-
 
 
 export default function Staff() {
@@ -15,6 +13,7 @@ export default function Staff() {
     const [rating, setRating] = useState(0);
 
     const [alertMessage, setAlertMessage] = useState("");
+    const [menuData, setMenuData] = useState(null);
 
     useEffect(() => {
         if(!menuId){
@@ -29,6 +28,7 @@ export default function Staff() {
 
             if (data) {
                 setMenuTitle(data.title);
+                setMenuData(data);
             }
         });
 
@@ -105,11 +105,25 @@ catch(err){
     <h1 className="message"> {menuTitle ? menuTitle : "Menu"} </h1>
 
 
-    <div className="flex-container">
-    <div className="item">
-
-    </div>
-    <Link className="menu-link owner-menu menu" to={`/menu/${menuId}`}>Click to see {menuTitle ? menuTitle : "This menu"}</Link>
+    <div className="menu">
+        <div className="menu-container">
+            {menuData && Object.values(menuData.sections ?? {}).map((section, i) => (
+                <div key={i} className="menu-section-preview">
+                    <div className="menu-section-header">
+                        <h3 className="menu-section-title">{section.name}</h3>
+                    </div>
+                    {Object.values(section.items ?? {}).map((item, j) => (
+                        <div key={j} className="menu-item-row">
+                            <p className="menu-item-name">{item.name}</p>
+                            <p className="menu-item-price">${item.price}</p>
+                        </div>
+                    ))}
+                </div>
+            ))}
+            {menuData && Object.keys(menuData.sections ?? {}).length === 0 && (
+                <p>This menu has no sections yet.</p>
+            )}
+        </div>
     </div>
     </section>
 
