@@ -41,20 +41,20 @@ export default function MenuPage(props) {
     }, [urlMenuId]);
 
 
-           async function handleDelete(menuId) {
-              if (!menuId) {
-             setAlertMessage("No menu selected.");
+        async function handleDelete(menuId) {
+            if (!menuId) {
+                setAlertMessage("No menu selected.");
                 return;
-              }
+            }
 
-                try {
+            try {
                 const db= getDatabase();
                 await remove(ref(db, `menus/${menuId}`));
                 setAlertMessage("Menu Deleted");
                 setShowDeleteConfirm(false);
                 setMenuId(null);
                 navigate("/");
-             }
+            }
                 catch (err) {
                 setAlertMessage("Unable to delete menu.");
             }
@@ -149,7 +149,7 @@ export default function MenuPage(props) {
 
 
        {menuId && (
-        <div>
+        <div className="menu-page-content">
           <h2 className="currMenuTitle">{currentMenuTitle}</h2>
           <div className="menu-editor-layout">
             <CustomizeMenu menuId={menuId}/>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
-import { getDatabase, ref, push, onValue } from 'firebase/database';
+import { getDatabase, ref, push, onValue, remove } from 'firebase/database';
+import Alert from 'react-bootstrap/Alert';
 
 
 export default function MenuContainer(props) {
@@ -28,7 +29,6 @@ export default function MenuContainer(props) {
                 return;
             }
 
-            // convert objs to arrays
             const sectionsArray = Object.keys(data).map((sectionId) => {
                 const section = data[sectionId];
                 const items = section.items
@@ -61,8 +61,18 @@ export default function MenuContainer(props) {
         setShowSectionForm(false);
     }
 
+    function handleDeleteSection(sectionId) {
+        const db = getDatabase();
+        remove(ref(db, `menus/${menuId}/sections/${sectionId}`));
+    }
+
     const sectionArray = sections.map((section) => (
-        <MenuSection section={section} menuId={menuId} key={section.id} />
+        <MenuSection
+            section={section}
+            menuId={menuId}
+            key={section.id}
+            onDeleteSection={handleDeleteSection}
+        />
     ));
 
     return (
@@ -123,13 +133,13 @@ export default function MenuContainer(props) {
 
 
 function MenuSection(props) {
-    const { section, menuId } = props;
+    const { section, menuId, onDeleteSection } = props;
 
     const [inProgress, setInProgress] = useState(false);
     const [itemName, setItemName] = useState("");
     const [itemPrice, setItemPrice] = useState("");
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
-    // Save a new item under this section in Firebase
     function addItem(event) {
         event.preventDefault();
 
@@ -151,13 +161,39 @@ function MenuSection(props) {
         setInProgress(false);
     }
 
+    function handleDeleteItem(itemId) {
+        const db = getDatabase();
+        remove(ref(db, `menus/${menuId}/sections/${section.id}/items/${itemId}`));
+    }
+
     const itemArray = section.items.map((item) => (
-        <MenuItem item={item} key={item.id} />
+        <MenuItem item={item} key={item.id} onDeleteItem={handleDeleteItem} />
     ));
 
     return (
         <div className="menu-section-preview">
-            <h3 className="menu-section-title">{section.name}</h3>
+            <div className="menu-section-header">
+                <h3 className="menu-section-title">{section.name}</h3>
+                <button
+                    className="delete-section-btn"
+                    aria-label="Delete section"
+                    onClick={() => setShowDeleteConfirm(true)}
+                >
+                    Delete Section
+                </button>
+            </div>
+
+            {showDeleteConfirm && (
+                <Alert variant="warning" dismissible onClose={() => setShowDeleteConfirm(false)}>
+                    <p>Are you sure you want to delete "{section.name}" and all its items?</p>
+                    <button type="button" onClick={() => onDeleteSection(section.id)}>
+                        Yes, delete
+                    </button>
+                    <button type="button" onClick={() => setShowDeleteConfirm(false)}>
+                        Cancel
+                    </button>
+                </Alert>
+            )}
 
             {itemArray}
 
@@ -227,12 +263,19 @@ function MenuSection(props) {
 
 
 function MenuItem(props) {
-    const item = props.item;
+    const { item, onDeleteItem } = props;
 
     return (
         <div className="menu-item-row">
             <p className="menu-item-name">{item.name}</p>
             <p className="menu-item-price">{"Price: $" + item.price}</p>
+            <button
+                className="delete-item-btn"
+                aria-label="Delete item"
+                onClick={() => onDeleteItem(item.id)}
+            >
+                <img className="buttons-icon" src='/img/trash.png' alt="pixel trash can icon"/>
+            </button>
         </div>
     );
 }

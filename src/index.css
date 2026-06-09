@@ -15,6 +15,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Raleway', sans-serif; 
 }
 
 #root {
@@ -369,7 +370,15 @@ button.collapsible {
 }
 .menu-editor-layout {
     display: block;
+    align-items: flex-start;
+    min-height: 0;
+}
+
+.menu-page-content {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    min-height: 0;
 }
 
 .menu {
@@ -412,10 +421,10 @@ button.collapsible {
     font-size: 0.85rem; 
     margin: 0 0 0.75rem; 
     color: #5a3a46; 
-    font-family: 'Raleway', sans-serif; 
     font-weight: 800; 
     letter-spacing: 0.5px; 
     text-transform: uppercase; 
+    display: inline;
 }
 
 .menu-item-row { 
@@ -459,8 +468,13 @@ button.collapsible {
 }
 
 .add {
-    display: block;
-    text-align: left;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-section-header {
+    display: flex;
+    justify-content: space-between;
 }
 
 .add-section {
@@ -471,19 +485,20 @@ button.collapsible {
 }
 
 .add-item {
-    display: block;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    margin: 1rem;
-    margin-left: 2rem;
-}
-
-.add-page {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 1rem;
+    margin: 1rem;
+}
+
+.delete-item-btn {
+    padding: 12px;
+}
+
+.delete-item-btn img {
+    max-width: 25px;
+    height: auto;
 }
 
 /* Staff page */
@@ -1262,6 +1277,35 @@ footer p {
 
   }
 
+  .flex-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: wrap;
+    gap: 1.5rem;
+  }
+  .menu-link {
+    width: 250px;
+    height: 250px;
+  }
+
+  .search-bar {
+    width: 400px;
+  }
+  
+ 
+}
+
+
+@media (min-width: 1024px) {
+
+    .message, .app-title {
+        font-size: 3rem;
+    }
+
+    .feedback-banner {
+        width: 75%;
+    }
+
   .menu-editor-layout {
     display: flex;
     align-items: flex-start;
@@ -1298,35 +1342,4 @@ footer p {
   .customize.customize--collapsed button.collapsible .customize-arrow {
     transform: rotate(90deg);
   }
-
-  .flex-container {
-    flex-direction: row;
-    justify-content: center;
-    align-items: wrap;
-    gap: 1.5rem;
-  }
-  .menu-link {
-    width: 250px;
-    height: 250px;
-  }
-
-  .search-bar {
-    width: 400px;
-  }
-  
- 
-}
-
-
-@media (min-width: 1024px) {
-
-    .message, .app-title {
-        font-size: 3rem;
-    }
-
-    .feedback-banner {
-        width: 75%;
-    }
-
-
 }

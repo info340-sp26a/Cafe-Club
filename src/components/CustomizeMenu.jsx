@@ -63,7 +63,7 @@ export default function CustomizeMenu(props) {
                         </select>
                     </div>
  
-                    <div className="customize-question">
+                    {/* <div className="customize-question">
                         <label className="menuText" htmlFor="chooseStyle">Choose a menu style:</label>
  
                         <select name="menuStyle" id="chooseStyle" value={menuStyle} onChange={(event) => setMenuStyle(event.target.value)}>
@@ -73,7 +73,7 @@ export default function CustomizeMenu(props) {
                             <option value="modern">Modern</option>
                             <option value="cute">Cute</option>
                         </select>
-                    </div>
+                    </div> */}
  
                     <button type="submit">Update</button>
                 </form>
