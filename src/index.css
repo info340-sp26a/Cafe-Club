@@ -18,7 +18,7 @@ body {
     font-family: 'Raleway', sans-serif; 
 }
 
-#root {
+.app-root {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -460,10 +460,6 @@ button.collapsible {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.item-question {
-    margin-top: 2rem;
 }
 
 .small.circle-plus-btn {
@@ -963,7 +959,11 @@ textarea {
     color: #333;
 }
 
-
+.thumbnail-section-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
 
 .thumbnail-item {
   font-size: 11px;
@@ -975,12 +975,7 @@ textarea {
   font-size: 12px;
   color: #aaa;
 }
-.thumbnail-section-name {
-  font-weight: bold;
-  font-size: 13px;
-  margin-top: 4px;
-  border-bottom: 1px solid #ccc;
-}
+
 
 .thumbnail-item-row {
   display: flex;
@@ -1296,6 +1291,10 @@ footer p {
     align-items: wrap;
     gap: 1.5rem;
   }
+  .menu-link {
+    width: 250px;
+    height: 250px;
+  }
 
   .search-bar {
     width: 400px;
@@ -1327,19 +1326,6 @@ footer p {
   .bunny-right {
     display: none;
   }
-
-.feedback-card .thumbnail-wrapper {
-  width: 100%;
-  max-width: 520px;
-  height: 300px;
-  margin: 0 auto 1.5rem;
-}
-.feedback-card .thumbnail-inner {
-  transform: scale(0.75);
-  transform-origin: top left;
-  width: calc(100% / 0.75);
-  height: calc(100% / 0.75);
-}
 
  
 }
