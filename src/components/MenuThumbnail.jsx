@@ -1,7 +1,7 @@
 import { bgColors, fontColors } from './menuColors';
 
 export default function MenuThumbnail({ menu }) {
-  const sections = Object.values(menu.sections ?? {});
+  const sections = Object.values(menu?.sections ?? {});
   const color = menu.customization?.color || "";
   const bgColor = bgColors[color] || "";
   const fontColor = fontColors[color] || "";
@@ -9,7 +9,7 @@ export default function MenuThumbnail({ menu }) {
   return (
     <div className="thumbnail-wrapper">
       <div className="thumbnail-inner">
-        <div className="thumbnail-title">{menu.title}</div>
+        <div className="thumbnail-title">{menu?.title ?? "menu preview"}</div>
 
         {sections.map((section, i) => {
           const items = Object.values(section.items ?? {});

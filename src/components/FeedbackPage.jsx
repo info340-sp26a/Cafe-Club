@@ -37,7 +37,8 @@ export default function FeedbackPage() {
       Object.keys(data).forEach((menuId) => {
               const menu = data[menuId];
 
-      if (menu.ownerId === currentUser.uid || menu.ownerId === currentUser.uid) {
+
+      if (menu.ownerId === currentUser.uid) {
         if (menu.feedback) {
           Object.keys(menu.feedback).forEach((feedbackId) => {
             allFeedback.push({
@@ -48,7 +49,7 @@ export default function FeedbackPage() {
               date: new Date(menu.feedback[feedbackId].createdAt).toLocaleDateString(),
               rating: "★".repeat(menu.feedback[feedbackId].rating),
               text: menu.feedback[feedbackId].text,
-              image: "/img/menu1.png",
+              menu: menu,
               status: menu.feedback[feedbackId].status || "pending"
             });
           });

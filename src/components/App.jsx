@@ -9,6 +9,8 @@ import {
 } from "firebase/database";
 import firebase from "firebase/compat/app";
 
+import firebase from 'firebase/compat/app';
+
 import FeedbackPage from "./FeedbackPage";
 import NavBar from "./NavBar";
 import Header from "./Header";
@@ -65,6 +67,10 @@ export default function App(props) {
 
           <Route path="/login" element={<Login currentUser={currentUser} />} />
         </Route>
+        <Route path="/staff" element={<Staff />} />
+        <Route path="/staff/:menuId" element={<Staff />} />
+      </Route>
+      
       </Routes>
       <Footer />
     </>

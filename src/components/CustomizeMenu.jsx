@@ -7,17 +7,19 @@ export default function CustomizeMenu(props) {
   const [menuStyle, setMenuStyle] = useState("");
 
     useEffect(()=>{
+    if (!props.menuId) {
+        return;
+    }
     const db=getDatabase();
     const customizeRef=ref(db,'menus/'+props.menuId+'/customization');
-    onValue(customizeRef, (snapshot)=>{
+    const unsubscribe= onValue(customizeRef, (snapshot)=>{
       const data=snapshot.val();
       if (data){
         setMenuColor(data.color || '');
         setMenuStyle(data.style || '');
       }
-    }, { onlyOnce:true });
-  }, [props.menuId]);
-
+    });
+    return() => unsubscribe(); }, [props.menuId]);
 
   function handleUpdate(event){
     event.preventDefault();
@@ -27,6 +29,7 @@ export default function CustomizeMenu(props) {
       color: menuColor,
       style: menuStyle
     });
+     props.onColorChange(menuColor);
   }
  
   return (
@@ -62,19 +65,7 @@ export default function CustomizeMenu(props) {
                             <option value="blue">Blue</option>
                         </select>
                     </div>
- 
-                    {/* <div className="customize-question">
-                        <label className="menuText" htmlFor="chooseStyle">Choose a menu style:</label>
- 
-                        <select name="menuStyle" id="chooseStyle" value={menuStyle} onChange={(event) => setMenuStyle(event.target.value)}>
-                            <option value=""></option>
-                            <option value="fancy">Fancy</option>
-                            <option value="rustic">Rustic</option>
-                            <option value="modern">Modern</option>
-                            <option value="cute">Cute</option>
-                        </select>
-                    </div> */}
- 
+
                     <button type="submit">Update</button>
                 </form>
                 </>

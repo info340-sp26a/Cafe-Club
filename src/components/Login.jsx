@@ -42,7 +42,7 @@ export default function Login() {
                     firebaseAuth={auth}
                 />
                 
-                <span alt="Angel emoticon holding matcha">
+                <span role= "img" aria-label="Angel emoticon holding matcha">
                     ଘ( つ⁰̷̴͈ ᵕ ˘͈)つ* 🍵
                 </span>
 

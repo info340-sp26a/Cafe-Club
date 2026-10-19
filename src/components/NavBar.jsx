@@ -1,15 +1,22 @@
 import { Link } from "react-router";
 import { getAuth, signOut } from "firebase/auth";
+import { useState } from 'react';
+import Alert from "react-bootstrap/Alert"
 
 export default function Navbar({ currentUser }) {
+
+  const [alertMessage, setAlertMessage] = useState("");
+
   function handleLogOut(){
     const auth = getAuth();
 
     signOut(auth).catch((err) => {
-      setAlertMessage("Please try again.")
+    
+      setAlertMessage("Unable to log out. Please try again.");
     });
   }
   return (
+    <>
     <nav className="navbar">
       <ul>
         <li>
@@ -49,5 +56,16 @@ export default function Navbar({ currentUser }) {
         </li>
       </ul>
     </nav>
+    
+ {alertMessage && (
+      <Alert
+        variant="danger"
+        dismissible
+        onClose={() => setAlertMessage("")}
+      >
+        {alertMessage}
+      </Alert>
+    )}
+  </>
   );
 }

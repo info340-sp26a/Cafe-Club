@@ -1,0 +1,37 @@
+type Cafe @table {
+  name: String!
+  ownerId: String!
+  address: String
+  logoUrl: String
+}
+
+type Menu @table {
+  name: String!
+  isActive: Boolean
+  startDate: Date
+  endDate: Date
+  cafe: Cafe!
+}
+
+type Category @table {
+  name: String!
+  displayOrder: Int!
+  cafe: Cafe!
+}
+
+type MenuItem @table {
+  name: String!
+  price: Float!
+  isAvailable: Boolean!
+  description: String
+  imageUrl: String
+  dietaryTags: [String]
+  isFeatured: Boolean
+  category: Category!
+}
+
+type MenuAssignment @table {
+  menu: Menu!
+  category: Category!
+  displayOrder: Int!
+}
